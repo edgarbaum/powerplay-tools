@@ -81,12 +81,26 @@ room.
 
 ## STEP 5. Push
 
-From `PowerPlay/_repo`:
+ALREADY DONE FOR YOU, up to the point that needs your account.
 
-    git init
-    git add .
-    git commit -m "PowerPlay commissioner tools"
-    git branch -M main
+The repository is initialised and committed at `~/powerplay-tools`, on branch `main`,
+20 files, one commit. Note the location: it is NOT inside Google Drive. Drive syncs
+file-by-file and will happily corrupt a `.git` directory mid-write, which is a slow and
+miserable failure to debug. The Drive copy under `PowerPlay/_repo` stays as the staging
+mirror; `~/powerplay-tools` is the thing git tracks.
+
+Git identity was set LOCAL TO THIS REPOSITORY ONLY, as Edgar Baum / edgarbaum@gmail.com.
+Your global git config was not touched. Change it with:
+
+    git -C ~/powerplay-tools config user.email you@example.com
+
+So all that is left is to create the empty repository on github.com, named
+`powerplay-tools`, PUBLIC, with NO README, NO .gitignore and NO licence, because the
+repo already has all three and GitHub will refuse a push onto a non-empty repo.
+
+Then:
+
+    cd ~/powerplay-tools
     git remote add origin https://github.com/<your-username>/powerplay-tools.git
     git push -u origin main
 
@@ -187,8 +201,15 @@ click. The workflows are schedule-only, so a state commit cannot trigger another
 
 ## Changing anything later
 
-`PowerPlay/_tools/` stays the working copy. Edit there, copy into `_repo`, push.
-Never edit the two copies independently.
+`PowerPlay/_tools/` stays the working copy and the place to edit. Then:
+
+    rsync -a --exclude '.DS_Store' \
+      "$HOME/Library/CloudStorage/GoogleDrive-edgarbaum@gmail.com/My Drive/E0/Hockey/PowerPlay/_repo/" \
+      "$HOME/powerplay-tools/"
+    cd ~/powerplay-tools && git add -A && git commit -m "..." && git push
+
+Never edit the copies independently. Drive is where you author, `~/powerplay-tools` is
+what git tracks, and the sync only ever runs one way.
 
 
 ---
