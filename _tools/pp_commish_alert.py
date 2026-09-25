@@ -1,47 +1,32 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Commissioner roster alert. Tags only mapped commissioners, never the flagged GMs."""
-import csv, pathlib, re, subprocess, sys, importlib.util
+"""Commissioner roster alert to the PRIVATE ops channel.
+
+Names teams, never people. EB 2026-09-25: no GM handle map, the
+commissioners tag by hand when it is actually warranted.
+"""
+import pathlib, re, subprocess, sys, importlib.util
 
 HERE = pathlib.Path(__file__).parent
-COMMISH_TEAMS = ["San Jose Sharks", "Anaheim Ducks"]
 
-
-def _gm_rows():
-    """GM map. Reads PP_GM_MAP (CSV text) FIRST, then the local file.
-
-    32 GMs' Discord user IDs are personal identifiers. They are NOT credentials,
-    but a world-readable repository is the wrong home for them, so the real map is
-    supplied as a GitHub secret and the tracked file is a redacted template.
-    """
-    import csv as _csv, io as _io, os as _os, pathlib as _p
-    env = _os.environ.get("PP_GM_MAP")
-    if env and env.strip():
-        return list(_csv.DictReader(_io.StringIO(env)))
-    f = _p.Path(__file__).parent / "config" / "gm_map.csv"
-    return list(_csv.DictReader(f.open())) if f.exists() else []
 
 def main(dry=False):
     out = subprocess.run([sys.executable, str(HERE/'pp_roster_check.py'), '--summary'],
                          capture_output=True, text=True).stdout.strip()
-    gm = {r['fantrax_team']: r for r in _gm_rows()}
-    tags = " ".join("<@%s>" % gm[t]['discord_user_id'] for t in COMMISH_TEAMS
-                    if gm.get(t, {}).get('discord_user_id'))
-
     # count flagged teams FROM the output, never hardcoded
     m = re.search(r'__(\d+) teams? over a limit__', out)
     n = int(m.group(1)) if m else 0
     if n:
         note = ("\n\nCommissioner note: %d GM%s flagged above %s not been tagged or notified. "
-                "This alert goes to the two of you only."
+                "This channel is private to the two of you."
                 % (n, "" if n == 1 else "s", "has" if n == 1 else "have"))
     else:
         note = "\n\nCommissioner note: no action needed."
 
-    msg = tags + "\n" + out + note
+    msg = out + note
     spec = importlib.util.spec_from_file_location('m', HERE/'pp_discord_post.py')
     mod = importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)
-    return mod.post(msg, dry=dry)
+    return mod.post(msg, dry=dry, channel="ops")
 
 if __name__ == "__main__":
     sys.exit(main(dry="--dry" in sys.argv))

@@ -1,7 +1,0 @@
-fantrax_team,gm_name,discord_user_id,notes
-# REDACTED TEMPLATE. Do NOT put real Discord user IDs in this repository.
-# The live map is supplied to Actions as the secret PP_GM_MAP, whose value is
-# the full CSV text. Keep the real file locally at _tools/config/gm_map.csv,
-# which .gitignore excludes.
-San Jose Sharks,,,
-Anaheim Ducks,,,
