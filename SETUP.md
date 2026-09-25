@@ -65,21 +65,7 @@ Do not paste either URL into this chat, a commit, or a terminal that logs histor
 
 Name it `powerplay-tools`. See the note at the bottom on public versus private.
 
-## STEP 4. Add the two secrets
-
-Repository, Settings, Secrets and variables, Actions, New repository secret. Twice.
-
-    PP_DISCORD_WEBHOOK       the #26-27-transactions webhook
-    PP_DISCORD_WEBHOOK_OPS   the #commish-ops webhook
-
-Paste straight from the file into the browser.
-
-Add BOTH. On GitHub there is no legacy file to fall back to, so a missing ops
-secret means the ops workflows exit with an error rather than post anywhere. That
-is the intended behaviour: a failed run you can see beats a message in the wrong
-room.
-
-## STEP 5. Push
+## STEP 5. Push  [DONE]
 
 ALREADY DONE FOR YOU, up to the point that needs your account.
 
@@ -104,15 +90,39 @@ Then:
     git remote add origin https://github.com/<your-username>/powerplay-tools.git
     git push -u origin main
 
-## STEP 6. Baseline the announcer BEFORE it can shout
+## STEP 6. Baseline the announcer BEFORE you add the secrets
 
-The announcer has never been baselined. Its first unguarded run would post every
-historical transaction into `#transactions` at once.
+DO THIS BEFORE STEP 7. The order matters and it is not arbitrary.
 
-Actions tab, `announcer`, Run workflow, tick **baseline**, run it. The log must say
-"baseline recorded, nothing announced". Only then let the schedule take over.
+The announcer has never been baselined, so its first ordinary run treats every
+historical transaction as new and posts the lot. While the secrets are NOT yet set
+it physically cannot do that: `pp_discord_post` finds no webhook in the environment
+and no webhook file on the runner, so it exits with an error, the step fails, and
+NOTHING is posted and NOTHING is recorded as seen. That failure is a free safety net.
+Adding the secrets first removes it.
 
-## STEP 7. Watch one real cycle
+Actions tab, `announcer`, Run workflow, tick **baseline**, run it. The log must read
+"baseline recorded, nothing announced". Only then move on.
+
+Until you have done this, scheduled announcer runs will appear in red in the Actions
+tab. That is expected and correct: it is the safety net doing its job.
+
+## STEP 7. Add the two secrets
+
+ONLY AFTER STEP 6.
+
+Repository, Settings, Secrets and variables, Actions, New repository secret. Twice.
+
+    PP_DISCORD_WEBHOOK       the #26-27-transactions webhook
+    PP_DISCORD_WEBHOOK_OPS   the #commish-ops webhook
+
+Paste straight from Discord into the browser field. No clipboard juggling.
+
+Add BOTH. On GitHub there is no legacy file to fall back to, so a missing ops secret
+means the ops workflows exit with an error rather than post anywhere. That is the
+intended behaviour: a failed run you can see beats a message in the wrong room.
+
+## STEP 8. Watch one real cycle
 
 Make any small roster move in Fantrax. Within 15 minutes, during the evening window,
 it should appear in `#transactions`. If it does not, the run log will say why.
