@@ -1,0 +1,59 @@
+name: smoke
+
+# Proves the PLUMBING, which the four real workflows cannot do on a quiet day:
+# secrets resolve, PP_CHANNEL_OVERRIDE is honoured inside Actions, and the webhook
+# actually delivers. On a day with no trades, no breach and no pending bill, all
+# four correctly post NOTHING, which tests silence rather than delivery.
+#
+# Manual only. It never runs on a schedule.
+
+on:
+  workflow_dispatch:
+    inputs:
+      channel:
+        description: "Destination. The override, if set, wins over this."
+        type: choice
+        options: [test, ops, public, fa, waiver]
+        default: test
+      note:
+        description: "Optional extra line to include."
+        type: string
+        default: ""
+
+permissions:
+  contents: read
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: Post a plumbing check
+        env:
+          PP_CHANNEL_OVERRIDE: ${{ vars.PP_CHANNEL_OVERRIDE }}
+          PP_DISCORD_WEBHOOK_TEST: ${{ secrets.PP_DISCORD_PP_BOT_TEST }}
+          PP_DISCORD_WEBHOOK_OPS: ${{ secrets.PP_DISCORD_COMMISH_OPS }}
+          PP_DISCORD_WEBHOOK: ${{ secrets.PP_DISCORD_26_27_TRANSACTIONS }}
+          PP_DISCORD_WEBHOOK_FA: ${{ secrets.PP_DISCORD_26_27_FA_CLAIM_ORDER }}
+          PP_DISCORD_WEBHOOK_WAIVER: ${{ secrets.PP_DISCORD_26_27_WAIVER_ORDER }}
+        run: |
+          python - <<'PY'
+          import importlib.util, os, datetime, subprocess
+          spec = importlib.util.spec_from_file_location("m", "_tools/pp_discord_post.py")
+          m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
+          asked = "${{ inputs.channel }}"
+          note = "${{ inputs.note }}"
+          sha = subprocess.run(["git","rev-parse","--short","HEAD"],
+                               capture_output=True, text=True).stdout.strip()
+          msg = ("**plumbing check** - %s UTC\n"
+                 "Sent from GitHub Actions, commit `%s`, asked for channel `%s`.\n"
+                 "If you can read this, the secret resolved and the webhook delivers."
+                 % (datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M"), sha, asked))
+          if note.strip():
+              msg += "\n" + note.strip()
+          raise SystemExit(m.post(msg, channel=asked))
+          PY
