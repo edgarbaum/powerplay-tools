@@ -66,6 +66,8 @@ def main():
     quiet = "--summary" in sys.argv
     api = FantraxAPI(LEAGUE_ID)
     teams = list(api.teams)
+    # EB 2026-09-25: 3-letter codes, from Fantrax (t.short), not hardcoded
+    abbr = {t.name: (t.short or t.name) for t in teams}
     if not quiet: print("PowerPlay roster check  |  %s  |  %d teams  |  READ ONLY"
           % (datetime.datetime.now().strftime('%Y-%m-%d %H:%M'), len(teams)))
     if not quiet: print("Limits: active %d, major %d, minors %d, total %d"
