@@ -20,28 +20,38 @@ Usage:
 """
 import os, sys, json, urllib.request, urllib.error, pathlib
 
-# Two channels, deliberately separate.
-#   public = the GM-facing per-season channel, e.g. #2627-transactions.
-#            Transactions only.
-#   ops    = the private commissioner channel, EB and Steve. Anything that names
-#            a GM as being in breach, or concerns money, goes here.
+# Four channels, deliberately separate. A Discord webhook URL encodes exactly ONE
+# destination channel, so each needs its own webhook and its own secret.
 #
-# FAIL DIRECTION, deliberate: the ops channel falls back to the LEGACY
-# ~/.pp-secrets/discord_webhook, which points at a private channel. The public
-# channel has NO fallback and errors out instead. A misconfiguration must never
-# be able to push a private message toward a public room; the worst it can do is
-# send a public message nowhere, or send an ops message to the old private
-# test channel. Both are recoverable. The other direction is not.
+#   public = #26-27-transactions      the raw Fantrax firehose, all 32 GMs
+#   ops    = #commish-ops             PRIVATE, EB + Steve. Breaches, cap, dues.
+#   fa     = #26-27-fa-claim-order    free agent bid results and the resulting order
+#   waiver = #26-27-waiver-claim-order  waiver claim results and the resulting order
+#
+# fa and waiver are separate from public because only the RESOLVER knows which
+# process produced a result. Fantrax records every award as claimType=FA whether it
+# came from pre-season bidding or an in-season waiver, so the feed cannot tell them
+# apart. The distinction has to come from the thing that ran the process.
+#
+# FAIL DIRECTION, deliberate: ops falls back to the LEGACY private webhook file.
+# Every other channel has NO fallback and errors out instead. A misconfiguration
+# must never be able to push a message toward a channel it was not meant for; the
+# worst it can do is send nothing, which is loud and recoverable.
 SECRETS = pathlib.Path.home() / ".pp-secrets"
 LEGACY = SECRETS / "discord_webhook"
 HOOK_FILE = {"public": SECRETS / "discord_webhook_public",
-             "ops": SECRETS / "discord_webhook_ops"}
+             "ops": SECRETS / "discord_webhook_ops",
+             "fa": SECRETS / "discord_webhook_fa",
+             "waiver": SECRETS / "discord_webhook_waiver"}
 HOOK_ENV = {"public": "PP_DISCORD_WEBHOOK",
-            "ops": "PP_DISCORD_WEBHOOK_OPS"}
+            "ops": "PP_DISCORD_WEBHOOK_OPS",
+            "fa": "PP_DISCORD_WEBHOOK_FA",
+            "waiver": "PP_DISCORD_WEBHOOK_WAIVER"}
 
 def load_hook(channel="public"):
     if channel not in HOOK_ENV:
-        sys.exit("unknown channel %r, expected public or ops" % channel)
+        sys.exit("unknown channel %r, expected one of %s"
+                 % (channel, ", ".join(sorted(HOOK_ENV))))
     env = os.environ.get(HOOK_ENV[channel])
     if env: return env.strip()
     f = HOOK_FILE[channel]
@@ -52,7 +62,7 @@ def load_hook(channel="public"):
         return LEGACY.read_text().strip()
     sys.exit("No %s webhook configured.\n"
              "Expected file %s, or env %s.\n"
-             "Refusing to guess: the public channel has no fallback by design."
+             "Refusing to guess: only the ops channel has a fallback, by design."
              % (channel.upper(), f, HOOK_ENV[channel]))
 
 
@@ -92,8 +102,10 @@ def post(msg, dry=False, channel="public"):
 if __name__ == "__main__":
     args = [a for a in sys.argv[1:]]
     dry = "--dry" in args
-    channel = "ops" if "--ops" in args else "public"
-    args = [a for a in args if a not in ("--dry", "--ops")]
+    channel = "public"
+    for c in ("ops", "fa", "waiver"):
+        if "--" + c in args: channel = c
+    args = [a for a in args if a not in ("--dry", "--ops", "--fa", "--waiver")]
     if "--stdin" in args:
         text = sys.stdin.read()
     elif args:
