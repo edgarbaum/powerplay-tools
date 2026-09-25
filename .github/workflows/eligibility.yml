@@ -1,0 +1,42 @@
+name: eligibility
+
+on:
+  schedule:
+    - cron: "15 13 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: eligibility
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: Draft-protection sweep, rule 5.2
+        id: check
+        run: |
+          set +e
+          python _tools/pp_eligibility_check.py | tee out.txt
+          echo "code=${PIPESTATUS[0]}" >> $GITHUB_OUTPUT
+      - name: Post to the PRIVATE ops channel, and only on a real violation
+        if: steps.check.outputs.code == '1'
+        env:
+          PP_DISCORD_WEBHOOK_OPS: ${{ secrets.PP_DISCORD_WEBHOOK_OPS }}
+          PP_DISCORD_WEBHOOK: ${{ secrets.PP_DISCORD_WEBHOOK }}
+        run: python _tools/pp_discord_post.py --ops --stdin < out.txt
+      - name: Persist the birthdate cache
+        run: |
+          git config user.name  "powerplay-bot"
+          git config user.email "powerplay-bot@users.noreply.github.com"
+          git add _tools/state
+          git diff --staged --quiet || git commit -m "state: birthdate cache $(date -u +%FT%TZ)"
+          git push

@@ -1,0 +1,8 @@
+{
+  "season": "2627",
+  "season_label": "2026-27",
+  "channel_prefix": "26-27",
+  "discord_category": "26-27 Season",
+  "league_id": "aizqwpvxmoc9uxas",
+  "_note": "One edit per season. Fantrax issues a NEW league id each season, so this file is what makes the annual rollover a single change instead of five. channel_prefix is the Discord naming convention already in use, hyphenated: 26-27-transactions, not 2627-transactions. Get next season's id from api._request('getFantasyLeagueInfo')['historyLeagues'] or from the league URL."
+}
