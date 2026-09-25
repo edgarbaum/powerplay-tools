@@ -33,5 +33,16 @@ jobs:
           git config user.name  "powerplay-bot"
           git config user.email "powerplay-bot@users.noreply.github.com"
           git add _tools/state
-          git diff --staged --quiet || git commit -m "state: trade clock"
-          git push
+          git diff --staged --quiet && exit 0
+          git commit -q -m "state: update $(date -u +%FT%TZ)"
+          # Workflows commit state concurrently, so a plain push loses the race.
+          # Rebase onto whatever landed first and try again; state files are
+          # append-or-replace per workflow, so there is nothing to merge by hand.
+          for i in 1 2 3 4 5; do
+            git push -q && exit 0
+            echo "push rejected, rebasing (attempt $i)"
+            git pull --rebase -q origin main || exit 1
+            sleep $((i * 3))
+          done
+          echo "could not push state after 5 attempts"
+          exit 1
