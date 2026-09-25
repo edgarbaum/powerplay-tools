@@ -30,6 +30,7 @@ jobs:
       - name: Post to the PRIVATE ops channel, and only on a real breach
         if: steps.check.outputs.code == '1'
         env:
+          PP_CHANNEL_OVERRIDE: ${{ vars.PP_CHANNEL_OVERRIDE }}
           PP_DISCORD_WEBHOOK_OPS: ${{ secrets.PP_DISCORD_COMMISH_OPS }}
           PP_DISCORD_WEBHOOK: ${{ secrets.PP_DISCORD_26_27_TRANSACTIONS }}
         run: python _tools/pp_discord_post.py --ops --stdin < out.txt

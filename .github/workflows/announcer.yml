@@ -10,6 +10,10 @@ on:
         description: "Record everything as seen and announce nothing. Use once, on first run."
         type: boolean
         default: false
+      dry:
+        description: "Print what it would post and send nothing. Safe to run any time."
+        type: boolean
+        default: false
 
 concurrency:
   group: announcer
@@ -29,8 +33,9 @@ jobs:
       - run: pip install -r requirements.txt
       - name: Announce new transactions to the GM channel
         env:
+          PP_CHANNEL_OVERRIDE: ${{ vars.PP_CHANNEL_OVERRIDE }}
           PP_DISCORD_WEBHOOK: ${{ secrets.PP_DISCORD_26_27_TRANSACTIONS }}
-        run: python _tools/pp_announcer.py ${{ inputs.baseline && '--baseline' || '' }}
+        run: python _tools/pp_announcer.py ${{ inputs.baseline && '--baseline' || '' }} ${{ inputs.dry && '--dry' || '' }}
       - name: Persist state
         run: |
           git config user.name  "powerplay-bot"

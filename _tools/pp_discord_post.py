@@ -51,10 +51,34 @@ HOOK_ENV = {"public": "PP_DISCORD_WEBHOOK",
             "waiver": "PP_DISCORD_WEBHOOK_WAIVER",
             "test": "PP_DISCORD_WEBHOOK_TEST"}
 
-def load_hook(channel="public"):
+def resolve_channel(channel):
+    # PP_CHANNEL_OVERRIDE diverts EVERY post to one channel, whatever the caller
+    # asked for. Two uses, and the second is the important one:
+    #   staging   set it to "test" and the REAL workflows post to #pp-bot-test.
+    #             Not a parallel copy of the workflows, which would drift; the
+    #             actual ones, diverted. You test what ships.
+    #   kill switch  if something misbehaves while EB is travelling, setting this
+    #             from a phone browser stops anything reaching 32 GMs, with no
+    #             code change, no push and no deploy.
+    # It is a repository VARIABLE, not a secret: a channel name is not sensitive,
+    # and variables are visible in plain text, which is what you want for a switch
+    # whose whole job is to be obvious.
+    ov = os.environ.get("PP_CHANNEL_OVERRIDE", "").strip().lower()
+    if ov:
+        if ov not in HOOK_ENV:
+            sys.exit("PP_CHANNEL_OVERRIDE=%r is not a channel. Expected one of %s."
+                     % (ov, ", ".join(sorted(HOOK_ENV))))
+        if ov != channel:
+            print("CHANNEL OVERRIDE ACTIVE: %s -> %s" % (channel, ov))
+            channel = ov
     if channel not in HOOK_ENV:
         sys.exit("unknown channel %r, expected one of %s"
                  % (channel, ", ".join(sorted(HOOK_ENV))))
+    return channel
+
+
+def load_hook(channel="public"):
+    channel = resolve_channel(channel)
     env = os.environ.get(HOOK_ENV[channel])
     if env: return env.strip()
     f = HOOK_FILE[channel]
@@ -71,6 +95,8 @@ def load_hook(channel="public"):
 
 
 def post(msg, dry=False, channel="public"):
+    # resolve FIRST: a dry run that names the wrong channel is worse than no dry run
+    channel = resolve_channel(channel)
     if len(msg) > 1900:
         msg = msg[:1890] + "\n... (truncated)"
     payload = {"content": msg,
