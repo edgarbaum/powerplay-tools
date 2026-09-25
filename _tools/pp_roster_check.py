@@ -107,10 +107,11 @@ def main():
         if minors > MINOR_MAX:  flags.append("MINORS>%d" % MINOR_MAX)
         if total_rows > TOTAL_MAX: flags.append("TOTAL>%d" % TOTAL_MAX)
         if flags: viol += 1
-        counts.append((t.name, active, reserve, major, injured, total_rows, minors))
+        counts.append(("%s  %s" % (abbr.get(t.name, t.name), t.name),
+                       active, reserve, major, injured, total_rows, minors))
         if not quiet:
-            print("%-26s %6d %8d %7d %6d %6d   %s"
-                  % (t.name[:26], active, reserve, major, injured, total_rows,
+            print("%-5s %6d %8d %7d %6d %6d   %s"
+                  % (abbr.get(t.name, t.name), active, reserve, major, injured, total_rows,
                      ", ".join(flags) if flags else ""))
 
     if quiet:

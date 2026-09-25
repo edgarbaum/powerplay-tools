@@ -110,6 +110,8 @@ def acquisitions(api):
 
 def main():
     api = FantraxAPI(_league())
+    # EB 2026-09-25: 3-letter codes, from Fantrax itself, not hardcoded
+    abbr = {t.name: (t.short or t.name) for t in api.teams}
     roster, counts, cap = {}, {}, {}
     for t in api.teams:
         raw = api._request("getTeamRosterInfo", teamId=t.team_id)
@@ -180,7 +182,7 @@ def main():
         due = since + datetime.timedelta(days=CURE_DAYS)
         left = (due - today).days
         out.append("")
-        out.append("__%s__ - %s" % (t, ", ".join(breaches[t])))
+        out.append("__%s  %s__ - %s" % (abbr.get(t, t), t, ", ".join(breaches[t])))
         out.append("  first seen %s, cure by **%s** (%s)"
                    % (since, due, "%d days left" % left if left > 0 else
                       "DUE TODAY" if left == 0 else "OVERDUE by %d days" % -left))

@@ -18,11 +18,30 @@ committed alongside it, so the check survives across runs and machines.
 The point of the channel is that the order stops living in two people's heads.
 git log on _tools/state/orders.json is the audit trail a disputing GM gets shown.
 """
-import json, sys, hashlib, pathlib, datetime, importlib.util
+import json, sys, hashlib, pathlib, datetime, importlib.util, warnings
 
 HERE = pathlib.Path(__file__).parent
 ORDERS = HERE / "state" / "orders.json"
 POSTED = HERE / "state" / "orders_posted.json"
+
+
+def codes():
+    """Fantrax's own 3-letter code per team, pulled live.
+
+    EB 2026-09-25: use the codes, not the full names. Thirty-two full team names
+    force a two-column layout that wraps; the codes give four columns that read as
+    an actual table. Taken from the API rather than hardcoded so a rename cannot
+    silently desync, with the full name as fallback if the call fails.
+    """
+    try:
+        warnings.filterwarnings("ignore")
+        from fantraxapi import FantraxAPI
+        cfg = HERE / "config" / "league.json"
+        lid = json.loads(cfg.read_text())["league_id"] if cfg.exists() else "aizqwpvxmoc9uxas"
+        return {t.name: (t.short or t.name) for t in FantraxAPI(lid).teams}
+    except Exception as e:
+        print("could not fetch team codes (%s); falling back to full names" % str(e)[:50])
+        return {}
 
 
 def main():
@@ -47,16 +66,22 @@ def main():
         print("%s order unchanged (%s); nothing posted" % (which, fp))
         return 0
 
-    # a code fence, because Discord only renders proportional text outside one and
-    # two columns of team names will not line up in a proportional font
-    half = (len(order) + 1) // 2
-    left, right = order[:half], order[half:]
-    w = max(len(t) for t in order)
+    # a code fence, because Discord renders proportional text outside one and
+    # columns will not line up in a proportional font
+    abbr = codes()
+    lab = [abbr.get(t, t) for t in order]
+    ncol = 4 if all(len(x) <= 4 for x in lab) else 2
+    n = len(lab)
+    per = (n + ncol - 1) // ncol
+    w = max(len(x) for x in lab)
     rows = []
-    for i in range(half):
-        a = "%2d  %-*s" % (i + 1, w, left[i])
-        b = "%2d  %s" % (half + i + 1, right[i]) if i < len(right) else ""
-        rows.append((a + "   " + b).rstrip())
+    for i in range(per):
+        cells = []
+        for c in range(ncol):
+            j = c * per + i
+            if j < n:
+                cells.append("%2d  %-*s" % (j + 1, w, lab[j]))
+        rows.append("   ".join(cells).rstrip())
 
     msg = ["**%s** - %s" % (blk["fantrax_name"], d.get("as_of", datetime.date.today())),
            blk["state"], "```"]
