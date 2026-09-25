@@ -6,10 +6,25 @@ import csv, pathlib, re, subprocess, sys, importlib.util
 HERE = pathlib.Path(__file__).parent
 COMMISH_TEAMS = ["San Jose Sharks", "Anaheim Ducks"]
 
+
+def _gm_rows():
+    """GM map. Reads PP_GM_MAP (CSV text) FIRST, then the local file.
+
+    32 GMs' Discord user IDs are personal identifiers. They are NOT credentials,
+    but a world-readable repository is the wrong home for them, so the real map is
+    supplied as a GitHub secret and the tracked file is a redacted template.
+    """
+    import csv as _csv, io as _io, os as _os, pathlib as _p
+    env = _os.environ.get("PP_GM_MAP")
+    if env and env.strip():
+        return list(_csv.DictReader(_io.StringIO(env)))
+    f = _p.Path(__file__).parent / "config" / "gm_map.csv"
+    return list(_csv.DictReader(f.open())) if f.exists() else []
+
 def main(dry=False):
     out = subprocess.run([sys.executable, str(HERE/'pp_roster_check.py'), '--summary'],
                          capture_output=True, text=True).stdout.strip()
-    gm = {r['fantrax_team']: r for r in csv.DictReader((HERE/'config'/'gm_map.csv').open())}
+    gm = {r['fantrax_team']: r for r in _gm_rows()}
     tags = " ".join("<@%s>" % gm[t]['discord_user_id'] for t in COMMISH_TEAMS
                     if gm.get(t, {}).get('discord_user_id'))
 

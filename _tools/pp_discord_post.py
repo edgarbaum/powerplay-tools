@@ -69,12 +69,24 @@ def load_hook(channel="public"):
              % (channel.upper(), f, HOOK_ENV[channel]))
 
 
+
+def _gm_rows():
+    """GM map. Reads PP_GM_MAP (CSV text) FIRST, then the local file.
+
+    32 GMs' Discord user IDs are personal identifiers. They are NOT credentials,
+    but a world-readable repository is the wrong home for them, so the real map is
+    supplied as a GitHub secret and the tracked file is a redacted template.
+    """
+    import csv as _csv, io as _io, os as _os, pathlib as _p
+    env = _os.environ.get("PP_GM_MAP")
+    if env and env.strip():
+        return list(_csv.DictReader(_io.StringIO(env)))
+    f = _p.Path(__file__).parent / "config" / "gm_map.csv"
+    return list(_csv.DictReader(f.open())) if f.exists() else []
+
 def allowlist():
     """Only IDs present in gm_map.csv may ever be pinged. Fail closed."""
-    import csv as _csv
-    f = pathlib.Path(__file__).parent / "config" / "gm_map.csv"
-    if not f.exists(): return []
-    return [r["discord_user_id"].strip() for r in _csv.DictReader(f.open())
+    return [r["discord_user_id"].strip() for r in _gm_rows()
             if r.get("discord_user_id", "").strip().isdigit()]
 
 
