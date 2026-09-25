@@ -27,6 +27,7 @@ import os, sys, json, urllib.request, urllib.error, pathlib
 #   ops    = #commish-ops             PRIVATE, EB + Steve. Breaches, cap, dues.
 #   fa     = #26-27-fa-claim-order    free agent bid results and the resulting order
 #   waiver = #26-27-waiver-claim-order  waiver claim results and the resulting order
+#   test   = #pp-bot-test             staging. Anything new goes here first.
 #
 # fa and waiver are separate from public because only the RESOLVER knows which
 # process produced a result. Fantrax records every award as claimType=FA whether it
@@ -42,11 +43,13 @@ LEGACY = SECRETS / "discord_webhook"
 HOOK_FILE = {"public": SECRETS / "discord_webhook_public",
              "ops": SECRETS / "discord_webhook_ops",
              "fa": SECRETS / "discord_webhook_fa",
-             "waiver": SECRETS / "discord_webhook_waiver"}
+             "waiver": SECRETS / "discord_webhook_waiver",
+             "test": SECRETS / "discord_webhook"}
 HOOK_ENV = {"public": "PP_DISCORD_WEBHOOK",
             "ops": "PP_DISCORD_WEBHOOK_OPS",
             "fa": "PP_DISCORD_WEBHOOK_FA",
-            "waiver": "PP_DISCORD_WEBHOOK_WAIVER"}
+            "waiver": "PP_DISCORD_WEBHOOK_WAIVER",
+            "test": "PP_DISCORD_WEBHOOK_TEST"}
 
 def load_hook(channel="public"):
     if channel not in HOOK_ENV:
@@ -103,9 +106,9 @@ if __name__ == "__main__":
     args = [a for a in sys.argv[1:]]
     dry = "--dry" in args
     channel = "public"
-    for c in ("ops", "fa", "waiver"):
+    for c in ("ops", "fa", "waiver", "test"):
         if "--" + c in args: channel = c
-    args = [a for a in args if a not in ("--dry", "--ops", "--fa", "--waiver")]
+    args = [a for a in args if a not in ("--dry", "--ops", "--fa", "--waiver", "--test")]
     if "--stdin" in args:
         text = sys.stdin.read()
     elif args:

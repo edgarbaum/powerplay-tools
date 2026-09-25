@@ -29,7 +29,7 @@ jobs:
       - run: pip install -r requirements.txt
       - name: Announce new transactions to the GM channel
         env:
-          PP_DISCORD_WEBHOOK: ${{ secrets.PP_DISCORD_WEBHOOK }}
+          PP_DISCORD_WEBHOOK: ${{ secrets.PP_DISCORD_26_27_TRANSACTIONS }}
         run: python _tools/pp_announcer.py ${{ inputs.baseline && '--baseline' || '' }}
       - name: Persist state
         run: |

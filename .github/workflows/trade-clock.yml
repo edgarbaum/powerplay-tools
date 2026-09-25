@@ -23,8 +23,8 @@ jobs:
       - run: pip install -r requirements.txt
       - name: Pending trade bill clock, PRIVATE ops channel
         env:
-          PP_DISCORD_WEBHOOK_OPS: ${{ secrets.PP_DISCORD_WEBHOOK_OPS }}
-          PP_DISCORD_WEBHOOK: ${{ secrets.PP_DISCORD_WEBHOOK }}
+          PP_DISCORD_WEBHOOK_OPS: ${{ secrets.PP_DISCORD_COMMISH_OPS }}
+          PP_DISCORD_WEBHOOK: ${{ secrets.PP_DISCORD_26_27_TRANSACTIONS }}
         run: python _tools/pp_trade_clock.py
       - name: Persist state
         run: |
