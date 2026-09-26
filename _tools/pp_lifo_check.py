@@ -166,6 +166,14 @@ def main():
     STATE.write_text(json.dumps(st, indent=1, sort_keys=True) + "\n")
 
     acq = acquisitions(api)
+    sub = []
+    for t in sorted(breaches):
+        names = [p for p in roster[t] if p in acq and acq[p][0] == t]
+        names.sort(key=lambda p: acq[p][1], reverse=True)
+        sub.append("%s|%s|%s" % (t, ",".join(sorted(breaches[t])), ",".join(names[:3])))
+    import hashlib as _h
+    print("#DIGEST " + _h.sha256("\n".join(sub).encode()).hexdigest()[:16])
+
     out = ["**PowerPlay LIFO cure-window watch** - %s" % today,
            "Constitution 2.4: 7 days from notification to cure, then the most recently "
            "acquired MAIN-roster player is auto-dropped, and the next, until legal."]

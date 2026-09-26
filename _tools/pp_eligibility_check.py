@@ -177,6 +177,11 @@ def main():
     else:
         canary = "DETECTOR CANARY SKIPPED: no under-age player on any roster to probe with"
 
+    import hashlib as _h
+    print("#DIGEST " + _h.sha256(
+        "\n".join(sorted("%s|%s|%s" % (n, t, a) for n, t, a, _ in viol)).encode()
+    ).hexdigest()[:16])
+
     ages = sorted(v[1] for v in roster.values() if v[1] is not None)
     out = []
     out.append("**PowerPlay draft-protection sweep** - %s" % datetime.date.today())

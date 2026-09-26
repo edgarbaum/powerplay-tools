@@ -94,6 +94,40 @@ def load_hook(channel="public"):
 
 
 
+GATE = pathlib.Path(__file__).parent / "state" / "post_gate.json"
+
+
+def gate_ok(key, digest, repeat_days=3):
+    """Post only when the SUBSTANCE changed, or after repeat_days of the same thing.
+
+    EB 2026-09-25: don't spam. A condition that persists, like a team over the
+    limit through a 7-day cure window, would otherwise produce seven identical
+    messages and the channel stops being read.
+
+    It hashes a DIGEST the caller supplies, not the rendered message, because the
+    rendered message contains a countdown that changes every day. Hashing the text
+    would post daily and look like it was working.
+
+    repeat_days is a deliberate re-nudge: silence for a week is its own failure
+    mode when someone is on a deadline.
+    """
+    import time as _t
+    st = json.loads(GATE.read_text()) if GATE.exists() else {}
+    prev = st.get(key)
+    now = _t.time()
+    if prev and prev.get("digest") == digest:
+        age_days = (now - prev.get("at", 0)) / 86400.0
+        if age_days < repeat_days:
+            return False, "unchanged for %.1f days (re-nudge at %d)" % (age_days, repeat_days)
+        reason = "unchanged but %.1f days old, re-nudging" % age_days
+    else:
+        reason = "new" if not prev else "substance changed"
+    st[key] = {"digest": digest, "at": now}
+    GATE.parent.mkdir(parents=True, exist_ok=True)
+    GATE.write_text(json.dumps(st, indent=1, sort_keys=True) + "\n")
+    return True, reason
+
+
 def post(msg, dry=False, channel="public"):
     # resolve FIRST: a dry run that names the wrong channel is worse than no dry run
     channel = resolve_channel(channel)
@@ -131,10 +165,27 @@ if __name__ == "__main__":
     for c in ("ops", "fa", "waiver", "test"):
         if "--" + c in args: channel = c
     args = [a for a in args if a not in ("--dry", "--ops", "--fa", "--waiver", "--test")]
+    gate = None
+    if "--gate" in args:
+        i = args.index("--gate")
+        gate = args[i + 1]
+        args = args[:i] + args[i + 2:]
     if "--stdin" in args:
         text = sys.stdin.read()
     elif args:
         text = " ".join(args)
     else:
         sys.exit("nothing to post")
+    digest = None
+    lines = text.splitlines()
+    if lines and lines[0].startswith("#DIGEST "):
+        digest = lines[0][8:].strip()
+        text = "\n".join(lines[1:])
+    if gate:
+        if digest is None:
+            sys.exit("--gate %s given but the input carries no #DIGEST line" % gate)
+        ok, why = gate_ok("%s@%s" % (gate, resolve_channel(channel)), digest)
+        print("gate %s: %s" % ("OPEN" if ok else "HELD", why))
+        if not ok:
+            sys.exit(0)
     sys.exit(post("```\n" + text.rstrip() + "\n```" if "--stdin" in sys.argv else text, dry, channel))

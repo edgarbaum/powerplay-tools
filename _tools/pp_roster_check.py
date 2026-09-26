@@ -117,6 +117,13 @@ def main():
                      ", ".join(flags) if flags else ""))
 
     if quiet:
+        # digest the SUBSTANCE, not the rendered text: the message carries a
+        # day countdown that changes daily and would defeat the gate
+        import hashlib as _h
+        sub = sorted("%s|%d|%d|%d|%d" % (c[0], c[1], c[3], c[5], c[6]) for c in counts
+                     if c[3] > MAJOR_MAX or c[1] > ACTIVE_MAX or c[5] > TOTAL_MAX
+                     or c[6] > MINOR_MAX)
+        print("#DIGEST " + _h.sha256("\n".join(sub).encode()).hexdigest()[:16])
         print(summary_block(counts, viol, live, days))
         return 1 if (viol and live) else 0
     print()

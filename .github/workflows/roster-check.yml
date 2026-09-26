@@ -34,4 +34,18 @@ jobs:
           PP_DISCORD_WEBHOOK_TEST: ${{ secrets.PP_DISCORD_PP_BOT_TEST }}
           PP_DISCORD_WEBHOOK_OPS: ${{ secrets.PP_DISCORD_COMMISH_OPS }}
           PP_DISCORD_WEBHOOK: ${{ secrets.PP_DISCORD_26_27_TRANSACTIONS }}
-        run: python _tools/pp_discord_post.py --ops --stdin < out.txt
+        run: python _tools/pp_discord_post.py --ops --gate roster --stdin < out.txt
+      - name: Persist the post gate
+        run: |
+          git config user.name  "powerplay-bot"
+          git config user.email "powerplay-bot@users.noreply.github.com"
+          git add _tools/state
+          git diff --staged --quiet && exit 0
+          git commit -q -m "state: post gate $(date -u +%FT%TZ)"
+          for i in 1 2 3 4 5; do
+            git push -q && exit 0
+            echo "push rejected, rebasing (attempt $i)"
+            git pull --rebase -q origin main || exit 1
+            sleep $((i * 3))
+          done
+          exit 1
