@@ -1,0 +1,62 @@
+name: set-order
+
+# Update a claim order from Fantrax, from a phone, in about 30 seconds.
+#
+# Manual by design. Fantrax exposes no claim-order endpoint, and the order COULD
+# be computed from the claim results but the 2026-09-20 run needed a penalty
+# ruling and a group-cap ruling no algorithm would have guessed. So a human reads
+# Fantrax; this validates what they typed and refuses anything that is not
+# exactly the 32 known teams, each once.
+#
+# Writing orders.json triggers the `orders` workflow, which posts the new order
+# to its channel. One action, and the channel is current.
+
+on:
+  workflow_dispatch:
+    inputs:
+      which:
+        description: "Which order."
+        type: choice
+        options: [fa, waiver]
+        default: fa
+      codes:
+        description: "All 32 team codes in order, comma separated. Leave blank to just print the current one."
+        type: string
+        default: ""
+
+concurrency:
+  group: orders
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: Show the current order
+        if: inputs.codes == ''
+        run: python _tools/pp_set_order.py --${{ inputs.which }} --show
+      - name: Validate and write the new order
+        if: inputs.codes != ''
+        run: python _tools/pp_set_order.py --${{ inputs.which }} "${{ inputs.codes }}"
+      - name: Commit it, which triggers the orders workflow to post
+        if: inputs.codes != ''
+        run: |
+          git config user.name  "powerplay-bot"
+          git config user.email "powerplay-bot@users.noreply.github.com"
+          git add _tools/state/orders.json
+          git diff --staged --quiet && echo "no change" && exit 0
+          git commit -q -m "state: ${{ inputs.which }} order updated from Fantrax"
+          for i in 1 2 3 4 5; do
+            git push -q && exit 0
+            git pull --rebase -q origin main || exit 1
+            sleep $((i * 3))
+          done
+          exit 1
