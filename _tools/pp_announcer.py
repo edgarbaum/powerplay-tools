@@ -47,6 +47,19 @@ def save(d):
     STATE.write_text(json.dumps(d, indent=1, sort_keys=True))
 
 
+_ABBR = {}
+
+
+def abbr(api, name):
+    """League team -> Fantrax's own 3-letter code. EB 2026-09-25."""
+    if not _ABBR:
+        try:
+            _ABBR.update({t.name: (t.short or t.name) for t in api.teams})
+        except Exception:
+            pass
+    return _ABBR.get((name or "").strip(), (name or "").strip())
+
+
 def get_trades(api):
     raw = api._request("getTransactionDetailsHistory", maxResultsPerPage="500", view="TRADE")
     tr = collections.OrderedDict()
@@ -66,19 +79,29 @@ def get_trades(api):
     return tr
 
 
-def fmt_trade(tid, v):
+def fmt_trade(api, tid, v):
     sides = collections.defaultdict(list)
     for f, t, k, a in v['moves']:
         sides[t].append(a)
     L = ["**TRADE**  %s" % (v['date'] or '')]
     for team, assets in sides.items():
-        L.append("  %s receive: %s" % (team, ", ".join(assets)))
+        L.append("  %s receive: %s" % (abbr(api, team), ", ".join(assets)))
     if v['comment']:
         L.append("  _comment: %s_" % v['comment'][:160])
     return "\n".join(L)
 
 
 def get_claims(api):
+    """Claims AND drops. Two bugs lived here until 2026-09-25:
+
+      a. It printed `resultCode`, which is "EXECUTED" for every row, so a pickup
+         and a drop read identically. The field that distinguishes them is
+         `transactionType` (Claim / Drop).
+      b. It read cells 'from'/'to', which exist in the TRADE view but NOT here:
+         this view's column is 'team'. So the league team was silently blank.
+
+    Format per EB 2026-09-25: LEAGUE TEAM, then player, then the real NHL club.
+    """
     raw = api._request("getTransactionDetailsHistory", maxResultsPerPage="500", view="CLAIM_DROP")
     out = {}
     for r in raw['table']['rows']:
@@ -86,10 +109,12 @@ def get_claims(api):
         sc = r.get('scorer') or {}
         key = "%s|%s" % (r.get('txSetId'), sc.get('scorerId') or sc.get('name'))
         nhl = sc.get('teamShortName')
-        out[key] = "**%s**  %s (%s, %s) - %s  %s" % (
-            (r.get('resultCode') or 'CLAIM/DROP'), sc.get('name'), sc.get('posShortNames'),
+        kind = (r.get('transactionType') or '').upper() or 'CLAIM/DROP'
+        team = cells.get('team') or cells.get('to') or cells.get('from') or ''
+        out[key] = "**%s**  %s  %s (%s, %s)  %s" % (
+            kind, abbr(api, team), sc.get('name'), sc.get('posShortNames'),
             "unsigned" if nhl in ('(N/A)', 'N/A', '', None) else nhl,
-            cells.get('from') or cells.get('to') or '', cells.get('date') or '')
+            cells.get('date') or '')
     return out
 
 
@@ -119,7 +144,7 @@ def main():
     new = [t for t in trades if t not in seen]
     counts['trades'] = (len(trades), len(new))
     for tid in new:
-        blocks.append(fmt_trade(tid, trades[tid]))
+        blocks.append(fmt_trade(api, tid, trades[tid]))
     st['trades'] = sorted(set(trades))
 
     claims = get_claims(api)
