@@ -1,0 +1,47 @@
+name: post
+
+# Commissioner megaphone. Manual only, never scheduled.
+# Lets EB or Steve put a message into any league channel from a phone browser,
+# which matters when the point of all this is that EB travels.
+
+on:
+  workflow_dispatch:
+    inputs:
+      channel:
+        description: "Destination channel."
+        type: choice
+        options: [test, ops, public, fa, waiver]
+        default: test
+      message:
+        description: "What to say. Discord markdown works."
+        type: string
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Post it
+        env:
+          PP_CHANNEL_OVERRIDE: ${{ vars.PP_CHANNEL_OVERRIDE }}
+          PP_DISCORD_WEBHOOK_TEST: ${{ secrets.PP_DISCORD_PP_BOT_TEST }}
+          PP_DISCORD_WEBHOOK_OPS: ${{ secrets.PP_DISCORD_COMMISH_OPS }}
+          PP_DISCORD_WEBHOOK: ${{ secrets.PP_DISCORD_26_27_TRANSACTIONS }}
+          PP_DISCORD_WEBHOOK_FA: ${{ secrets.PP_DISCORD_26_27_FA_CLAIM_ORDER }}
+          PP_DISCORD_WEBHOOK_WAIVER: ${{ secrets.PP_DISCORD_26_27_WAIVER_ORDER }}
+          MSG: ${{ inputs.message }}
+          CH: ${{ inputs.channel }}
+        run: |
+          python - <<'PY'
+          import importlib.util, os
+          spec = importlib.util.spec_from_file_location("m", "_tools/pp_discord_post.py")
+          m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
+          raise SystemExit(m.post(os.environ["MSG"], channel=os.environ["CH"]))
+          PY

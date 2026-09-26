@@ -60,10 +60,19 @@ def main():
     if len(order) != len(set(order)):
         sys.exit("REFUSING TO POST: the %s order has duplicate teams" % which)
 
+    spec = importlib.util.spec_from_file_location("m", HERE / "pp_discord_post.py")
+    mod = importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)
+
+    # Key the fingerprint by the RESOLVED channel, not by which order it is.
+    # Otherwise a post diverted to #pp-bot-test by PP_CHANNEL_OVERRIDE marks the
+    # order as already posted, and the real channel silently never gets it. That
+    # is exactly what staging is for, and exactly how staging can lie to you.
+    dest = mod.resolve_channel(which)
     fp = hashlib.sha256("\n".join(order).encode()).hexdigest()[:12]
     seen = json.loads(POSTED.read_text()) if POSTED.exists() else {}
-    if seen.get(which) == fp and not force:
-        print("%s order unchanged (%s); nothing posted" % (which, fp))
+    seen_key = "%s@%s" % (which, dest)
+    if seen.get(seen_key) == fp and not force:
+        print("%s order unchanged at %s (%s); nothing posted" % (which, dest, fp))
         return 0
 
     # a code fence, because Discord renders proportional text outside one and
@@ -93,11 +102,9 @@ def main():
     if len(text) > 1850:
         text = text[:1840] + "\n_...truncated_"
 
-    spec = importlib.util.spec_from_file_location("m", HERE / "pp_discord_post.py")
-    mod = importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)
     rc = mod.post(text, dry=dry, channel=which)
     if rc == 0 and not dry:
-        seen[which] = fp
+        seen[seen_key] = fp
         POSTED.write_text(json.dumps(seen, indent=1, sort_keys=True) + "\n")
         print("recorded fingerprint %s" % fp)
     return rc
