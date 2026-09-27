@@ -37,6 +37,8 @@ jobs:
           PP_DISCORD_WEBHOOK_TEST: ${{ secrets.PP_DISCORD_PP_BOT_TEST }}
           PP_DISCORD_WEBHOOK: ${{ secrets.PP_DISCORD_26_27_TRANSACTIONS }}
         run: python _tools/pp_announcer.py ${{ inputs.baseline && '--baseline' || '' }} ${{ inputs.dry && '--dry' || '' }}
+      - name: Archive the raw transaction rows
+        run: python _tools/pp_archive.py
       - name: Persist state
         run: |
           git config user.name  "powerplay-bot"
