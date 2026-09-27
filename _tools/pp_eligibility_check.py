@@ -147,9 +147,18 @@ def main():
 
     def classify(claimset):
         v, ly, unk = [], [], []
+        att = {}
+        af = HERE / "state" / "age_attested.json"
+        if af.exists():
+            att = json.loads(af.read_text())
         for n, (team, fage) in sorted(cands.items()):
             bd = birthdate(n, cache)
             if not bd:
+                # a human who knows the player is better evidence than a missing
+                # record. Attestation is recorded with WHO and WHEN, so it can be
+                # challenged; it is not the same thing as a verified birthdate.
+                if att.get(n, {}).get("meets_min_age"):
+                    continue
                 unk.append((n, team, fage))
                 continue
             a = age_on(bd, CUTOFF)
