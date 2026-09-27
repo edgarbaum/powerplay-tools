@@ -72,12 +72,20 @@ def birthdate(name, cache):
         want = _fold(name)
         m = [h for h in hits if _fold(h.get("name")) == want]
         if not m:
-            # surname plus first initial, which catches Ben vs Benjamin and A.J. vs AJ
+            # Surname plus first INITIAL is NOT safe. It matched Daniil Isayev (26)
+            # to Dmitri Isayev (19) on 2026-09-27 and produced a penalty against a
+            # legal claim. Same shape as Max Plante vs Victor Plante.
+            # A first name only counts as the same name when one spelling is a
+            # PREFIX of the other: Ben/Benjamin yes, Daniil/Dmitri no.
             wp = want.split()
             if len(wp) >= 2:
-                m = [h for h in hits
-                     if _fold(h.get("name")).split()[-1:] == wp[-1:]
-                     and _fold(h.get("name"))[:1] == wp[0][:1]]
+                def compatible(other):
+                    op = _fold(other).split()
+                    if len(op) < 2 or op[-1] != wp[-1]:
+                        return False
+                    a, b = sorted([op[0].replace(".", ""), wp[0].replace(".", "")], key=len)
+                    return len(a) >= 2 and b.startswith(a)
+                m = [h for h in hits if compatible(h.get("name"))]
                 m = m if len(m) == 1 else []       # ambiguous is not a match
         if m:
             bd = _get("https://api-web.nhle.com/v1/player/%s/landing" % m[0]["playerId"]).get("birthDate")

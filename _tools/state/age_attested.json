@@ -5,6 +5,12 @@
   "on": "2026-09-27",
   "why": "no NHL birthdate record; EB confirmed 22+ on 2026-09-15"
  },
+ "Daniil Isayev": {
+  "attested_by": "EB",
+  "meets_min_age": true,
+  "on": "2026-09-27",
+  "why": "26 years old. NHL records hold only Dmitri Isayev (b.2007); the two are different players and the name matcher conflated them."
+ },
  "Danil Aimurzin": {
   "attested_by": "EB",
   "meets_min_age": true,
