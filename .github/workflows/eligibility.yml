@@ -28,7 +28,7 @@ jobs:
           python _tools/pp_eligibility_check.py | tee out.txt
           echo "code=${PIPESTATUS[0]}" >> $GITHUB_OUTPUT
       - name: Post to the PRIVATE ops channel, and only on a real violation
-        if: steps.check.outputs.code == '1'
+        if: steps.check.outputs.code == '3'
         env:
           PP_CHANNEL_OVERRIDE: ${{ vars.PP_CHANNEL_OVERRIDE }}
           PP_DISCORD_WEBHOOK_TEST: ${{ secrets.PP_DISCORD_PP_BOT_TEST }}
@@ -52,4 +52,9 @@ jobs:
             sleep $((i * 3))
           done
           echo "could not push state after 5 attempts"
+          exit 1
+      - name: Fail loudly if the check itself crashed
+        if: steps.check.outputs.code != '0' && steps.check.outputs.code != '3'
+        run: |
+          echo "check exited ${{ steps.check.outputs.code }}: a crash or a refused canary, NOT a finding"
           exit 1

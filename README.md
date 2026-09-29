@@ -6,7 +6,7 @@ No Fantrax login, no password, no cookie. See `SETUP.md`.
 | Script                  | Does                                                            |
 |-------------------------|-----------------------------------------------------------------|
 | `pp_announcer.py`       | Announces new transactions across trades, claims and drops, lineup changes and draft picks. `--dry`, `--baseline`. |
-| `pp_roster_check.py`    | Four hard roster limits per team. Exits 1 only on a real post-deadline violation. `--summary`. |
+| `pp_roster_check.py`    | Four hard roster limits per team. Exits 3 only on a real post-deadline violation; any other non-zero is a crash. `--summary`. |
 | `pp_cap_check.py`       | League-wide cap position. Fantrax salary is ALREADY the constitution-adjusted hit; do not halve it again. |
 | `pp_trade_clock.py`     | Bill clock on pending trades. `--dry`.                          |
 | `pp_discord_post.py`    | The only thing that posts. Fail-closed mention allowlist from `_tools/config/gm_map.csv`. |

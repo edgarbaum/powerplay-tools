@@ -29,6 +29,11 @@ import warnings, json, sys, time, datetime, pathlib, unicodedata, urllib.request
 warnings.filterwarnings("ignore")
 from fantraxapi import FantraxAPI
 
+# Exit 3 means "a real finding, post it". NOT 1: an uncaught exception also exits 1,
+# and on 2026-09-28 a crash was read as a violation and sent to the post step.
+# The workflow posts only on 3 and fails the job on anything else non-zero.
+VIOLATION = 3
+
 
 def _league():
     f = pathlib.Path(__file__).parent / "config" / "league.json"
@@ -42,7 +47,8 @@ LEAGUE_ID, SEASON_LABEL = _league()
 CUTOFF = datetime.date(int(SEASON_LABEL.split("-")[0]) if SEASON_LABEL else 2026, 9, 15)
 MIN_AGE = 22                     # must be 22 or older on the cutoff
 SCREEN_AT = MIN_AGE + 2          # resolve a birthdate for anyone Fantrax shows at or below this
-CACHE = pathlib.Path(__file__).parent / "state" / "birthdates.json"
+HERE = pathlib.Path(__file__).parent
+CACHE = HERE / "state" / "birthdates.json"
 CANARIES = ["Macklin Celebrini", "Lane Hutson", "Brandt Clarke"]
 UA = {"User-Agent": "powerplay-tools/1.0"}
 
@@ -244,7 +250,7 @@ def main():
             out.append("   %s, %s, Fantrax age %s%s"
                        % (n, team, fage, "  <-- and was CLAIMED" if n in claimed_by else ""))
     print("\n".join(out))
-    return 1 if viol else 0
+    return VIOLATION if viol else 0
 
 
 if __name__ == "__main__":

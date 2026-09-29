@@ -13,6 +13,11 @@ import sys, warnings, datetime
 warnings.filterwarnings('ignore')
 from fantraxapi import FantraxAPI
 
+# Exit 3 means "a real finding, post it". NOT 1: an uncaught exception also exits 1,
+# and on 2026-09-28 a crash was read as a violation and sent to the post step.
+# The workflow posts only on 3 and fails the job on anything else non-zero.
+VIOLATION = 3
+
 def _league():
     """Season config, so the annual rollover is one edit in one file."""
     import json as _j, pathlib as _p
@@ -125,7 +130,7 @@ def main():
                      or c[6] > MINOR_MAX)
         print("#DIGEST " + _h.sha256("\n".join(sub).encode()).hexdigest()[:16])
         print(summary_block(counts, viol, live, days))
-        return 1 if (viol and live) else 0
+        return VIOLATION if (viol and live) else 0
     print()
     if viol:
         if live:
@@ -151,7 +156,7 @@ def main():
             buckets[b] = buckets.get(b, 0) + 1
         print("   histogram (by 10s): " +
               "  ".join("%d-%d:%d" % (b, b+9, c) for b, c in sorted(buckets.items())))
-    return 1 if (viol and live) else 0
+    return VIOLATION if (viol and live) else 0
 
 if __name__ == "__main__":
     sys.exit(main())

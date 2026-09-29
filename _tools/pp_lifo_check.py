@@ -28,6 +28,11 @@ import warnings, json, sys, time, datetime, pathlib, collections
 warnings.filterwarnings("ignore")
 from fantraxapi import FantraxAPI
 
+# Exit 3 means "a real finding, post it". NOT 1: an uncaught exception also exits 1,
+# and on 2026-09-28 a crash was read as a violation and sent to the post step.
+# The workflow posts only on 3 and fails the job on anything else non-zero.
+VIOLATION = 3
+
 HERE = pathlib.Path(__file__).parent
 STATE = HERE / "state" / "lifo_watch.json"
 CURE_DAYS = 7
@@ -208,7 +213,7 @@ def main():
             out.append("  _no main-roster acquisition is visible in the transaction window, "
                        "so LIFO order cannot be determined from the API_")
     print("\n".join(out))
-    return 1
+    return VIOLATION
 
 
 if __name__ == "__main__":
