@@ -33,17 +33,6 @@
    "source": "5400000|2026-27",
    "team": "Los Angeles Kings"
   },
-  "01zub": {
-   "aav": 850000.0,
-   "cls": "NEW SIGNING",
-   "exp": 27,
-   "fantrax": "1.00",
-   "half": 425000,
-   "name": "Dylan McIlrath",
-   "nhl": "WSH",
-   "source": "850000|2026-27",
-   "team": "Washington Capitals"
-  },
   "02noq": {
    "aav": 6000000.0,
    "cls": "AAV CHANGE",
@@ -110,17 +99,6 @@
    "source": "6000000|2027-28",
    "team": "Edmonton Oilers"
   },
-  "03rjc": {
-   "aav": 850000.0,
-   "cls": "NEW SIGNING",
-   "exp": 27,
-   "fantrax": "1.00",
-   "half": 425000,
-   "name": "Boko Imama",
-   "nhl": "FLA",
-   "source": "850000|2026-27",
-   "team": "Washington Capitals"
-  },
   "03wnw": {
    "aav": 1300000.0,
    "cls": "AAV CHANGE",
@@ -131,28 +109,6 @@
    "nhl": "CBJ",
    "source": "1300000|2027-28",
    "team": "New York Islanders"
-  },
-  "04qzb": {
-   "aav": 1250000.0,
-   "cls": "NEW SIGNING",
-   "exp": 28,
-   "fantrax": "1.00",
-   "half": 625000,
-   "name": "Curtis Douglas",
-   "nhl": "SEA",
-   "source": "1250000|2027-28",
-   "team": "Anaheim Ducks"
-  },
-  "04qzx": {
-   "aav": 1525000.0,
-   "cls": "NEW SIGNING",
-   "exp": 27,
-   "fantrax": "1.00",
-   "half": 762500,
-   "name": "Spencer Stastney",
-   "nhl": "EDM",
-   "source": "1525000|2026-27",
-   "team": "Toronto Maple Leafs"
   },
   "04r1g": {
    "aav": 900000.0,
@@ -165,17 +121,6 @@
    "source": "900000|2026-27",
    "team": "Toronto Maple Leafs"
   },
-  "04rna": {
-   "aav": 875000.0,
-   "cls": "NEW SIGNING",
-   "exp": 28,
-   "fantrax": "1.00",
-   "half": 437500,
-   "name": "Marc Del Gaizo",
-   "nhl": "NYR",
-   "source": "875000|2027-28",
-   "team": "Washington Capitals"
-  },
   "04sy0": {
    "aav": 900000.0,
    "cls": "AAV CHANGE",
@@ -186,28 +131,6 @@
    "nhl": "VGK",
    "source": "900000|2026-27",
    "team": "Colorado Avalanche"
-  },
-  "051uw": {
-   "aav": 875000.0,
-   "cls": "NEW SIGNING",
-   "exp": 28,
-   "fantrax": "1.00",
-   "half": 437500,
-   "name": "Judd Caulfield",
-   "nhl": "ANA",
-   "source": "875000|2027-28",
-   "team": "Tampa Bay Lightning"
-  },
-  "05977": {
-   "aav": 850000.0,
-   "cls": "NEW SIGNING",
-   "exp": 27,
-   "fantrax": "1.00",
-   "half": 425000,
-   "name": "Ben McCartney",
-   "nhl": "UTA",
-   "source": "850000|2026-27",
-   "team": "New York Rangers"
   },
   "05gvq": {
    "aav": 7900000.0,
@@ -220,39 +143,6 @@
    "source": "7900000|2031-32",
    "team": "Utah Mammoth"
   },
-  "05gvr": {
-   "aav": 850000.0,
-   "cls": "NEW SIGNING",
-   "exp": 27,
-   "fantrax": "1.00",
-   "half": 425000,
-   "name": "Simon Zajicek",
-   "nhl": "BOS",
-   "source": "850000|2026-27",
-   "team": "New York Rangers"
-  },
-  "05oy0": {
-   "aav": 875000.0,
-   "cls": "NEW SIGNING",
-   "exp": 28,
-   "fantrax": "1.00",
-   "half": 437500,
-   "name": "Tyrel Bauer",
-   "nhl": "WPG",
-   "source": "875000|2027-28",
-   "team": "Calgary Flames"
-  },
-  "05r30": {
-   "aav": 980000.0,
-   "cls": "NEW SIGNING",
-   "exp": 28,
-   "fantrax": "1.00",
-   "half": 490000,
-   "name": "Samu Salminen",
-   "nhl": "FLA",
-   "source": "980000|2027-28",
-   "team": "Vegas Golden Knights"
-  },
   "05rjy": {
    "aav": 1075000.0,
    "cls": "AAV CHANGE",
@@ -264,17 +154,6 @@
    "source": "1075000|2028-29",
    "team": "Winnipeg Jets"
   },
-  "05u0k": {
-   "aav": 850000.0,
-   "cls": "NEW SIGNING",
-   "exp": 27,
-   "fantrax": "1.00",
-   "half": 425000,
-   "name": "James Malatesta",
-   "nhl": "CBJ",
-   "source": "850000|2026-27",
-   "team": "Washington Capitals"
-  },
   "05ugg": {
    "aav": 903750.0,
    "cls": "AAV CHANGE",
@@ -285,39 +164,6 @@
    "nhl": "CGY",
    "source": "903750|2026-27",
    "team": "Los Angeles Kings"
-  },
-  "05ugu": {
-   "aav": 875000.0,
-   "cls": "NEW SIGNING",
-   "exp": 28,
-   "fantrax": "1.00",
-   "half": 437500,
-   "name": "Taylor Makar",
-   "nhl": "COL",
-   "source": "875000|2027-28",
-   "team": "Montreal Canadiens"
-  },
-  "05w9c": {
-   "aav": 4475000.0,
-   "cls": "EXPIRY MISMATCH",
-   "exp": 27,
-   "fantrax": "2,237,480.00",
-   "half": 2237500,
-   "name": "Macklin Celebrini",
-   "nhl": "SJS",
-   "source": "4475000|2026-27",
-   "team": "San Jose Sharks"
-  },
-  "05y38": {
-   "aav": 850000.0,
-   "cls": "NEW SIGNING",
-   "exp": 27,
-   "fantrax": "1.00",
-   "half": 425000,
-   "name": "Travis Mitchell",
-   "nhl": "ANA",
-   "source": "850000|2026-27",
-   "team": "Colorado Avalanche"
   },
   "05yme": {
    "aav": 970000.0,
@@ -373,17 +219,6 @@
    "nhl": "NYI",
    "source": "980000|2027-28",
    "team": "Chicago Blackhawks"
-  },
-  "060xd": {
-   "aav": 920000.0,
-   "cls": "NEW SIGNING",
-   "exp": 27,
-   "fantrax": "1.00",
-   "half": 460000,
-   "name": "Kai Uchacz",
-   "nhl": "VGK",
-   "source": "920000|2026-27",
-   "team": "Anaheim Ducks"
   },
   "0618g": {
    "aav": 980000.0,
@@ -539,17 +374,6 @@
    "source": "1641500|2026-27",
    "team": "Pittsburgh Penguins"
   },
-  "06bur": {
-   "aav": 1075000.0,
-   "cls": "NEW SIGNING",
-   "exp": 29,
-   "fantrax": "1.00",
-   "half": 537500,
-   "name": "Gavin McCarthy",
-   "nhl": "BUF",
-   "source": "1075000|2028-29",
-   "team": "Montreal Canadiens"
-  },
   "06byf": {
    "aav": 1028333.0,
    "cls": "AAV CHANGE",
@@ -571,39 +395,6 @@
    "nhl": "TBL",
    "source": "1007500|2028-29",
    "team": "Ottawa Senators"
-  },
-  "06c96": {
-   "aav": 1050000.0,
-   "cls": "NEW SIGNING",
-   "exp": 28,
-   "fantrax": "1.00",
-   "half": 525000,
-   "name": "Andrei Loshko",
-   "nhl": "SEA",
-   "source": "1050000|2027-28",
-   "team": "Montreal Canadiens"
-  },
-  "06cdo": {
-   "aav": 975000.0,
-   "cls": "NEW SIGNING",
-   "exp": 29,
-   "fantrax": "1.00",
-   "half": 487500,
-   "name": "Alex Weiermair",
-   "nhl": "VGK",
-   "source": "975000|2028-29",
-   "team": "Montreal Canadiens"
-  },
-  "06cdp": {
-   "aav": 1741667.0,
-   "cls": "NEW SIGNING",
-   "exp": 29,
-   "fantrax": "1.00",
-   "half": 870834,
-   "name": "Jonathan Castagna",
-   "nhl": "CGY",
-   "source": "1741667|2028-29",
-   "team": "Montreal Canadiens"
   },
   "06cfd": {
    "aav": 972500.0,
@@ -627,17 +418,6 @@
    "source": "926667|2027-28",
    "team": "Philadelphia Flyers"
   },
-  "06h7t": {
-   "aav": 955000.0,
-   "cls": "NEW SIGNING",
-   "exp": 28,
-   "fantrax": "1.00",
-   "half": 477500,
-   "name": "Finn Harding",
-   "nhl": "PIT",
-   "source": "955000|2027-28",
-   "team": "Montreal Canadiens"
-  },
   "06hj9": {
    "aav": 2532083.0,
    "cls": "AAV CHANGE",
@@ -659,17 +439,6 @@
    "nhl": "ANA",
    "source": "1841667|2028-29",
    "team": "Philadelphia Flyers"
-  },
-  "06ll3": {
-   "aav": 1067500.0,
-   "cls": "NEW SIGNING",
-   "exp": 29,
-   "fantrax": "1.00",
-   "half": 533750,
-   "name": "Adam Jecho",
-   "nhl": "STL",
-   "source": "1067500|2028-29",
-   "team": "Anaheim Ducks"
   },
   "06mcr": {
    "aav": 1040000.0,
@@ -836,17 +605,6 @@
    "source": "1028333|2028-29",
    "team": "Anaheim Ducks"
   },
-  "06uh8": {
-   "aav": 996667.0,
-   "cls": "NEW SIGNING",
-   "exp": 29,
-   "fantrax": "1.00",
-   "half": 498334,
-   "name": "Yegor Borikov",
-   "nhl": "UTA",
-   "source": "996667|2028-29",
-   "team": "Calgary Flames"
-  },
   "06xvx": {
    "aav": 1028333.0,
    "cls": "AAV CHANGE",
@@ -878,17 +636,6 @@
    "name": "Nikita Novosyolov",
    "nhl": "COL",
    "source": "979500|2027-28",
-   "team": "Montreal Canadiens"
-  },
-  "074mk": {
-   "aav": 1007500.0,
-   "cls": "NEW SIGNING",
-   "exp": 29,
-   "fantrax": "1.00",
-   "half": 503750,
-   "name": "Tomas Kralovic",
-   "nhl": "TBL",
-   "source": "1007500|2028-29",
    "team": "Montreal Canadiens"
   },
   "0760v": {
@@ -1203,6 +950,192 @@
    "nhl": "ANA",
    "source": "2027-28|2250000",
    "unconfirmed": false
+  }
+ },
+ "open": {
+  "01zub": {
+   "cls": "NEW SIGNING",
+   "fantrax": "1.00",
+   "name": "Dylan McIlrath",
+   "nhl": "WSH",
+   "source": "850000|2026-27",
+   "team": "Washington Capitals"
+  },
+  "03rjc": {
+   "cls": "NEW SIGNING",
+   "fantrax": "1.00",
+   "name": "Boko Imama",
+   "nhl": "FLA",
+   "source": "850000|2026-27",
+   "team": "Washington Capitals"
+  },
+  "04qzb": {
+   "cls": "NEW SIGNING",
+   "fantrax": "1.00",
+   "name": "Curtis Douglas",
+   "nhl": "SEA",
+   "source": "1250000|2027-28",
+   "team": "Anaheim Ducks"
+  },
+  "04qzx": {
+   "cls": "NEW SIGNING",
+   "fantrax": "1.00",
+   "name": "Spencer Stastney",
+   "nhl": "EDM",
+   "source": "1525000|2026-27",
+   "team": "Toronto Maple Leafs"
+  },
+  "04rna": {
+   "cls": "NEW SIGNING",
+   "fantrax": "1.00",
+   "name": "Marc Del Gaizo",
+   "nhl": "NYR",
+   "source": "875000|2027-28",
+   "team": "Washington Capitals"
+  },
+  "051uw": {
+   "cls": "NEW SIGNING",
+   "fantrax": "1.00",
+   "name": "Judd Caulfield",
+   "nhl": "ANA",
+   "source": "875000|2027-28",
+   "team": "Tampa Bay Lightning"
+  },
+  "05977": {
+   "cls": "NEW SIGNING",
+   "fantrax": "1.00",
+   "name": "Ben McCartney",
+   "nhl": "UTA",
+   "source": "850000|2026-27",
+   "team": "New York Rangers"
+  },
+  "05gvr": {
+   "cls": "NEW SIGNING",
+   "fantrax": "1.00",
+   "name": "Simon Zajicek",
+   "nhl": "BOS",
+   "source": "850000|2026-27",
+   "team": "New York Rangers"
+  },
+  "05oy0": {
+   "cls": "NEW SIGNING",
+   "fantrax": "1.00",
+   "name": "Tyrel Bauer",
+   "nhl": "WPG",
+   "source": "875000|2027-28",
+   "team": "Calgary Flames"
+  },
+  "05r30": {
+   "cls": "NEW SIGNING",
+   "fantrax": "1.00",
+   "name": "Samu Salminen",
+   "nhl": "FLA",
+   "source": "980000|2027-28",
+   "team": "Vegas Golden Knights"
+  },
+  "05u0k": {
+   "cls": "NEW SIGNING",
+   "fantrax": "1.00",
+   "name": "James Malatesta",
+   "nhl": "CBJ",
+   "source": "850000|2026-27",
+   "team": "Washington Capitals"
+  },
+  "05ugu": {
+   "cls": "NEW SIGNING",
+   "fantrax": "1.00",
+   "name": "Taylor Makar",
+   "nhl": "COL",
+   "source": "875000|2027-28",
+   "team": "Montreal Canadiens"
+  },
+  "05w9c": {
+   "cls": "EXPIRY MISMATCH",
+   "fantrax": "2,237,480.00",
+   "name": "Macklin Celebrini",
+   "nhl": "SJS",
+   "source": "4475000|2026-27",
+   "team": "San Jose Sharks"
+  },
+  "05y38": {
+   "cls": "NEW SIGNING",
+   "fantrax": "1.00",
+   "name": "Travis Mitchell",
+   "nhl": "ANA",
+   "source": "850000|2026-27",
+   "team": "Colorado Avalanche"
+  },
+  "060xd": {
+   "cls": "NEW SIGNING",
+   "fantrax": "1.00",
+   "name": "Kai Uchacz",
+   "nhl": "VGK",
+   "source": "920000|2026-27",
+   "team": "Anaheim Ducks"
+  },
+  "06bur": {
+   "cls": "NEW SIGNING",
+   "fantrax": "1.00",
+   "name": "Gavin McCarthy",
+   "nhl": "BUF",
+   "source": "1075000|2028-29",
+   "team": "Montreal Canadiens"
+  },
+  "06c96": {
+   "cls": "NEW SIGNING",
+   "fantrax": "1.00",
+   "name": "Andrei Loshko",
+   "nhl": "SEA",
+   "source": "1050000|2027-28",
+   "team": "Montreal Canadiens"
+  },
+  "06cdo": {
+   "cls": "NEW SIGNING",
+   "fantrax": "1.00",
+   "name": "Alex Weiermair",
+   "nhl": "VGK",
+   "source": "975000|2028-29",
+   "team": "Montreal Canadiens"
+  },
+  "06cdp": {
+   "cls": "NEW SIGNING",
+   "fantrax": "1.00",
+   "name": "Jonathan Castagna",
+   "nhl": "CGY",
+   "source": "1741667|2028-29",
+   "team": "Montreal Canadiens"
+  },
+  "06h7t": {
+   "cls": "NEW SIGNING",
+   "fantrax": "1.00",
+   "name": "Finn Harding",
+   "nhl": "PIT",
+   "source": "955000|2027-28",
+   "team": "Montreal Canadiens"
+  },
+  "06ll3": {
+   "cls": "NEW SIGNING",
+   "fantrax": "1.00",
+   "name": "Adam Jecho",
+   "nhl": "STL",
+   "source": "1067500|2028-29",
+   "team": "Anaheim Ducks"
+  },
+  "06uh8": {
+   "cls": "NEW SIGNING",
+   "fantrax": "1.00",
+   "name": "Yegor Borikov",
+   "nhl": "UTA",
+   "source": "996667|2028-29",
+   "team": "Calgary Flames"
+  },
+  "074mk": {
+   "cls": "NEW SIGNING",
+   "fantrax": "1.00",
+   "name": "Tomas Kralovic",
+   "nhl": "TBL",
+   "source": "1007500|2028-29",
+   "team": "Montreal Canadiens"
   }
  },
  "seeded": "2026-10-04"
