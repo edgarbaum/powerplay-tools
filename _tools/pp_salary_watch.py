@@ -32,8 +32,13 @@ split by the NHL team Fantrax shows; if that still leaves two, it is AMBIGUOUS a
 reported, never guessed. Unmatched players are counted and the signed ones listed,
 with a same-team-same-surname HINT that is printed and NOT used.
 
-DELTA: the post carries only what changed since _tools/state/salary_baseline.json (seeded on
-the first run with a one-line summary). See the "delta against a baseline" section.
+OPEN ITEMS: NEW SIGNING and EXPIRY MISMATCH stay open until Fantrax is fixed. EVERY post lists
+all of them, with FULL or HALF decided per player from Fantrax's own draft, claim and trade
+history (see "how a player reached the team"). They are never folded into the baseline.
+AAV CHANGE is posted as a DELTA: only what changed since _tools/state/salary_baseline.json
+(seeded on the first run with a one-line summary). The digest hashes the open set plus the
+delta, so the post repeats only when the set changes; pp_discord_post re-nudges a stale one.
+--csv-out writes Steve's upload format (no header) for open items whose basis is known.
 
 CANARIES, ALL MUST PASS OR THE SCRIPT REFUSES TO REPORT (reader, detector, delta)
   reader    Celebrini 2027-28 AAV 18,800,000 (an extension) and Hutson 2026-27
@@ -45,7 +50,7 @@ EXIT CODES: #DIGEST is the first line of stdout. 3 = findings (post), 0 = none,
 anything else non-zero = a crash or a refused canary, which the workflow turns into
 a red run and never into a post.
 
-  usage: pp_salary_watch.py [--post-out FILE] [--baseline FILE] [--no-record] [--coverage-audit N]
+  usage: pp_salary_watch.py [--post-out FILE] [--baseline FILE] [--csv-out FILE] [--no-record] [--coverage-audit N]
 """
 import warnings, json, sys, time, re, hashlib, datetime, pathlib, random, collections
 import urllib.request
@@ -269,12 +274,134 @@ def read_fantrax():
                 sal = str(r["cells"][si].get("content") or "0").replace(",", "")
                 whole, _, dec = sal.partition(".")
                 pos = (sc.get("posShortNames") or "F").split(",")[0].strip()
-                rows.append({"team": t.name, "name": sc["name"].strip(), "sid": sc["scorerId"],
+                rows.append({"team": t.name, "short": t.short or t.name, "name": sc["name"].strip(), "sid": sc["scorerId"],
                              "nhl": sc.get("teamShortName") or "", "pos": pos if pos in ("F", "D", "G") else "F",
                              "whole": int(float(whole or 0)), "dec": int(dec) if dec.isdigit() else 0,
                              "salary": r["cells"][si].get("content")})
         time.sleep(0.12)
-    return rows
+    return rows, api
+
+
+# ---------------------------------------------------------------- how a player reached the team
+#
+# FULL or HALF price cannot be read from the contract; it comes from Fantrax's own
+# history. A player ACQUIRED by claim or trade into his current team is charged in
+# full; one DRAFTED by his current team and not moved since is charged half. Anything
+# else is UNKNOWN and gets both lines. History is bounded (Fantrax does not return it
+# forever), so a missing record reads as UNKNOWN, never as "drafted".
+
+def _when(txt):
+    try:
+        return datetime.datetime.strptime(txt, "%a %b %d, %Y, %I:%M%p")
+    except (ValueError, TypeError):
+        return datetime.datetime.min
+
+
+def _history_rows(api, view):
+    page, rows = 1, []
+    while True:
+        raw = api._request("getTransactionDetailsHistory", maxResultsPerPage="500", pageNumber=page, view=view)
+        rows += (raw.get("table") or {}).get("rows", [])
+        if page >= ((raw.get("paginatedResultSet") or {}).get("totalNumPages") or 1) or page > 40:
+            return rows
+        page += 1
+
+
+def read_history(api):
+    """-> {scorerId: [(datetime, kind, league team name, label)]} for kind in
+    claim | trade | draft."""
+    acq = collections.defaultdict(list)
+    trows = _history_rows(api, "TRADE")
+    dates = {}                                              # only the first row of a trade group carries the date
+    for r in trows:
+        for c in r.get("cells", []):
+            if c.get("key") == "date" and c.get("content"):
+                dates.setdefault(r.get("txSetId"), c["content"])
+    for r in trows:
+        sc = r.get("scorer") or {}
+        if not sc.get("scorerId") or not r.get("executed", True):
+            continue
+        cells = {c.get("key"): c.get("content") for c in r.get("cells", [])}
+        d = dates.get(r.get("txSetId")) or cells.get("date")
+        acq[sc["scorerId"]].append((_when(d), "trade", (cells.get("to") or "").strip(), d or "?"))
+    for r in _history_rows(api, "CLAIM_DROP"):
+        sc = r.get("scorer") or {}
+        if not sc.get("scorerId") or (r.get("transactionType") or "").lower() != "claim" or not r.get("executed", True):
+            continue
+        cells = {c.get("key"): c.get("content") for c in r.get("cells", [])}
+        acq[sc["scorerId"]].append((_when(cells.get("date")), "claim", (cells.get("team") or "").strip(),
+                                    cells.get("date") or "?"))
+    names = {t.team_id: t.name for t in api.teams}
+    for p in (api._request("getDraftResults").get("draftPicksOrdered") or []):
+        if p.get("scorerId") and p.get("teamId") in names:
+            when = datetime.datetime.fromtimestamp((p.get("modifiedDate") or 0) / 1000.0)
+            acq[p["scorerId"]].append((when, "draft", names[p["teamId"]],
+                                       "R%s P%s" % (p.get("round"), p.get("pickNumber"))))
+    return acq
+
+
+def _day(label):
+    d = _when(label)
+    return "%s %d" % (d.strftime("%b"), d.day) if d != datetime.datetime.min else label
+
+
+def basis_of(acq, sid, team):
+    """The LATEST way he reached THIS team decides. -> {state full|half|unknown, label, short}"""
+    ev = [e for e in acq.get(sid, []) if e[2] == team]
+    if not ev:
+        return {"state": "unknown", "label": "basis: UNKNOWN", "short": "UNKNOWN"}
+    when, kind, _, lab = max(ev, key=lambda e: (e[0], e[1] != "draft"))      # a claim or trade outranks a same-moment draft
+    if kind == "draft":
+        return {"state": "half", "label": "basis: drafted %s" % lab, "short": "drafted " + lab.replace(" ", "")}
+    word = "claimed" if kind == "claim" else "traded"
+    return {"state": "full", "label": "basis: %s %s" % (word, _day(lab)), "short": "%s %s" % (word, _day(lab))}
+
+
+OPEN = ("NEW SIGNING", "EXPIRY MISMATCH")                   # open items: listed in EVERY post until closed
+
+
+def attach_basis(res, acq):
+    """-> the open items, each with x['basis']."""
+    out = []
+    for x in sorted((x for x in res if x["cls"] in OPEN), key=lambda x: (OPEN.index(x["cls"]), x["row"]["name"])):
+        if x["cls"] == "EXPIRY MISMATCH":                   # the charge is already set and matches: keep it
+            x["basis"] = {"state": x["state"], "label": "basis: existing %s charge matches" % x["state"],
+                          "short": "existing %s charge" % x["state"], "existing": True}
+        else:
+            x["basis"] = basis_of(acq, x["row"]["sid"], x["row"]["team"])
+        out.append(x)
+    return out
+
+
+def open_lines(x, idx):
+    r = x["row"]
+    b = x["basis"]
+
+    def line(c):
+        return "*%s*,%d,%s,%s,%s,%d.%02d" % (r["sid"], idx, r["name"], r["nhl"] or "FA", r["pos"], c, x["exp"])
+
+    if b.get("existing"):
+        return [(b["label"], line(x["matched"]))]
+    if b["state"] == "full":
+        return [(b["label"], line(x["full"]))]
+    if b["state"] == "half":
+        return [(b["label"], line(x["half"]))]
+    return [(b["label"] + ", FULL price", line(x["full"])), (b["label"] + ", HALF price", line(x["half"]))]
+
+
+def basis_counts(opens):
+    c = collections.Counter(("existing charge" if x["basis"].get("existing") else x["basis"]["short"].split(" ")[0])
+                            for x in opens)
+    return ", ".join("%s %d" % (k, c[k]) for k in ("claimed", "traded", "drafted", "UNKNOWN", "existing charge") if c[k])
+
+
+def csv_text(opens):
+    """Steve's exact format, no header. Only items whose basis is KNOWN."""
+    out = []
+    for i, x in enumerate(opens, 1):
+        if x["basis"]["state"] != "unknown":
+            out.append(open_lines(x, i)[0][1])
+    return "\n".join(out) + ("\n" if out else "")
 
 
 # ---------------------------------------------------------------- classifier
@@ -482,15 +609,15 @@ def render(res, tally, n, canaries, index, fetched, delta_block):
                    "max %.2f; buckets %s" % (len(ac), ac[0], q(.25), q(.5), q(.75), ac[-1],
                                              ", ".join("%s: %d" % (k, bk[k]) for k in
                                                        ("<0.45", "0.45-0.55", "0.55-0.90", "0.90-1.10", ">1.10") if bk[k])))
-    out.append("Actionable (new + aav + expiry): %d.  Reminders (future extension): %d." %
-               (len(fs), tally.get("FUTURE EXTENSION", 0)))
+    out.append("Open items (new signing + expiry mismatch): %d.  AAV changes: %d.  Reminders (future extension): %d." %
+               (sum(1 for x in fs if x["cls"] in OPEN), tally.get("AAV CHANGE", 0), tally.get("FUTURE EXTENSION", 0)))
     unf = [x for x in res if x["cls"] == "UNMATCHED"]
     unf1 = sum(1 for x in unf if x["row"]["whole"] <= 1)
     out.append("Unmatched by name: %d, of which %d are $1 placeholders and %d carry a real salary."
                % (len(unf), unf1, len(unf) - unf1))
     out.append("")
     idx = 0
-    for cls in ACTIONABLE:
+    for cls in ("AAV CHANGE",):                             # open items were listed in the block above
         grp = sorted([x for x in fs if x["cls"] == cls], key=lambda x: x["row"]["name"])
         if not grp:
             continue
@@ -559,10 +686,13 @@ BASELINE = HERE / "state" / "salary_baseline.json"
 
 
 def snapshot(res):
-    f, fu = {}, {}
+    f, fu, op = {}, {}, {}
     for x in res:
         r = x["row"]
-        if x["cls"] in ACTIONABLE:
+        if x["cls"] in OPEN:
+            op[r["sid"]] = {"cls": x["cls"], "name": r["name"], "team": r["team"], "nhl": r["nhl"],
+                            "fantrax": r["salary"], "source": "%d|%s" % (x["aav"], x["end"])}
+        elif x["cls"] in ACTIONABLE:
             f[r["sid"]] = {"cls": x["cls"], "name": r["name"], "team": r["team"], "nhl": r["nhl"],
                            "fantrax": r["salary"], "source": "%d|%s" % (x["aav"], x["end"]),
                            "aav": x["aav"], "half": x["half"], "exp": x["exp"]}
@@ -573,7 +703,7 @@ def snapshot(res):
                             "source": "%s|%d" % (first, k["seasons"][first]),
                             "first": first, "last": max(k["seasons"], key=season_start),
                             "aav": k["seasons"][first], "unconfirmed": k["unconfirmed"]}
-    return {"findings": f, "future": fu}
+    return {"findings": f, "future": fu, "open": op}
 
 
 def delta(prev, cur):
@@ -588,17 +718,25 @@ def delta(prev, cur):
     for sid in sorted(pf):
         if sid not in cf:
             out.append({"kind": "RESOLVED", "sid": sid, "now": None, "was": pf[sid]})
+    for sid in sorted(prev["open"]):                       # an open item that closed: reported once, then dropped
+        if sid not in cur["open"]:
+            out.append({"kind": "RESOLVED", "sid": sid, "now": None, "was": prev["open"][sid]})
     for sid in sorted(cur["future"]):
         if sid not in prev["future"]:
             out.append({"kind": "FUTURE", "sid": sid, "now": cur["future"][sid], "was": None})
     return out
 
 
-def delta_digest(items):
-    return hashlib.sha256("\n".join(sorted(
-        "%s|%s|%s|%s|%s" % (i["kind"], i["sid"], (i["now"] or i["was"]).get("cls", ""),
-                           (i["now"] or {}).get("fantrax", ""), (i["now"] or {}).get("source", ""))
-        for i in items)).encode()).hexdigest()[:16]
+def delta_digest(items, opens=()):
+    """Hashes the open-item SET together with the delta, so a post repeats only when
+    the set changes (pp_discord_post's 3-day rule re-nudges a stale one)."""
+    lines = ["%s|%s|%s|%s|%s" % (i["kind"], i["sid"], (i["now"] or i["was"]).get("cls", ""),
+                                 (i["now"] or {}).get("fantrax", ""), (i["now"] or {}).get("source", ""))
+             for i in items]
+    lines += ["OPEN|%s|%s|%s|%d|%s|%s" % (x["row"]["sid"], x["cls"], x["row"]["salary"], x["aav"], x["end"],
+                                          x.get("basis", {}).get("label", ""))
+              for x in opens]
+    return hashlib.sha256("\n".join(sorted(lines)).encode()).hexdigest()[:16]
 
 
 def delta_canary(rows, index, res):
@@ -633,8 +771,26 @@ def delta_canary(rows, index, res):
     if [(i["kind"], i["sid"]) for i in d] != [("MOVED", pr["sid"])]:
         sys.exit("DELTA CANARY FAILED: moving the injected finding's Fantrax value gave %s, expected exactly "
                  "one MOVED. Refusing to report." % [(i["kind"], i["sid"]) for i in d])
-    return ("delta canary passed: one injected finding for %s gave exactly one NEW, fixing it exactly one "
-            "RESOLVED, moving its value exactly one MOVED, an unchanged day none" % pr["name"])
+    # open items: a $1 placeholder injected on a consistent player must enter the OPEN set
+    # (and only it), change the digest, and closing it must be exactly one RESOLVED.
+    if pr["sid"] in base["open"]:
+        sys.exit("DELTA CANARY FAILED: %s was already open before injection. Refusing to report." % pr["name"])
+    op = alt_snapshot({"whole": 1, "dec": 0})
+    if set(op["open"]) - set(base["open"]) != {pr["sid"]} or set(base["open"]) - set(op["open"]) \
+            or delta(base, op) or op["findings"] != base["findings"]:
+        sys.exit("DELTA CANARY FAILED: injecting a $1 placeholder for %s did not add exactly that player to the "
+                 "open set and nothing else. Refusing to report." % pr["name"])
+    d = delta(op, base)
+    if [(i["kind"], i["sid"]) for i in d] != [("RESOLVED", pr["sid"])]:
+        sys.exit("DELTA CANARY FAILED: closing the open item gave %s, expected exactly one RESOLVED. "
+                 "Refusing to report." % [(i["kind"], i["sid"]) for i in d])
+    mk = lambda snap: [{"row": {"sid": k, "salary": v["fantrax"]}, "cls": v["cls"], "aav": 0, "end": v["source"]}
+                       for k, v in snap["open"].items()]
+    if delta_digest([], mk(base)) == delta_digest([], mk(op)) or delta_digest([], mk(base)) != delta_digest([], mk(base)):
+        sys.exit("DELTA CANARY FAILED: the digest does not track the open-item set. Refusing to report.")
+    return ("delta canary passed: one injected finding for %s gave exactly one ADDED, fixing it one RESOLVED, "
+            "moving it one MOVED, an unchanged day none; an injected $1 placeholder entered only the open set, "
+            "changed the digest, and closing it gave exactly one RESOLVED" % pr["name"])
 
 
 def load_baseline(path):
@@ -644,6 +800,13 @@ def load_baseline(path):
     try:
         d = json.loads(f.read_text())
         if "findings" in d and "future" in d:
+            # Migration: NEW SIGNING and EXPIRY MISMATCH are OPEN items, never baseline. An
+            # earlier baseline folded them into "findings"; move them across so each is still
+            # reported RESOLVED once when it closes.
+            d.setdefault("open", {})
+            for sid in [k for k, v in d["findings"].items() if v["cls"] in OPEN]:
+                d["open"].setdefault(sid, d["findings"][sid])
+                del d["findings"][sid]
             return d
     except ValueError:
         pass
@@ -688,49 +851,87 @@ def delta_line(i):
         nm, nhl, now["first"], now["last"], money_s(now["aav"]), " UNCONFIRMED" if now["unconfirmed"] else "")
 
 
-def compact(items, seeded, tally, n, digest):
-    """What goes to Discord. Seed run: one line. After: only the delta."""
+def open_short(x, prev_open):
+    r = x["row"]
+    b = x["basis"]
+    mark = "+" if r["sid"] not in prev_open else " "
+    if b.get("existing"):
+        return "%s%s %s %s: expiry .%02d, keep %s (%s)" % (mark, r["name"], r["nhl"] or "FA", r["short"], x["exp"],
+                                                       money_s(x["matched"]), b["short"])
+    if b["state"] == "unknown":
+        return "%s%s %s %s: %s / %s .%02d UNKNOWN full/half" % (mark, r["name"], r["nhl"] or "FA", r["short"],
+                                                           money_s(x["full"]), money_s(x["half"]), x["exp"])
+    c = x["full"] if b["state"] == "full" else x["half"]
+    return "%s%s %s %s: %d.%02d %s %s" % (mark, r["name"], r["nhl"] or "FA", r["short"], c, x["exp"],
+                                         b["state"].upper(), b["short"])
+
+
+def compact(items, seeded, tally, n, digest, opens, prev_open):
+    """What goes to Discord: ALL open items first, then the AAV delta (or the one-line
+    seed summary on the first run)."""
     o = ["#DIGEST " + digest]
     if seeded:
         o.append(seed_line(tally, n))
-        return "\n".join(o) + "\n"
-    o.append("PowerPlay salary watch - %s, n=%d: %d change(s) since the last report" %
-             (datetime.date.today(), n, len(items)))
-    body, used = [], len("\n".join(o))
-    order = {"NEW": 0, "MOVED": 1, "RESOLVED": 2, "FUTURE": 3}
+    else:
+        kinds = collections.Counter(i["kind"] for i in items)
+        o.append("PowerPlay salary watch - %s, n=%d. AAV changes since last report: %s" % (
+            datetime.date.today(), n,
+            ", ".join("%s %d" % (k.lower(), kinds[k]) for k in ("NEW", "MOVED", "RESOLVED", "FUTURE") if kinds[k])
+            or "none"))
+    if opens:
+        cc = collections.Counter(x["cls"] for x in opens)
+        o.append("OPEN ITEMS %d (%s). Basis: %s. (+ = new since last report)" % (
+            len(opens), ", ".join("%s %d" % (k.lower(), cc[k]) for k in OPEN if cc[k]), basis_counts(opens)))
+    else:
+        o.append("OPEN ITEMS 0")
+    used = len("\n".join(o))
+    budget = POST_MAX - 120                                  # leave room for the closing line
+    lines = [open_short(x, prev_open) for x in opens]
+    order = {"RESOLVED": 0, "NEW": 1, "MOVED": 2, "FUTURE": 3}
+    lines += [delta_line(i) for i in sorted(items, key=lambda i: (order[i["kind"]], (i["now"] or i["was"])["name"]))
+              if not seeded or i["kind"] == "RESOLVED"]
     shown = 0
-    for i in sorted(items, key=lambda i: (order[i["kind"]], (i["now"] or i["was"])["name"])):
-        t = delta_line(i)
-        if used + len(t) + 1 > POST_MAX - 80:
+    for t in lines:
+        if used + len(t) + 1 > budget:
             break
-        body.append(t)
+        o.append(t)
         used += len(t) + 1
         shown += 1
-    o.extend(body)
-    o.append("... and %d more in the run log and the salary-report artifact" % (len(items) - shown)
-             if shown < len(items) else "Draft upload lines are in the run log and the salary-report artifact.")
+    o.append("... and %d more in the run log and the salary-report artifact" % (len(lines) - shown)
+             if shown < len(lines) else
+             "Upload lines for known basis: salary-upload-DRAFT artifact. Full list: salary-report artifact.")
     return "\n".join(o) + "\n"
 
 
-def render_delta(items, seeded, res, tally, n):
-    """The delta block at the top of the full report, with draft upload lines."""
+def render_delta(items, seeded, res, tally, n, opens, prev_open):
+    """The open-item and delta blocks at the top of the full report, with upload lines."""
+    out = []
     if seeded:
-        return [">>> BASELINE SEEDED (first run). The post is one line; everything below is the full list.",
+        out += [">>> BASELINE SEEDED (first run). AAV changes are in the full list below; the post carries one line.",
                 seed_line(tally, n), ""]
-    byid = {x["row"]["sid"]: x for x in res}
-    out = [">>> DELTA since the last report: %d  (%s)" % (
-        len(items), ", ".join("%s %d" % (k, sum(1 for i in items if i["kind"] == k))
-                              for k in ("NEW", "MOVED", "RESOLVED", "FUTURE")
-                              if any(i["kind"] == k for i in items)) or "nothing changed")]
-    idx = 0
-    for i in items:
-        out.append("  " + delta_line(i))
-        x = byid.get(i["sid"])
-        if i["kind"] in ("NEW", "MOVED") and x is not None:
-            idx += 1
-            for lab, ln in draft_lines(x, idx):
-                out.append("      %s: %s" % (lab, ln))
+    cc = collections.Counter(x["cls"] for x in opens)
+    out.append(">>> OPEN ITEMS (listed in every post until closed): %d  (%s).  Basis: %s" % (
+        len(opens), ", ".join("%s %d" % (k, cc[k]) for k in OPEN if cc[k]) or "none", basis_counts(opens) or "n/a"))
+    for i, x in enumerate(opens, 1):
+        r = x["row"]
+        out.append("  %s%s%s" % ("+ " if r["sid"] not in prev_open else "", describe(x),
+                                 "  [%s]" % x["note"] if x["note"] else ""))
+        for lab, ln in open_lines(x, i):
+            out.append("      %s: %s" % (lab, ln))
     out.append("")
+    if not seeded:
+        byid = {x["row"]["sid"]: x for x in res}
+        out.append(">>> AAV DELTA since the last report: %d  (%s)" % (
+            len(items), ", ".join("%s %d" % (k, sum(1 for i in items if i["kind"] == k))
+                                  for k in ("NEW", "MOVED", "RESOLVED", "FUTURE")
+                                  if any(i["kind"] == k for i in items)) or "nothing changed"))
+        for i in items:
+            out.append("  " + delta_line(i))
+            x = byid.get(i["sid"])
+            if i["kind"] in ("NEW", "MOVED") and x is not None:
+                for lab, ln in draft_lines(x, 0):
+                    out.append("      %s: %s" % (lab, ln))
+        out.append("")
     return out
 
 
@@ -773,6 +974,7 @@ def main():
     post_out = args[args.index("--post-out") + 1] if "--post-out" in args else None
     audit = int(args[args.index("--coverage-audit") + 1]) if "--coverage-audit" in args else 0
     baseline_path = args[args.index("--baseline") + 1] if "--baseline" in args else str(BASELINE)
+    csv_out = args[args.index("--csv-out") + 1] if "--csv-out" in args else None
     record = "--no-record" not in args          # --no-record: do not write the baseline (local trials)
 
     players, tricodes = read_capwages()
@@ -785,7 +987,7 @@ def main():
     if audit:
         sys.exit(1 if coverage_audit(players, audit) else 0)
 
-    rows = read_fantrax()
+    rows, api = read_fantrax()
     names = {r["name"] for r in rows}
     miss = [c for c in ("Macklin Celebrini", "Lane Hutson") if c not in names]
     if miss:
@@ -802,19 +1004,26 @@ def main():
     prev = load_baseline(baseline_path)
     seeded = prev is None
     items = [] if seeded else delta(prev, cur)
+    prev_open = {} if seeded else prev["open"]
+    acq = read_history(api) if any(x["cls"] in OPEN for x in res) else {}
+    opens = attach_basis(res, acq)
     if seeded:
         digest = hashlib.sha256(("seed|" + seed_line(tally, len(rows))[len("PowerPlay salary watch - "):]
                                  ).encode()).hexdigest()[:16]
+        digest = hashlib.sha256((digest + delta_digest([], opens)).encode()).hexdigest()[:16]
     else:
-        digest = delta_digest(items)
+        digest = delta_digest(items, opens)
     print("#DIGEST " + digest)
-    lines, fs = render(res, tally, len(rows), [c1, c2, c3], index, (len(tricodes),), render_delta(items, seeded, res, tally, len(rows)))
+    lines, fs = render(res, tally, len(rows), [c1, c2, c3], index, (len(tricodes),),
+                       render_delta(items, seeded, res, tally, len(rows), opens, prev_open))
     print("\n".join(lines))
     if post_out:
-        pathlib.Path(post_out).write_text(compact(items, seeded, tally, len(rows), digest))
+        pathlib.Path(post_out).write_text(compact(items, seeded, tally, len(rows), digest, opens, prev_open))
+    if csv_out:
+        pathlib.Path(csv_out).write_text(csv_text(opens))
     if record:
         save_baseline(baseline_path, cur)
-    return FINDINGS if (seeded or items) else 0
+    return FINDINGS if (seeded or items or opens) else 0
 
 
 if __name__ == "__main__":
