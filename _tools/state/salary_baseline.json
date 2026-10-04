@@ -2,7 +2,7 @@
  "findings": {
   "00qs7": {
    "aav": 2350000.0,
-   "cls": "AAV CHANGE",
+   "cls": "REAL DIFFERS",
    "exp": 27,
    "fantrax": "2,000,000.27",
    "half": 1175000,
@@ -13,7 +13,7 @@
   },
   "01c12": {
    "aav": 4380000.0,
-   "cls": "AAV CHANGE",
+   "cls": "REAL DIFFERS",
    "exp": 29,
    "fantrax": "2,194,640.29",
    "half": 2190000,
@@ -24,7 +24,7 @@
   },
   "01f5z": {
    "aav": 5400000.0,
-   "cls": "AAV CHANGE",
+   "cls": "REAL DIFFERS",
    "exp": 27,
    "fantrax": "3,250,000.27",
    "half": 2700000,
@@ -35,7 +35,7 @@
   },
   "02noq": {
    "aav": 6000000.0,
-   "cls": "AAV CHANGE",
+   "cls": "REAL DIFFERS",
    "exp": 31,
    "fantrax": "4,500,000.31",
    "half": 3000000,
@@ -46,7 +46,7 @@
   },
   "02np6": {
    "aav": 4700000.0,
-   "cls": "AAV CHANGE",
+   "cls": "REAL DIFFERS",
    "exp": 30,
    "fantrax": "2,256,551.30",
    "half": 2350000,
@@ -57,7 +57,7 @@
   },
   "02o7l": {
    "aav": 6461250.0,
-   "cls": "AAV CHANGE",
+   "cls": "REAL DIFFERS",
    "exp": 33,
    "fantrax": "3,198,031.33",
    "half": 3230625,
@@ -68,7 +68,7 @@
   },
   "02yjj": {
    "aav": 11500000.0,
-   "cls": "AAV CHANGE",
+   "cls": "REAL DIFFERS",
    "exp": 32,
    "fantrax": "9,000,000.32",
    "half": 5750000,
@@ -79,7 +79,7 @@
   },
   "031og": {
    "aav": 5500000.0,
-   "cls": "AAV CHANGE",
+   "cls": "REAL DIFFERS",
    "exp": 28,
    "fantrax": "4,125,000.28",
    "half": 2750000,
@@ -90,7 +90,7 @@
   },
   "03ne3": {
    "aav": 6000000.0,
-   "cls": "AAV CHANGE",
+   "cls": "REAL DIFFERS",
    "exp": 28,
    "fantrax": "2,285,595.28",
    "half": 3000000,
@@ -101,7 +101,7 @@
   },
   "03wnw": {
    "aav": 1300000.0,
-   "cls": "AAV CHANGE",
+   "cls": "REAL DIFFERS",
    "exp": 28,
    "fantrax": "1,350,000.28",
    "half": 650000,
@@ -112,7 +112,7 @@
   },
   "04r1g": {
    "aav": 900000.0,
-   "cls": "AAV CHANGE",
+   "cls": "REAL DIFFERS",
    "exp": 27,
    "fantrax": "4,500,000.27",
    "half": 450000,
@@ -123,7 +123,7 @@
   },
   "04sy0": {
    "aav": 900000.0,
-   "cls": "AAV CHANGE",
+   "cls": "REAL DIFFERS",
    "exp": 27,
    "fantrax": "4,500,000.27",
    "half": 450000,
@@ -134,7 +134,7 @@
   },
   "05gvq": {
    "aav": 7900000.0,
-   "cls": "AAV CHANGE",
+   "cls": "REAL DIFFERS",
    "exp": 32,
    "fantrax": "3,710,044.32",
    "half": 3950000,
@@ -145,7 +145,7 @@
   },
   "05rjy": {
    "aav": 1075000.0,
-   "cls": "AAV CHANGE",
+   "cls": "REAL DIFFERS",
    "exp": 29,
    "fantrax": "1,550,000.29",
    "half": 537500,
@@ -156,7 +156,7 @@
   },
   "05ugg": {
    "aav": 903750.0,
-   "cls": "AAV CHANGE",
+   "cls": "REAL DIFFERS",
    "exp": 27,
    "fantrax": "987,500.27",
    "half": 451875,
@@ -167,7 +167,7 @@
   },
   "05yme": {
    "aav": 970000.0,
-   "cls": "AAV CHANGE",
+   "cls": "REAL DIFFERS",
    "exp": 28,
    "fantrax": "972,500.28",
    "half": 485000,
@@ -178,7 +178,7 @@
   },
   "05ymo": {
    "aav": 886667.0,
-   "cls": "AAV CHANGE",
+   "cls": "REAL DIFFERS",
    "exp": 27,
    "fantrax": "880,000.27",
    "half": 443334,
@@ -189,7 +189,7 @@
   },
   "05ymr": {
    "aav": 1013750.0,
-   "cls": "AAV CHANGE",
+   "cls": "REAL DIFFERS",
    "exp": 28,
    "fantrax": "1,050,000.28",
    "half": 506875,
@@ -200,7 +200,7 @@
   },
   "05yms": {
    "aav": 1391667.0,
-   "cls": "AAV CHANGE",
+   "cls": "REAL DIFFERS",
    "exp": 27,
    "fantrax": "1,366,667.27",
    "half": 695834,
@@ -211,7 +211,7 @@
   },
   "060ja": {
    "aav": 980000.0,
-   "cls": "AAV CHANGE",
+   "cls": "REAL DIFFERS",
    "exp": 28,
    "fantrax": "525,000.28",
    "half": 490000,
@@ -222,7 +222,7 @@
   },
   "0618g": {
    "aav": 980000.0,
-   "cls": "AAV CHANGE",
+   "cls": "REAL DIFFERS",
    "exp": 28,
    "fantrax": "1,050,000.28",
    "half": 490000,
@@ -233,7 +233,7 @@
   },
   "062kb": {
    "aav": 1007500.0,
-   "cls": "AAV CHANGE",
+   "cls": "REAL DIFFERS",
    "exp": 29,
    "fantrax": "537,500.29",
    "half": 503750,
@@ -244,7 +244,7 @@
   },
   "0644e": {
    "aav": 1341667.0,
-   "cls": "AAV CHANGE",
+   "cls": "REAL DIFFERS",
    "exp": 27,
    "fantrax": "1,350,000.27",
    "half": 670834,
@@ -255,7 +255,7 @@
   },
   "0644l": {
    "aav": 1825000.0,
-   "cls": "AAV CHANGE",
+   "cls": "REAL DIFFERS",
    "exp": 29,
    "fantrax": "1,741,667.29",
    "half": 912500,
@@ -266,7 +266,7 @@
   },
   "065pf": {
    "aav": 909167.0,
-   "cls": "AAV CHANGE",
+   "cls": "REAL DIFFERS",
    "exp": 28,
    "fantrax": "452,500.28",
    "half": 454584,
@@ -277,7 +277,7 @@
   },
   "066q1": {
    "aav": 1382500.0,
-   "cls": "AAV CHANGE",
+   "cls": "REAL DIFFERS",
    "exp": 28,
    "fantrax": "693,125.28",
    "half": 691250,
@@ -288,7 +288,7 @@
   },
   "066rc": {
    "aav": 1013750.0,
-   "cls": "AAV CHANGE",
+   "cls": "REAL DIFFERS",
    "exp": 28,
    "fantrax": "1,050,000.28",
    "half": 506875,
@@ -299,7 +299,7 @@
   },
   "066sp": {
    "aav": 923333.0,
-   "cls": "AAV CHANGE",
+   "cls": "REAL DIFFERS",
    "exp": 27,
    "fantrax": "475,000.27",
    "half": 461667,
@@ -310,7 +310,7 @@
   },
   "067xd": {
    "aav": 952500.0,
-   "cls": "AAV CHANGE",
+   "cls": "REAL DIFFERS",
    "exp": 27,
    "fantrax": "512,500.27",
    "half": 476250,
@@ -321,7 +321,7 @@
   },
   "068yz": {
    "aav": 1298333.0,
-   "cls": "AAV CHANGE",
+   "cls": "REAL DIFFERS",
    "exp": 28,
    "fantrax": "586,250.28",
    "half": 649167,
@@ -332,7 +332,7 @@
   },
   "06ag2": {
    "aav": 1657083.0,
-   "cls": "AAV CHANGE",
+   "cls": "REAL DIFFERS",
    "exp": 28,
    "fantrax": "822,917.28",
    "half": 828542,
@@ -343,7 +343,7 @@
   },
   "06axe": {
    "aav": 1225000.0,
-   "cls": "AAV CHANGE",
+   "cls": "REAL DIFFERS",
    "exp": 27,
    "fantrax": "616,667.27",
    "half": 612500,
@@ -354,7 +354,7 @@
   },
   "06b7a": {
    "aav": 1028333.0,
-   "cls": "AAV CHANGE",
+   "cls": "REAL DIFFERS",
    "exp": 29,
    "fantrax": "537,500.29",
    "half": 514167,
@@ -365,7 +365,7 @@
   },
   "06bmb": {
    "aav": 1641500.0,
-   "cls": "AAV CHANGE",
+   "cls": "REAL DIFFERS",
    "exp": 27,
    "fantrax": "825,000.27",
    "half": 820750,
@@ -376,7 +376,7 @@
   },
   "06byf": {
    "aav": 1028333.0,
-   "cls": "AAV CHANGE",
+   "cls": "REAL DIFFERS",
    "exp": 29,
    "fantrax": "537,500.29",
    "half": 514167,
@@ -387,7 +387,7 @@
   },
   "06c42": {
    "aav": 1007500.0,
-   "cls": "AAV CHANGE",
+   "cls": "REAL DIFFERS",
    "exp": 29,
    "fantrax": "537,500.29",
    "half": 503750,
@@ -398,7 +398,7 @@
   },
   "06cfd": {
    "aav": 972500.0,
-   "cls": "AAV CHANGE",
+   "cls": "REAL DIFFERS",
    "exp": 28,
    "fantrax": "493,125.28",
    "half": 486250,
@@ -409,7 +409,7 @@
   },
   "06clb": {
    "aav": 926667.0,
-   "cls": "AAV CHANGE",
+   "cls": "REAL DIFFERS",
    "exp": 28,
    "fantrax": "475,834.28",
    "half": 463334,
@@ -420,7 +420,7 @@
   },
   "06hj9": {
    "aav": 2532083.0,
-   "cls": "AAV CHANGE",
+   "cls": "REAL DIFFERS",
    "exp": 28,
    "fantrax": "1,260,417.28",
    "half": 1266042,
@@ -431,7 +431,7 @@
   },
   "06imm": {
    "aav": 1841667.0,
-   "cls": "AAV CHANGE",
+   "cls": "REAL DIFFERS",
    "exp": 29,
    "fantrax": "929,167.29",
    "half": 920834,
@@ -442,7 +442,7 @@
   },
   "06mcr": {
    "aav": 1040000.0,
-   "cls": "AAV CHANGE",
+   "cls": "REAL DIFFERS",
    "exp": 29,
    "fantrax": "537,500.29",
    "half": 520000,
@@ -453,7 +453,7 @@
   },
   "06md3": {
    "aav": 1000000.0,
-   "cls": "AAV CHANGE",
+   "cls": "REAL DIFFERS",
    "exp": 29,
    "fantrax": "508,334.29",
    "half": 500000,
@@ -464,7 +464,7 @@
   },
   "06md8": {
    "aav": 955556.0,
-   "cls": "AAV CHANGE",
+   "cls": "REAL DIFFERS",
    "exp": 29,
    "fantrax": "425,000.29",
    "half": 477778,
@@ -475,7 +475,7 @@
   },
   "06mhf": {
    "aav": 1007500.0,
-   "cls": "AAV CHANGE",
+   "cls": "REAL DIFFERS",
    "exp": 29,
    "fantrax": "537,500.29",
    "half": 503750,
@@ -486,7 +486,7 @@
   },
   "06mhi": {
    "aav": 1007500.0,
-   "cls": "AAV CHANGE",
+   "cls": "REAL DIFFERS",
    "exp": 29,
    "fantrax": "537,500.29",
    "half": 503750,
@@ -497,7 +497,7 @@
   },
   "06mhl": {
    "aav": 972500.0,
-   "cls": "AAV CHANGE",
+   "cls": "REAL DIFFERS",
    "exp": 28,
    "fantrax": "986,250.28",
    "half": 486250,
@@ -508,7 +508,7 @@
   },
   "06pyz": {
    "aav": 1310000.0,
-   "cls": "AAV CHANGE",
+   "cls": "REAL DIFFERS",
    "exp": 29,
    "fantrax": "662,500.29",
    "half": 655000,
@@ -519,7 +519,7 @@
   },
   "06qw6": {
    "aav": 1475000.0,
-   "cls": "AAV CHANGE",
+   "cls": "REAL DIFFERS",
    "exp": 27,
    "fantrax": "731,250.27",
    "half": 737500,
@@ -530,7 +530,7 @@
   },
   "06rmr": {
    "aav": 965000.0,
-   "cls": "AAV CHANGE",
+   "cls": "REAL DIFFERS",
    "exp": 29,
    "fantrax": "508,334.29",
    "half": 482500,
@@ -541,7 +541,7 @@
   },
   "06rus": {
    "aav": 2474167.0,
-   "cls": "AAV CHANGE",
+   "cls": "REAL DIFFERS",
    "exp": 29,
    "fantrax": "1,070,417.29",
    "half": 1237084,
@@ -552,7 +552,7 @@
   },
   "06rwh": {
    "aav": 941667.0,
-   "cls": "AAV CHANGE",
+   "cls": "REAL DIFFERS",
    "exp": 27,
    "fantrax": "475,000.27",
    "half": 470834,
@@ -563,7 +563,7 @@
   },
   "06snd": {
    "aav": 1099167.0,
-   "cls": "AAV CHANGE",
+   "cls": "REAL DIFFERS",
    "exp": 29,
    "fantrax": "570,417.29",
    "half": 549584,
@@ -574,7 +574,7 @@
   },
   "06spy": {
    "aav": 1075000.0,
-   "cls": "AAV CHANGE",
+   "cls": "REAL DIFFERS",
    "exp": 29,
    "fantrax": "524,584.29",
    "half": 537500,
@@ -585,7 +585,7 @@
   },
   "06sqc": {
    "aav": 1015833.0,
-   "cls": "AAV CHANGE",
+   "cls": "REAL DIFFERS",
    "exp": 29,
    "fantrax": "537,500.29",
    "half": 507917,
@@ -596,7 +596,7 @@
   },
   "06tan": {
    "aav": 1028333.0,
-   "cls": "AAV CHANGE",
+   "cls": "REAL DIFFERS",
    "exp": 29,
    "fantrax": "537,500.29",
    "half": 514167,
@@ -607,7 +607,7 @@
   },
   "06xvx": {
    "aav": 1028333.0,
-   "cls": "AAV CHANGE",
+   "cls": "REAL DIFFERS",
    "exp": 29,
    "fantrax": "537,500.29",
    "half": 514167,
@@ -618,7 +618,7 @@
   },
   "071wk": {
    "aav": 1575000.0,
-   "cls": "AAV CHANGE",
+   "cls": "REAL DIFFERS",
    "exp": 29,
    "fantrax": "704,167.29",
    "half": 787500,
@@ -629,7 +629,7 @@
   },
   "072em": {
    "aav": 979500.0,
-   "cls": "AAV CHANGE",
+   "cls": "REAL DIFFERS",
    "exp": 28,
    "fantrax": "525,000.28",
    "half": 489750,
@@ -640,7 +640,7 @@
   },
   "0760v": {
    "aav": 1075000.0,
-   "cls": "AAV CHANGE",
+   "cls": "REAL DIFFERS",
    "exp": 29,
    "fantrax": "504,667.29",
    "half": 537500,
@@ -961,6 +961,14 @@
    "source": "850000|2026-27",
    "team": "Washington Capitals"
   },
+  "02fzd": {
+   "cls": "NEW SIGNING",
+   "fantrax": "1.00",
+   "name": "Mike Reilly",
+   "nhl": "CAR",
+   "source": "850000|2026-27",
+   "team": "Buffalo Sabres"
+  },
   "03rjc": {
    "cls": "NEW SIGNING",
    "fantrax": "1.00",
@@ -968,6 +976,14 @@
    "nhl": "FLA",
    "source": "850000|2026-27",
    "team": "Washington Capitals"
+  },
+  "03w83": {
+   "cls": "NEW SIGNING",
+   "fantrax": "1.00",
+   "name": "Urho Vaakanainen",
+   "nhl": "NYR",
+   "source": "1550000|2026-27",
+   "team": "Nashville Predators"
   },
   "04qzb": {
    "cls": "NEW SIGNING",
@@ -992,6 +1008,14 @@
    "nhl": "NYR",
    "source": "875000|2027-28",
    "team": "Washington Capitals"
+  },
+  "04z4m": {
+   "cls": "NEW SIGNING",
+   "fantrax": "1.00",
+   "name": "Mitchell Chaffee",
+   "nhl": "NYI",
+   "source": "850000|2026-27",
+   "team": "Utah Mammoth"
   },
   "051uw": {
    "cls": "NEW SIGNING",
@@ -1050,7 +1074,7 @@
    "team": "Montreal Canadiens"
   },
   "05w9c": {
-   "cls": "EXPIRY MISMATCH",
+   "cls": "EXPIRY CHECK",
    "fantrax": "2,237,480.00",
    "name": "Macklin Celebrini",
    "nhl": "SJS",
