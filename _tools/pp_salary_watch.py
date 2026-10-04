@@ -16,14 +16,24 @@ THE LEAGUE CHARGE is the AAV, or AAV/2 for a drafted player still held by his
 drafting team. Nothing in the source says which, so a charge is accepted if it is
 EITHER, and a draft upload line shows BOTH candidates when the state is unknown.
 
+LEAGUE RULE (constitution v25 section 2.6): real-life NHL events do not affect fantasy contracts.
+"The fantasy team retains the player at the previous fantasy AAV." So for a player who already has a
+fantasy contract, FANTRAX IS THE SALARY and a CapWages difference is not an error.
+
 CLASSES (each rostered player lands in exactly one, first match wins):
-  NEW SIGNING       Fantrax shows $1 but the source has a contract for the season.
-  AAV CHANGE        Fantrax whole number is neither AAV nor AAV/2 (within $1000 or 0.1%).
-  EXPIRY MISMATCH   Fantrax decimal differs from the source's contract end.
-  FUTURE EXTENSION  a signed contract that starts in a later season. REMINDER ONLY,
-                    never an upload line, and never by itself a reason to post.
+  NEW SIGNING       Fantrax $1 and the source shows a contract.            -> upload line
+  ROLLOVER          the Fantrax expiry decimal is EARLIER than this season (the fantasy
+                    contract has run out) and the source has a current contract. -> upload line
+  REAL DIFFERS (2.6) Fantrax whole number is neither AAV nor AAV/2 (within $1000 or 0.1%).
+                    INFORMATION ONLY: never an upload line; posted only when a NEW one appears.
+  EXPIRY CHECK      Fantrax decimal differs from the source's contract end, though not earlier
+                    than this season. An open item labelled "check": not proven wrong, no line.
+  FUTURE EXTENSION  a signed contract that starts in a later season. REMINDER ONLY, once.
   CONSISTENT        count only.
   (+ counts that are not findings: NO CONTRACT IN SOURCE, AMBIGUOUS, UNMATCHED BY NAME)
+
+Upload lines come ONLY from NEW SIGNING and ROLLOVER, and never for a player the age check
+(pp_eligibility_check, rule 5.2) flags: that claim may be reversed, so he is shown HOLD.
 
 NAME MATCHING is exact fold, or the same_person prefix rule (Alex/Alexander yes,
 Daniil/Dmitri no). Never surname plus initial. CapWages' own nickname in brackets,
@@ -32,13 +42,14 @@ split by the NHL team Fantrax shows; if that still leaves two, it is AMBIGUOUS a
 reported, never guessed. Unmatched players are counted and the signed ones listed,
 with a same-team-same-surname HINT that is printed and NOT used.
 
-OPEN ITEMS: NEW SIGNING and EXPIRY MISMATCH stay open until Fantrax is fixed. EVERY post lists
+OPEN ITEMS: NEW SIGNING, ROLLOVER and EXPIRY CHECK stay open until Fantrax is fixed. EVERY post lists
 all of them, with FULL or HALF decided per player from Fantrax's own draft, claim and trade
 history (see "how a player reached the team"). They are never folded into the baseline.
-AAV CHANGE is posted as a DELTA: only what changed since _tools/state/salary_baseline.json
-(seeded on the first run with a one-line summary). The digest hashes the open set plus the
+REAL DIFFERS is information only, posted as a DELTA: only a NEW one, against the "known" set in
+_tools/state/salary_baseline.json (seeded on the first run with a one-line summary). The digest hashes the open set plus the
 delta, so the post repeats only when the set changes; pp_discord_post re-nudges a stale one.
---csv-out writes Steve's upload format (no header) for open items whose basis is known.
+--csv-out writes Steve's upload format (no header) for NEW SIGNING and ROLLOVER items whose basis
+is known and that are not on HOLD.
 
 CANARIES, ALL MUST PASS OR THE SCRIPT REFUSES TO REPORT (reader, detector, delta)
   reader    Celebrini 2027-28 AAV 18,800,000 (an extension) and Hutson 2026-27
@@ -72,8 +83,9 @@ philadelphia_flyers pittsburgh_penguins san_jose_sharks seattle_kraken st_louis_
 tampa_bay_lightning toronto_maple_leafs utah_mammoth vancouver_canucks vegas_golden_knights
 washington_capitals winnipeg_jets""".split()
 
-CLASS_ORDER = ["NEW SIGNING", "AAV CHANGE", "EXPIRY MISMATCH", "FUTURE EXTENSION", "CONSISTENT"]
-ACTIONABLE = ("NEW SIGNING", "AAV CHANGE", "EXPIRY MISMATCH")     # a, b, c: these have draft lines
+CLASS_ORDER = ["NEW SIGNING", "ROLLOVER", "REAL DIFFERS", "EXPIRY CHECK", "FUTURE EXTENSION", "CONSISTENT"]
+ACTIONABLE = ("NEW SIGNING", "ROLLOVER", "REAL DIFFERS", "EXPIRY CHECK")
+UPLOAD = ("NEW SIGNING", "ROLLOVER")                                # the ONLY classes that can yield an upload line
 
 
 def _league():
@@ -357,31 +369,39 @@ def basis_of(acq, sid, team):
     return {"state": "full", "label": "basis: %s %s" % (word, _day(lab)), "short": "%s %s" % (word, _day(lab))}
 
 
-OPEN = ("NEW SIGNING", "EXPIRY MISMATCH")                   # open items: listed in EVERY post until closed
+OPEN = ("NEW SIGNING", "ROLLOVER", "EXPIRY CHECK")           # open items: listed in EVERY post until closed
 
 
-def attach_basis(res, acq):
-    """-> the open items, each with x['basis']."""
+def attach_basis(res, acq, holds):
+    """-> the open items, each with x['basis'] and, for an age-flagged one, x['hold']."""
     out = []
-    for x in sorted((x for x in res if x["cls"] in OPEN), key=lambda x: (OPEN.index(x["cls"]), x["row"]["name"])):
-        if x["cls"] == "EXPIRY MISMATCH":                   # the charge is already set and matches: keep it
-            x["basis"] = {"state": x["state"], "label": "basis: existing %s charge matches" % x["state"],
-                          "short": "existing %s charge" % x["state"], "existing": True}
+    for x in (x for x in res if x["cls"] in OPEN):
+        r = x["row"]
+        if x["cls"] == "EXPIRY CHECK":
+            x["basis"] = {"state": "check", "label": "check: not proven wrong, no upload line", "short": "check",
+                          "check": True}
         else:
-            x["basis"] = basis_of(acq, x["row"]["sid"], x["row"]["team"])
+            x["basis"] = basis_of(acq, r["sid"], r["team"])
+            h = holds.get((r["name"], r["team"]))
+            if h is not None:
+                x["hold"] = h
         out.append(x)
+    # ready first, then HOLD, then check
+    out.sort(key=lambda x: (2 if x["basis"].get("check") else 1 if x.get("hold") else 0,
+                            OPEN.index(x["cls"]), x["row"]["name"]))
     return out
 
 
 def open_lines(x, idx):
+    """Upload lines for one open item. NONE for HOLD (rule 5.2) and for a check item."""
     r = x["row"]
     b = x["basis"]
+    if x["cls"] not in UPLOAD or x.get("hold"):
+        return []
 
     def line(c):
         return "*%s*,%d,%s,%s,%s,%d.%02d" % (r["sid"], idx, r["name"], r["nhl"] or "FA", r["pos"], c, x["exp"])
 
-    if b.get("existing"):
-        return [(b["label"], line(x["matched"]))]
     if b["state"] == "full":
         return [(b["label"], line(x["full"]))]
     if b["state"] == "half":
@@ -390,18 +410,68 @@ def open_lines(x, idx):
 
 
 def basis_counts(opens):
-    c = collections.Counter(("existing charge" if x["basis"].get("existing") else x["basis"]["short"].split(" ")[0])
-                            for x in opens)
-    return ", ".join("%s %d" % (k, c[k]) for k in ("claimed", "traded", "drafted", "UNKNOWN", "existing charge") if c[k])
+    ready = collections.Counter(x["basis"]["short"].split(" ")[0] for x in opens
+                                if x["cls"] in UPLOAD and not x.get("hold"))
+    parts = ["ready: " + (", ".join("%s %d" % (k, ready[k]) for k in ("claimed", "traded", "drafted", "UNKNOWN")
+                                    if ready[k]) or "none")]
+    nh = sum(1 for x in opens if x.get("hold"))
+    if nh:
+        parts.append("HOLD rule 5.2: %d" % nh)
+    nc = sum(1 for x in opens if x["cls"] == "EXPIRY CHECK")
+    if nc:
+        parts.append("check: %d" % nc)
+    return "; ".join(parts)
 
 
 def csv_text(opens):
     """Steve's exact format, no header. Only items whose basis is KNOWN."""
     out = []
     for i, x in enumerate(opens, 1):
-        if x["basis"]["state"] != "unknown":
-            out.append(open_lines(x, i)[0][1])
+        ls = open_lines(x, i)
+        if ls and x["basis"]["state"] != "unknown":
+            out.append(ls[0][1])
     return "\n".join(out) + ("\n" if out else "")
+
+
+# ---------------------------------------------------------------- age check (rule 5.2)
+
+def age_holds():
+    """Run pp_eligibility_check's own logic and read its violations. A claimed player
+    under 22 on Sep 15 breaks rule 5.2 and his claim may be reversed, so he must not
+    reach an upload line. -> ({(name, fantasy team): {age, born, by}}, {(name, team)} claimed
+    with no birthdate). If the check cannot run, REFUSE: failing open would let an illegal
+    claim through to the file Steve uploads."""
+    import io, re, contextlib
+    import pp_eligibility_check as ec
+    buf = io.StringIO()
+    try:
+        with contextlib.redirect_stdout(buf):
+            code = ec.main()
+    except SystemExit as e:
+        sys.exit("AGE CHECK DID NOT RUN (%s). Refusing to report: an unchecked claim must not reach an upload line."
+                 % (e.code,))
+    if code not in (0, ec.VIOLATION):
+        sys.exit("AGE CHECK returned %r. Refusing to report." % (code,))
+    holds, unknown = {}, set()
+    for ln in buf.getvalue().splitlines():
+        m = re.match(r"^\s+(.+?), (.+?), age (\d+) on \S+ \(born (\S+)\), claimed by (.+)$", ln)
+        if m:
+            holds[(m.group(1).strip(), m.group(2).strip())] = {"age": int(m.group(3)), "born": m.group(4),
+                                                                  "by": m.group(5).strip()}
+            continue
+        m = re.match(r"^\s+(.+?), (.+?), Fantrax age (\S+)\s+<-- and was CLAIMED", ln)
+        if m:
+            key, fage = (m.group(1).strip(), m.group(2).strip()), m.group(3)
+            # No birthdate, but Fantrax's age TODAY can only be at or above his age on Sep 15,
+            # so a Fantrax age under the minimum proves he was under it on Sep 15 as well.
+            if fage.isdigit() and int(fage) < ec.MIN_AGE:
+                holds[key] = {"age": int(fage), "born": "unresolved (inferred from Fantrax age %s)" % fage,
+                              "by": key[1], "inferred": True}
+            else:
+                unknown.add(key)
+    if code == ec.VIOLATION and not any(not h.get("inferred") for h in holds.values()):
+        sys.exit("AGE CHECK reported violations but none could be parsed. Refusing to report.")
+    return holds, unknown
 
 
 # ---------------------------------------------------------------- classifier
@@ -469,23 +539,25 @@ def classify(rows, index):
         w = r["whole"]
         if w <= 1:
             out["cls"] = "NEW SIGNING"
+        elif 0 < r["dec"] < out["exp"]:
+            # the decimal is the expiry year and it is behind this season: the fantasy
+            # contract has run out and the player now has a new one
+            out["cls"] = "ROLLOVER"
         else:
             hit = [c for c in (full, half) if abs(w - c) <= tol(c)]
             if not hit:
-                out["cls"] = "AAV CHANGE"
+                out["cls"] = "REAL DIFFERS"       # 2.6: Fantrax is the salary, this is information
             else:
                 # nearest candidate; if the two candidates are within tolerance of
                 # each other it cannot matter which
                 out["matched"] = min(hit, key=lambda c: abs(w - c))
                 out["state"] = "full" if out["matched"] == full else "half"
                 if r["dec"] != out["exp"]:
-                    out["cls"] = "EXPIRY MISMATCH"
+                    out["cls"] = "EXPIRY CHECK"
                 elif fut:
                     out["cls"] = "FUTURE EXTENSION"
                 else:
                     out["cls"] = "CONSISTENT"
-        if out["cls"] in ("NEW SIGNING", "AAV CHANGE") and r["dec"] != out["exp"] and r["whole"] > 1:
-            out["note"] = "expiry also differs"
         if fut and out["cls"] != "FUTURE EXTENSION":
             out["note"] = (out["note"] + "; " if out["note"] else "") + "also has a future contract"
         res.append(out)
@@ -515,8 +587,9 @@ def reader_canary(players):
 
 def detector_canary(rows, index, res, tally):
     """Alter ONE Fantrax value on a player who is currently CONSISTENT and prove it
-    yields exactly one more finding. Three alterations, three classes: an AAV that
-    is neither candidate, a wrong expiry decimal, and a $1 placeholder."""
+    yields exactly one more finding. Four alterations, four classes: an AAV that is
+    neither candidate (REAL DIFFERS), a later expiry decimal (EXPIRY CHECK), an expiry
+    decimal behind this season (ROLLOVER) and a $1 placeholder (NEW SIGNING)."""
     base = len(findings_of(res))
     pool = [x for x in res if x["cls"] == "CONSISTENT"]
     if not pool:
@@ -526,8 +599,9 @@ def detector_canary(rows, index, res, tally):
     msgs = []
     for label, change, want in (
             # twice the full AAV is farther than the tolerance from BOTH candidates
-            ("AAV", {"whole": 2 * probe["full"] + 7777}, "AAV CHANGE"),
-            ("expiry", {"dec": (probe["exp"] + 1) % 100}, "EXPIRY MISMATCH"),
+            ("AAV", {"whole": 2 * probe["full"] + 7777}, "REAL DIFFERS"),
+            ("expiry", {"dec": (probe["exp"] + 1) % 100}, "EXPIRY CHECK"),
+            ("rollover", {"dec": probe["exp"] - 1}, "ROLLOVER"),
             ("placeholder", {"whole": 1, "dec": 0}, "NEW SIGNING")):
         alt = [dict(x, **change) if x is pr else x for x in rows]
         r2, _ = classify(alt, index)
@@ -548,31 +622,22 @@ def money_s(x):
     return "{:,.0f}".format(x)
 
 
-def draft_lines(x, idx):
-    r = x["row"]
-
-    def line(charge, exp):
-        return "*%s*,%d,%s,%s,%s,%d.%02d" % (r["sid"], idx, r["name"], r["nhl"] or "FA", r["pos"], charge, exp)
-
-    if x["cls"] == "EXPIRY MISMATCH":                      # charge is already right: keep the matched candidate
-        return [("DRAFT upload line (%s charge matches)" % x["state"], line(x["matched"], x["exp"]))]
-    return [("DRAFT upload line, FULL charge", line(x["full"], x["exp"])),
-            ("DRAFT upload line, HALF charge (drafted, still held by drafting team)", line(x["half"], x["exp"]))]
-
-
 def describe(x):
     r = x["row"]
     sal = r["salary"]
     if x["cls"] == "NEW SIGNING":
         return "%s (%s, %s): Fantrax %s, source %s AAV %s ends %s" % (
             r["name"], r["team"], r["nhl"] or "FA", sal, SEASON_LABEL, money_s(x["aav"]), x["end"])
-    if x["cls"] == "AAV CHANGE":
-        return "%s (%s, %s): Fantrax %s, source AAV %s (half %s) ends %s" % (
+    if x["cls"] == "ROLLOVER":
+        return "%s (%s, %s): Fantrax %s, expiry .%02d has passed, source %s AAV %s ends %s" % (
+            r["name"], r["team"], r["nhl"] or "FA", sal, r["dec"], SEASON_LABEL, money_s(x["aav"]), x["end"])
+    if x["cls"] == "REAL DIFFERS":
+        return "%s (%s, %s): Fantrax %s, CapWages AAV %s (half %s) ends %s. Fantrax stays (constitution 2.6)" % (
             r["name"], r["team"], r["nhl"] or "FA", sal, money_s(x["aav"]), money_s(x["half"]), x["end"])
-    if x["cls"] == "EXPIRY MISMATCH":
-        return "%s (%s, %s): Fantrax %s, expiry .%s but source contract ends %s (.%02d)" % (
+    if x["cls"] == "EXPIRY CHECK":
+        return "%s (%s, %s): Fantrax %s, expiry %s, CapWages contract ends %s (.%02d). Not proven wrong, no upload line" % (
             r["name"], r["team"], r["nhl"] or "FA", sal,
-            "%02d" % r["dec"] if r["dec"] else "00 (none)", x["end"], x["exp"])
+            (".%02d" % r["dec"]) if r["dec"] else ".00 (none)", x["end"], x["exp"])
     k = x["future"]
     first = min(k["seasons"], key=season_start)
     last = max(k["seasons"], key=season_start)
@@ -600,33 +665,30 @@ def render(res, tally, n, canaries, index, fetched, delta_block):
         label = {"UNMATCHED": "UNMATCHED BY NAME", "AMBIGUOUS": "AMBIGUOUS NAME"}.get(c, c)
         out.append("   %-24s %4d  %5.1f%%" % (label, tally.get(c, 0), 100.0 * tally.get(c, 0) / n))
     assert sum(tally.values()) == n, "class counts do not sum to n"
-    ac = sorted(x["row"]["whole"] / x["aav"] for x in res if x["cls"] == "AAV CHANGE")
+    ac = sorted(x["row"]["whole"] / x["aav"] for x in res if x["cls"] == "REAL DIFFERS")
     if ac:
         q = lambda p: ac[min(len(ac) - 1, int(p * len(ac)))]
         bk = collections.Counter("<0.45" if v < 0.45 else "0.45-0.55" if v < 0.55 else "0.55-0.90" if v < 0.9
                                  else "0.90-1.10" if v <= 1.1 else ">1.10" for v in ac)
-        out.append("AAV CHANGE shape, Fantrax whole / source AAV: n=%d, min %.2f, p25 %.2f, median %.2f, p75 %.2f, "
+        out.append("REAL DIFFERS shape, Fantrax whole / source AAV: n=%d, min %.2f, p25 %.2f, median %.2f, p75 %.2f, "
                    "max %.2f; buckets %s" % (len(ac), ac[0], q(.25), q(.5), q(.75), ac[-1],
                                              ", ".join("%s: %d" % (k, bk[k]) for k in
                                                        ("<0.45", "0.45-0.55", "0.55-0.90", "0.90-1.10", ">1.10") if bk[k])))
-    out.append("Open items (new signing + expiry mismatch): %d.  AAV changes: %d.  Reminders (future extension): %d." %
-               (sum(1 for x in fs if x["cls"] in OPEN), tally.get("AAV CHANGE", 0), tally.get("FUTURE EXTENSION", 0)))
+    out.append("Open items (new signing + rollover + expiry check): %d.  Real differs (2.6, information only): %d.  "
+               "Reminders (future extension): %d." %
+               (sum(1 for x in fs if x["cls"] in OPEN), tally.get("REAL DIFFERS", 0), tally.get("FUTURE EXTENSION", 0)))
     unf = [x for x in res if x["cls"] == "UNMATCHED"]
     unf1 = sum(1 for x in unf if x["row"]["whole"] <= 1)
     out.append("Unmatched by name: %d, of which %d are $1 placeholders and %d carry a real salary."
                % (len(unf), unf1, len(unf) - unf1))
     out.append("")
-    idx = 0
-    for cls in ("AAV CHANGE",):                             # open items were listed in the block above
+    for cls in ("REAL DIFFERS",):                           # open items were listed in the block above
         grp = sorted([x for x in fs if x["cls"] == cls], key=lambda x: x["row"]["name"])
         if not grp:
             continue
-        out.append(">>> %s: %d" % (cls, len(grp)))
+        out.append(">>> %s (constitution 2.6, information only, NO upload line): %d" % (cls, len(grp)))
         for x in grp:
-            idx += 1
             out.append("  %s%s" % (describe(x), "  [%s]" % x["note"] if x["note"] else ""))
-            for lab, ln in draft_lines(x, idx):
-                out.append("      %s: %s" % (lab, ln))
         out.append("")
     fu = sorted([x for x in res if x["cls"] == "FUTURE EXTENSION"], key=lambda x: x["row"]["name"])
     if fu:
@@ -707,17 +769,15 @@ def snapshot(res):
 
 
 def delta(prev, cur):
-    """-> list of {kind, sid, now, was}. kind: NEW | MOVED | RESOLVED | FUTURE."""
+    """-> list of {kind, sid, now, was}. kind: NEW | RESOLVED | FUTURE.
+    REAL DIFFERS (2.6) is information only: only a NEW divergence is reported. A
+    divergence that moves or disappears is dropped silently; the baseline is the
+    "known" set and is simply refreshed."""
     out = []
     pf, cf = prev["findings"], cur["findings"]
     for sid in sorted(cf):
         if sid not in pf:
             out.append({"kind": "NEW", "sid": sid, "now": cf[sid], "was": None})
-        elif any(pf[sid][k] != cf[sid][k] for k in ("cls", "fantrax", "source")):
-            out.append({"kind": "MOVED", "sid": sid, "now": cf[sid], "was": pf[sid]})
-    for sid in sorted(pf):
-        if sid not in cf:
-            out.append({"kind": "RESOLVED", "sid": sid, "now": None, "was": pf[sid]})
     for sid in sorted(prev["open"]):                       # an open item that closed: reported once, then dropped
         if sid not in cur["open"]:
             out.append({"kind": "RESOLVED", "sid": sid, "now": None, "was": prev["open"][sid]})
@@ -733,16 +793,17 @@ def delta_digest(items, opens=()):
     lines = ["%s|%s|%s|%s|%s" % (i["kind"], i["sid"], (i["now"] or i["was"]).get("cls", ""),
                                  (i["now"] or {}).get("fantrax", ""), (i["now"] or {}).get("source", ""))
              for i in items]
-    lines += ["OPEN|%s|%s|%s|%d|%s|%s" % (x["row"]["sid"], x["cls"], x["row"]["salary"], x["aav"], x["end"],
-                                          x.get("basis", {}).get("label", ""))
+    lines += ["OPEN|%s|%s|%s|%d|%s|%s|%s" % (x["row"]["sid"], x["cls"], x["row"]["salary"], x["aav"], x["end"],
+                                             x.get("basis", {}).get("label", ""), "HOLD" if x.get("hold") else "")
               for x in opens]
     return hashlib.sha256("\n".join(sorted(lines)).encode()).hexdigest()[:16]
 
 
 def delta_canary(rows, index, res):
-    """Inject ONE new finding and prove the delta contains exactly it. Also: an
-    unchanged day is empty, a fixed finding is exactly one RESOLVED, and a moved
-    Fantrax value is exactly one MOVED. Pure functions on in-memory data."""
+    """Inject ONE new REAL DIFFERS and prove the delta contains exactly it. Also: an
+    unchanged day is empty; a divergence that is fixed or moves is SILENT (2.6: information
+    only); a $1 placeholder or a rollover decimal enters ONLY the open set, changes the
+    digest, and closing it is exactly one RESOLVED. Pure functions on in-memory data."""
     base = snapshot(res)
     if delta(base, base):
         sys.exit("DELTA CANARY FAILED: an identical snapshot produced a non-empty delta. Refusing to report.")
@@ -750,47 +811,41 @@ def delta_canary(rows, index, res):
     if not pool:
         sys.exit("DELTA CANARY FAILED: no CONSISTENT player to inject into. Refusing to report.")
     pr = pool[0]["row"]
+    probe = pool[0]
+    kinds = lambda d: [(i["kind"], i["sid"]) for i in d]
 
     def alt_snapshot(change):
         # the salary STRING is what the snapshot compares, so rebuild it like Fantrax shows it
-        ch = dict(change, salary="{:,}.{:02d}".format(change["whole"], pr["dec"]))
+        ch = dict(change, salary="{:,}.{:02d}".format(change.get("whole", pr["whole"]), change.get("dec", pr["dec"])))
         r2, _ = classify([dict(x, **ch) if x is pr else x for x in rows], index)
         return snapshot(r2)
 
-    inj = alt_snapshot({"whole": 2 * pool[0]["full"] + 7777})
-    d = delta(base, inj)
-    if [(i["kind"], i["sid"]) for i in d] != [("NEW", pr["sid"])]:
-        sys.exit("DELTA CANARY FAILED: injecting one finding for %s gave delta %s, expected exactly one NEW. "
-                 "Refusing to report." % (pr["name"], [(i["kind"], i["sid"]) for i in d]))
-    d = delta(inj, base)
-    if [(i["kind"], i["sid"]) for i in d] != [("RESOLVED", pr["sid"])]:
-        sys.exit("DELTA CANARY FAILED: fixing the injected finding gave %s, expected exactly one RESOLVED. "
-                 "Refusing to report." % [(i["kind"], i["sid"]) for i in d])
-    inj2 = alt_snapshot({"whole": 2 * pool[0]["full"] + 9999})
-    d = delta(inj, inj2)
-    if [(i["kind"], i["sid"]) for i in d] != [("MOVED", pr["sid"])]:
-        sys.exit("DELTA CANARY FAILED: moving the injected finding's Fantrax value gave %s, expected exactly "
-                 "one MOVED. Refusing to report." % [(i["kind"], i["sid"]) for i in d])
-    # open items: a $1 placeholder injected on a consistent player must enter the OPEN set
-    # (and only it), change the digest, and closing it must be exactly one RESOLVED.
+    inj = alt_snapshot({"whole": 2 * probe["full"] + 7777})
+    if kinds(delta(base, inj)) != [("NEW", pr["sid"])] or set(inj["open"]) != set(base["open"]):
+        sys.exit("DELTA CANARY FAILED: injecting one divergence for %s gave delta %s, expected exactly one NEW "
+                 "and no change to the open set. Refusing to report." % (pr["name"], kinds(delta(base, inj))))
+    if delta(inj, base) or delta(inj, alt_snapshot({"whole": 2 * probe["full"] + 9999})):
+        sys.exit("DELTA CANARY FAILED: a fixed or moved divergence was not silent. Refusing to report.")
     if pr["sid"] in base["open"]:
         sys.exit("DELTA CANARY FAILED: %s was already open before injection. Refusing to report." % pr["name"])
-    op = alt_snapshot({"whole": 1, "dec": 0})
-    if set(op["open"]) - set(base["open"]) != {pr["sid"]} or set(base["open"]) - set(op["open"]) \
-            or delta(base, op) or op["findings"] != base["findings"]:
-        sys.exit("DELTA CANARY FAILED: injecting a $1 placeholder for %s did not add exactly that player to the "
-                 "open set and nothing else. Refusing to report." % pr["name"])
-    d = delta(op, base)
-    if [(i["kind"], i["sid"]) for i in d] != [("RESOLVED", pr["sid"])]:
-        sys.exit("DELTA CANARY FAILED: closing the open item gave %s, expected exactly one RESOLVED. "
-                 "Refusing to report." % [(i["kind"], i["sid"]) for i in d])
     mk = lambda snap: [{"row": {"sid": k, "salary": v["fantrax"]}, "cls": v["cls"], "aav": 0, "end": v["source"]}
                        for k, v in snap["open"].items()]
-    if delta_digest([], mk(base)) == delta_digest([], mk(op)) or delta_digest([], mk(base)) != delta_digest([], mk(base)):
-        sys.exit("DELTA CANARY FAILED: the digest does not track the open-item set. Refusing to report.")
-    return ("delta canary passed: one injected finding for %s gave exactly one ADDED, fixing it one RESOLVED, "
-            "moving it one MOVED, an unchanged day none; an injected $1 placeholder entered only the open set, "
-            "changed the digest, and closing it gave exactly one RESOLVED" % pr["name"])
+    for label, change, cls in (("a $1 placeholder", {"whole": 1, "dec": 0}, "NEW SIGNING"),
+                               ("a rollover decimal", {"dec": probe["exp"] - 1}, "ROLLOVER")):
+        op = alt_snapshot(change)
+        if set(op["open"]) - set(base["open"]) != {pr["sid"]} or set(base["open"]) - set(op["open"]) \
+                or op["open"][pr["sid"]]["cls"] != cls or delta(base, op) or op["findings"] != base["findings"]:
+            sys.exit("DELTA CANARY FAILED: injecting %s for %s did not add exactly that player to the open set as "
+                     "%s and nothing else. Refusing to report." % (label, pr["name"], cls))
+        if kinds(delta(op, base)) != [("RESOLVED", pr["sid"])]:
+            sys.exit("DELTA CANARY FAILED: closing the open item (%s) gave %s, expected exactly one RESOLVED. "
+                     "Refusing to report." % (label, kinds(delta(op, base))))
+        if delta_digest([], mk(base)) == delta_digest([], mk(op)) or delta_digest([], mk(base)) != delta_digest([], mk(base)):
+            sys.exit("DELTA CANARY FAILED: the digest does not track the open-item set. Refusing to report.")
+    return ("delta canary passed: one injected divergence for %s gave exactly one NEW and no open item, fixing or "
+            "moving it was silent, an unchanged day gave none; an injected $1 placeholder and an injected rollover "
+            "decimal each entered only the open set, changed the digest, and closing each gave exactly one RESOLVED"
+            % pr["name"])
 
 
 def load_baseline(path):
@@ -804,6 +859,12 @@ def load_baseline(path):
             # earlier baseline folded them into "findings"; move them across so each is still
             # reported RESOLVED once when it closes.
             d.setdefault("open", {})
+            # Renames (2.6): AAV CHANGE -> REAL DIFFERS, EXPIRY MISMATCH -> EXPIRY CHECK. The
+            # existing entries are the "known" set, so a rename must not read as a change.
+            rename = {"AAV CHANGE": "REAL DIFFERS", "EXPIRY MISMATCH": "EXPIRY CHECK"}
+            for sec in ("findings", "open"):
+                for v in d[sec].values():
+                    v["cls"] = rename.get(v["cls"], v["cls"])
             for sid in [k for k, v in d["findings"].items() if v["cls"] in OPEN]:
                 d["open"].setdefault(sid, d["findings"][sid])
                 del d["findings"][sid]
@@ -825,26 +886,21 @@ def save_baseline(path, snap):
 
 
 def seed_line(tally, n):
-    return ("PowerPlay salary watch - %s: baseline seeded, n=%d. new signing %d | aav change %d | expiry mismatch %d "
-            "| future ext %d | consistent %d | unmatched by name %d. From now on only changes are posted."
-            % (datetime.date.today(), n, tally.get("NEW SIGNING", 0), tally.get("AAV CHANGE", 0),
-               tally.get("EXPIRY MISMATCH", 0), tally.get("FUTURE EXTENSION", 0), tally.get("CONSISTENT", 0),
-               tally.get("UNMATCHED", 0)))
+    return ("PowerPlay salary watch - %s: baseline seeded, n=%d. new signing %d | rollover %d | expiry check %d "
+            "| real differs (2.6, info only) %d | future ext %d | consistent %d | unmatched by name %d. "
+            "From now on only changes are posted."
+            % (datetime.date.today(), n, tally.get("NEW SIGNING", 0), tally.get("ROLLOVER", 0),
+               tally.get("EXPIRY CHECK", 0), tally.get("REAL DIFFERS", 0), tally.get("FUTURE EXTENSION", 0),
+               tally.get("CONSISTENT", 0), tally.get("UNMATCHED", 0)))
 
 
 def delta_line(i):
     now, was = i["now"], i["was"]
     nm = (now or was)["name"]
     nhl = (now or was).get("nhl") or "FA"
-    if i["kind"] == "NEW":
-        if now["cls"] == "EXPIRY MISMATCH":
-            return "ADDED %s %s %s: Fantrax %s, expiry should be .%02d" % (now["cls"], nm, nhl, now["fantrax"], now["exp"])
-        return "ADDED %s %s %s: Fantrax %s, AAV %s (half %s) .%02d" % (
-            now["cls"], nm, nhl, now["fantrax"], money_s(now["aav"]), money_s(now["half"]), now["exp"])
-    if i["kind"] == "MOVED":
-        return "MOVED %s %s: %s, Fantrax %s -> %s, AAV %s -> %s" % (
-            nm, nhl, now["cls"], was["fantrax"], now["fantrax"],
-            money_s(float(was["source"].split("|")[0])), money_s(now["aav"]))
+    if i["kind"] == "NEW":                                    # only REAL DIFFERS produces a NEW
+        return "REAL DIFFERS (2.6) %s %s: Fantrax %s, CapWages AAV %s. Info only, Fantrax stays (constitution 2.6)" % (
+            nm, nhl, now["fantrax"], money_s(now["aav"]))
     if i["kind"] == "RESOLVED":
         return "RESOLVED %s %s: was %s, Fantrax was %s" % (nm, nhl, was["cls"], was["fantrax"])
     return "FUTURE (reminder, once) %s %s: signed %s to %s, %s AAV%s" % (
@@ -855,15 +911,17 @@ def open_short(x, prev_open):
     r = x["row"]
     b = x["basis"]
     mark = "+" if r["sid"] not in prev_open else " "
-    if b.get("existing"):
-        return "%s%s %s %s: expiry .%02d, keep %s (%s)" % (mark, r["name"], r["nhl"] or "FA", r["short"], x["exp"],
-                                                       money_s(x["matched"]), b["short"])
+    who = "%s %s %s" % (r["name"], r["nhl"] or "FA", r["short"])
+    if x["cls"] == "EXPIRY CHECK":
+        return "%sCHECK %s: expiry %s, CapWages ends .%02d, not proven wrong, no line" % (
+            mark, who, (".%02d" % r["dec"]) if r["dec"] else ".00", x["exp"])
+    tag = "ROLLOVER " if x["cls"] == "ROLLOVER" else ""
+    if x.get("hold"):
+        return "%sHOLD: rule 5.2 %s%s: age %d, %s, no upload line" % (mark, tag, who, x["hold"]["age"], b["short"])
     if b["state"] == "unknown":
-        return "%s%s %s %s: %s / %s .%02d UNKNOWN full/half" % (mark, r["name"], r["nhl"] or "FA", r["short"],
-                                                           money_s(x["full"]), money_s(x["half"]), x["exp"])
+        return "%s%s%s: %s / %s .%02d UNKNOWN full/half" % (mark, tag, who, money_s(x["full"]), money_s(x["half"]), x["exp"])
     c = x["full"] if b["state"] == "full" else x["half"]
-    return "%s%s %s %s: %d.%02d %s %s" % (mark, r["name"], r["nhl"] or "FA", r["short"], c, x["exp"],
-                                         b["state"].upper(), b["short"])
+    return "%s%s%s: %d.%02d %s %s" % (mark, tag, who, c, x["exp"], b["state"].upper(), b["short"])
 
 
 def compact(items, seeded, tally, n, digest, opens, prev_open):
@@ -874,20 +932,26 @@ def compact(items, seeded, tally, n, digest, opens, prev_open):
         o.append(seed_line(tally, n))
     else:
         kinds = collections.Counter(i["kind"] for i in items)
-        o.append("PowerPlay salary watch - %s, n=%d. AAV changes since last report: %s" % (
+        o.append("PowerPlay salary watch - %s, n=%d. Since last report: %s" % (
             datetime.date.today(), n,
-            ", ".join("%s %d" % (k.lower(), kinds[k]) for k in ("NEW", "MOVED", "RESOLVED", "FUTURE") if kinds[k])
-            or "none"))
+            ", ".join("%s %d" % (lab, kinds[k]) for k, lab in (("NEW", "new real-life divergence (2.6)"),
+                                                                ("RESOLVED", "resolved"), ("FUTURE", "future ext"))
+                      if kinds[k]) or "nothing new"))
     if opens:
         cc = collections.Counter(x["cls"] for x in opens)
-        o.append("OPEN ITEMS %d (%s). Basis: %s. (+ = new since last report)" % (
-            len(opens), ", ".join("%s %d" % (k.lower(), cc[k]) for k in OPEN if cc[k]), basis_counts(opens)))
+        o.append("OPEN ITEMS %d (%s). %s. Upload lines: %d. (+ = new since last report)" % (
+            len(opens), ", ".join("%s %d" % (k.lower(), cc[k]) for k in OPEN if cc[k]), basis_counts(opens),
+            len(csv_text(opens).splitlines())))
     else:
         o.append("OPEN ITEMS 0")
     used = len("\n".join(o))
     budget = POST_MAX - 120                                  # leave room for the closing line
-    lines = [open_short(x, prev_open) for x in opens]
-    order = {"RESOLVED": 0, "NEW": 1, "MOVED": 2, "FUTURE": 3}
+    lines = [open_short(x, prev_open) for x in opens if not x.get("hold")]
+    held = [x for x in opens if x.get("hold")]
+    if held:                                                 # one line, so all of them stay visible
+        lines.append("HOLD: rule 5.2, no upload line (%d): %s" % (
+            len(held), ", ".join("%s %s" % (x["row"]["name"], x["row"]["short"]) for x in held)))
+    order = {"RESOLVED": 0, "NEW": 1, "FUTURE": 2}
     lines += [delta_line(i) for i in sorted(items, key=lambda i: (order[i["kind"]], (i["now"] or i["was"])["name"]))
               if not seeded or i["kind"] == "RESOLVED"]
     shown = 0
@@ -907,30 +971,33 @@ def render_delta(items, seeded, res, tally, n, opens, prev_open):
     """The open-item and delta blocks at the top of the full report, with upload lines."""
     out = []
     if seeded:
-        out += [">>> BASELINE SEEDED (first run). AAV changes are in the full list below; the post carries one line.",
+        out += [">>> BASELINE SEEDED (first run). REAL DIFFERS are in the full list below; the post carries one line.",
                 seed_line(tally, n), ""]
     cc = collections.Counter(x["cls"] for x in opens)
-    out.append(">>> OPEN ITEMS (listed in every post until closed): %d  (%s).  Basis: %s" % (
-        len(opens), ", ".join("%s %d" % (k, cc[k]) for k in OPEN if cc[k]) or "none", basis_counts(opens) or "n/a"))
+    out.append(">>> OPEN ITEMS (listed in every post until closed): %d  (%s).  %s.  Upload lines: %d" % (
+        len(opens), ", ".join("%s %d" % (k, cc[k]) for k in OPEN if cc[k]) or "none", basis_counts(opens) or "n/a",
+        len(csv_text(opens).splitlines())))
     for i, x in enumerate(opens, 1):
         r = x["row"]
         out.append("  %s%s%s" % ("+ " if r["sid"] not in prev_open else "", describe(x),
                                  "  [%s]" % x["note"] if x["note"] else ""))
+        if x.get("hold"):
+            out.append("      HOLD: rule 5.2. Age %d on Sep 15 (born %s), claimed by %s. No upload line: the claim "
+                       "may be reversed." % (x["hold"]["age"], x["hold"]["born"], x["hold"]["by"]))
+        elif x.get("age_unknown"):
+            out.append("      note: claimed, but the age check found no birthdate, so rule 5.2 is UNCHECKED for him")
+        if x["basis"].get("check"):
+            out.append("      " + x["basis"]["label"])
         for lab, ln in open_lines(x, i):
             out.append("      %s: %s" % (lab, ln))
     out.append("")
     if not seeded:
-        byid = {x["row"]["sid"]: x for x in res}
-        out.append(">>> AAV DELTA since the last report: %d  (%s)" % (
+        out.append(">>> SINCE THE LAST REPORT: %d  (%s)" % (
             len(items), ", ".join("%s %d" % (k, sum(1 for i in items if i["kind"] == k))
-                                  for k in ("NEW", "MOVED", "RESOLVED", "FUTURE")
+                                  for k in ("NEW", "RESOLVED", "FUTURE")
                                   if any(i["kind"] == k for i in items)) or "nothing changed"))
         for i in items:
             out.append("  " + delta_line(i))
-            x = byid.get(i["sid"])
-            if i["kind"] in ("NEW", "MOVED") and x is not None:
-                for lab, ln in draft_lines(x, 0):
-                    out.append("      %s: %s" % (lab, ln))
         out.append("")
     return out
 
@@ -1006,7 +1073,11 @@ def main():
     items = [] if seeded else delta(prev, cur)
     prev_open = {} if seeded else prev["open"]
     acq = read_history(api) if any(x["cls"] in OPEN for x in res) else {}
-    opens = attach_basis(res, acq)
+    holds, unk = age_holds() if any(x["cls"] in UPLOAD for x in res) else ({}, set())
+    opens = attach_basis(res, acq, holds)
+    for x in opens:
+        if x["cls"] in UPLOAD and not x.get("hold") and (x["row"]["name"], x["row"]["team"]) in unk:
+            x["age_unknown"] = True
     if seeded:
         digest = hashlib.sha256(("seed|" + seed_line(tally, len(rows))[len("PowerPlay salary watch - "):]
                                  ).encode()).hexdigest()[:16]
