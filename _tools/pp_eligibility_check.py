@@ -167,6 +167,10 @@ def main():
             att = json.loads(af.read_text())
         for n, (team, fage) in sorted(cands.items()):
             bd = birthdate(n, cache)
+            if not bd and att.get(n, {}).get("birth_date"):
+                # a birthdate supplied by a commissioner, recorded with who and when;
+                # it decides the case either way (EB 2026-10-04, Weiermair)
+                bd = att[n]["birth_date"]
             if not bd:
                 # a human who knows the player is better evidence than a missing
                 # record. Attestation is recorded with WHO and WHEN, so it can be
