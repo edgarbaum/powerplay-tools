@@ -1,6 +1,6 @@
 {
  "_note": "Two INDEPENDENT orders, per EB's ruling of 2026-09-20. Free agent bidding and the in-season waiver wire do not touch each other. Every change to either belongs in a commit, so git log IS the audit trail a disputing GM can be shown.",
- "as_of": "2026-09-28",
+ "as_of": "2026-10-04",
  "waiver_order": {
   "fantrax_name": "Waiver Wire Order",
   "channel": "#26-27-waiver-claim-order",
@@ -46,13 +46,11 @@
   "fantrax_name": "Bid Tie-Breaker Order",
   "channel": "#26-27-fa-claim-order",
   "uses_budget": true,
-  "state": "After the 2026-09-27 claim run: 30 awards, $308, 10 teams moved to the back in order of their last win.",
-  "verified": "Recomputed 2026-09-28 from the prior order plus the Awards tab of PP-CLAIM-RUN-2026-09-27-FINAL.xlsx; matches all 32 positions. Live Fantrax checked the same day: 30 of 30 awarded players on the awarded team, 32 of 32 claim budgets equal pre-run minus spend.",
+  "state": "After the 2026-10-04 free agency run: 14 players awarded.",
+  "verified": "Engine-resolved from the 2026-09-28 order (PP-CLAIM-RUN-2026-10-04-AS-IT-SHOULD-HAVE-RUN.xlsx); pp_verify_run PASS with its order check on computed values, and canaries fail as they should. 11 claims on draft-protected players rejected and refunded; those teams moved back at the penalty, per the 2026-09-20 precedent (EB 2026-10-04 Y3.a).",
   "order": [
    "Philadelphia Flyers",
-   "Montreal Canadiens",
    "St. Louis Blues",
-   "Colorado Avalanche",
    "Vegas Golden Knights",
    "Pittsburgh Penguins",
    "Ottawa Senators",
@@ -68,19 +66,21 @@
    "Seattle Kraken",
    "Utah Mammoth",
    "New York Islanders",
-   "Tampa Bay Lightning",
    "Dallas Stars",
    "Winnipeg Jets",
-   "Toronto Maple Leafs",
    "Buffalo Sabres",
    "Carolina Hurricanes",
    "Minnesota Wild",
    "Boston Bruins",
-   "Washington Capitals",
+   "San Jose Sharks",
+   "Tampa Bay Lightning",
+   "Colorado Avalanche",
+   "Toronto Maple Leafs",
    "Anaheim Ducks",
    "Calgary Flames",
-   "San Jose Sharks",
-   "New York Rangers"
+   "New York Rangers",
+   "Washington Capitals",
+   "Montreal Canadiens"
   ]
  }
 }
