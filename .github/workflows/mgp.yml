@@ -1,0 +1,100 @@
+name: mgp
+
+# Daily MGP tracker, constitution v25 section 5.5: 1,200 man-games played in ACTIVE
+# slots. READ ONLY. Findings go to the TEST channel only.
+#
+# GitHub skips many scheduled runs, so four are scheduled (09, 10, 11, 12 UTC, which
+# is 5 to 8 a.m. Eastern, after the day's scoring has settled) and a once-per-day
+# marker in _tools/state/ makes only the first SUCCESSFUL one do the work. The marker
+# is written after the check and the post both succeeded; a run that crashed, or whose
+# standings witness refused, leaves it unset and the next slot retries. Manual and
+# push runs ignore the marker: they are someone asking.
+
+on:
+  schedule:
+    - cron: "0 9 * * *"
+    - cron: "0 10 * * *"
+    - cron: "0 11 * * *"
+    - cron: "0 12 * * *"
+  workflow_dispatch:
+  push:
+    paths:
+      - "_tools/pp_mgp.py"
+      - ".github/workflows/mgp.yml"
+
+concurrency:
+  group: mgp
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Once-per-day guard
+        id: guard
+        run: |
+          today=$(date -u +%F)
+          echo "today=$today" >> $GITHUB_OUTPUT
+          done=$(cat _tools/state/mgp_done 2>/dev/null || true)
+          if [ "${{ github.event_name }}" = "schedule" ] && [ "$done" = "$today" ]; then
+            echo "skip=true" >> $GITHUB_OUTPUT
+            echo "already done for $today, nothing to do"
+          else
+            echo "skip=false" >> $GITHUB_OUTPUT
+          fi
+      - uses: actions/setup-python@v5
+        if: steps.guard.outputs.skip != 'true'
+        with:
+          python-version: "3.12"
+      - if: steps.guard.outputs.skip != 'true'
+        run: pip install -r requirements.txt
+      - name: MGP tracker, daily rosters against the standings
+        id: check
+        if: steps.guard.outputs.skip != 'true'
+        run: |
+          set +e
+          python _tools/pp_mgp.py --post-out "$RUNNER_TEMP/post.txt" | tee "$RUNNER_TEMP/out.txt"
+          echo "code=${PIPESTATUS[0]}" >> $GITHUB_OUTPUT
+      - name: Keep the full report, every team
+        if: always() && steps.guard.outputs.skip != 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: mgp-report
+          path: ${{ runner.temp }}/out.txt
+          if-no-files-found: ignore
+      - name: Post to the TEST channel only, and only when a new day was processed
+        if: steps.guard.outputs.skip != 'true' && steps.check.outputs.code == '3'
+        env:
+          PP_CHANNEL_OVERRIDE: ${{ vars.PP_CHANNEL_OVERRIDE }}
+          PP_DISCORD_WEBHOOK_TEST: ${{ secrets.PP_DISCORD_PP_BOT_TEST }}
+        run: python _tools/pp_discord_post.py --test --gate mgp --stdin < "$RUNNER_TEMP/post.txt"
+      - name: Mark today done
+        if: steps.guard.outputs.skip != 'true' && (steps.check.outputs.code == '0' || steps.check.outputs.code == '3')
+        run: echo "${{ steps.guard.outputs.today }}" > _tools/state/mgp_done
+      - name: Persist state
+        if: steps.guard.outputs.skip != 'true'
+        run: |
+          git config user.name  "powerplay-bot"
+          git config user.email "powerplay-bot@users.noreply.github.com"
+          git add _tools/state
+          git diff --staged --quiet && exit 0
+          git commit -q -m "state: mgp $(date -u +%FT%TZ)"
+          # Workflows commit state concurrently, so a plain push loses the race.
+          # Rebase onto whatever landed first and try again.
+          for i in 1 2 3 4 5; do
+            git push -q && exit 0
+            echo "push rejected, rebasing (attempt $i)"
+            git pull --rebase -q origin main || exit 1
+            sleep $((i * 3))
+          done
+          echo "could not push state after 5 attempts"
+          exit 1
+      - name: Fail loudly if the check itself crashed or the witness refused
+        if: steps.guard.outputs.skip != 'true' && steps.check.outputs.code != '0' && steps.check.outputs.code != '3'
+        run: |
+          echo "check exited ${{ steps.check.outputs.code }}: a crash or a refused witness, NOT a finding"
+          exit 1
