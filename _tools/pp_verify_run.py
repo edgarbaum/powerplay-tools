@@ -23,6 +23,10 @@ Exit 0 only if every check passes. Anything else means do not send it.
 """
 import sys, csv, json, collections, itertools, pathlib, datetime
 
+def byp_all(bids, p):
+    return [b for b in bids if b["p"] == p]
+
+
 def main():
     if len(sys.argv) < 4:
         sys.exit(__doc__)
@@ -32,6 +36,9 @@ def main():
     tag = d.strftime("%b %-d") if hasattr(d, "strftime") else runday
 
     wb = load_workbook(wbp)
+    # the Results order is only checkable on COMPUTED values. Reading formulas made
+    # check 7 below a silent no-op on every recalculated workbook (found 2026-10-04).
+    wbv = load_workbook(wbp, data_only=True)
     fail, warn = [], []
 
     # --- inputs as the workbook holds them ---
@@ -51,7 +58,8 @@ def main():
         if not p: break
         awards.append(dict(rnd=A.cell(row=r, column=1).value, p=p,
                            t=A.cell(row=r, column=3).value,
-                           price=float(A.cell(row=r, column=4).value or 0)))
+                           price=float(A.cell(row=r, column=4).value or 0),
+                           pen="PENALTY" in str(A.cell(row=r, column=5).value or "").upper()))
     T = wb["Teams"]
     order, budget = [], {}
     for r in range(2, 34):
@@ -74,8 +82,12 @@ def main():
     if noage:
         fail.append("no age for %d bid target(s): %s" % (len(noage), ", ".join(noage[:6])))
     under = sorted({b["p"] for b in bids if isinstance(b["age"], (int, float)) and b["age"] < 22})
-    if under:
-        warn.append("under 22, must be a penalty not an award: %s" % ", ".join(under))
+    pens = {a["p"] for a in awards if a["pen"]}
+    for p in under:
+        if any(a["p"] == p and not a["pen"] for a in awards):
+            fail.append("%s is under 22 and was AWARDED; it must be a penalty" % p)
+        elif p not in pens and any(b["p"] == p for b in bids):
+            warn.append("%s is under 22 and was bid on but has no penalty row" % p)
 
     # --- 4. duplicate priorities ---
     for t, cs in itertools.groupby(sorted(bids, key=lambda c: c["t"]), key=lambda c: c["t"]):
@@ -87,7 +99,15 @@ def main():
     # --- 5. every award must be the highest bid actually filed on that player ---
     byp = collections.defaultdict(list)
     for b in bids: byp[b["p"]].append(b)
-    for a in awards:
+    for a in [x for x in awards if x["pen"]]:
+        # a penalty: the player must be under 22, the price 0, and the team must have bid on him
+        if a["p"] not in under:
+            fail.append("%s recorded as a PENALTY but is not under 22" % a["p"])
+        if a["price"]:
+            fail.append("%s penalty carries a price of $%.0f; must be 0" % (a["p"], a["price"]))
+        if not any(x["t"] == a["t"] for x in byp_all(bids, a["p"])):
+            fail.append("%s penalty charged to %s, who filed no bid on him" % (a["p"], a["t"]))
+    for a in [x for x in awards if not x["pen"]]:
         field = byp.get(a["p"], [])
         if not field:
             fail.append("awarded %s but nobody bid on him" % a["p"]); continue
@@ -109,7 +129,7 @@ def main():
     base = {t: i + 1 for i, t in enumerate(order)}
     lw = {a["t"]: a["rnd"] for a in sorted(awards, key=lambda x: x["rnd"] or 0)}
     want = [t for t in order if t not in lw] + sorted(lw, key=lambda t: lw[t])
-    R = wb["Results"]
+    R = wbv["Results"]
     got = [(R.cell(row=r, column=1).value, R.cell(row=r, column=2).value) for r in range(2, 34)]
     unrecalculated = any(isinstance(x, str) and x.startswith("=") for g in got for x in g)
     if unrecalculated or all(g[0] is None for g in got):
