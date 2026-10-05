@@ -315,7 +315,6 @@ def render(state, start, witness_line, canary_lines, new_periods):
     # EB 2026-10-05: ALL 32 teams, alphabetical by official 3-letter code, narrow enough not to wrap
     # in Discord on a phone (about 45 characters a line). The distribution is the table itself.
     post = ["PowerPlay games played (GP), thru %s" % thru.strftime("%b %d"),
-            "Day %d of %d. Floor: %s GP in active slots." % (last, SEASON_DAYS, "{:,}".format(MIN_MGP)),
             "",
             "TEAM  GP  PACE   PROJ  DEAD  AVD",
             "----  --  ----  -----  ----  ---"]
@@ -324,16 +323,7 @@ def render(state, start, witness_line, canary_lines, new_periods):
         post.append("%-4s %3d  %4s  %5s  %4d  %3d%s" % (
             r["name"], r["lineup"], ("%.0f%%" % (100 * r["pace"])) if r["pace"] is not None else "n/a",
             n0(r["proj"]) if r["proj"] is not None else "n/a", r["dead"], r["avoid"], flag))
-    post += ["",
-             "! = projected below %s (%d of %d teams)" % ("{:,}".format(MIN_MGP), len(under), len(paced)),
-             "GP   = games by players in active slots",
-             "PACE = GP / games available to them",
-             "PROJ = PACE x %s, the season projection" % "{:,}".format(CEILING),
-             "DEAD = active player's club played, he",
-             "       did not (scratched, AHL, backup G)",
-             "AVD  = games a better lineup would have",
-             "       counted (bench and minors included)",
-             "Checked against Fantrax standings."]
+    post += ["", "! = projected below %s" % "{:,}".format(MIN_MGP)]     # EB 2026-10-05: just the table
     return full, post
 
 
