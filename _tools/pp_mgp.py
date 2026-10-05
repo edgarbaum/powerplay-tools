@@ -371,10 +371,14 @@ def main():
     if state["last_period"] > last_done:
         sys.exit("state is at period %d but the standings are only through %d. Refusing to report."
                  % (state["last_period"], last_done))
-    if state["last_period"] == last_done:
+    nothing_new = state["last_period"] == last_done
+    if nothing_new and not post_out:
         print("#DIGEST " + hashlib.sha256(("nothing-new|%d" % last_done).encode()).hexdigest()[:16])
         print("No new completed period: state and standings are both through period %d." % last_done)
         return 0
+    # With --post-out and nothing new, still re-witness the saved totals against the standings and
+    # write the season-to-date report: the weekly channel post needs it even when the daily run
+    # already processed today (2026-10-05: the weekly step failed for want of a report).
 
     names = {t.team_id: t.name for t in teams}
     cum = {tid: dict({k: 0 for k in KEYS}, **state["teams"].get(tid, {})) for tid in names}
@@ -420,6 +424,8 @@ def main():
         if len(txt) > POST_MAX:
             txt = txt[:POST_MAX - 40].rsplit("\n", 1)[0] + "\n... (truncated)"
         pathlib.Path(post_out).write_text("#DIGEST " + digest + "\n" + txt + "\n")
+    if nothing_new:
+        return 0                                           # report written; state unchanged
     if record:
         save_state(state_path, new_state)
     return FINDINGS
