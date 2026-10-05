@@ -1,6 +1,6 @@
 name: mgp
 
-# Weekly MGP tracker, constitution v25 section 5.5: 1,200 man-games played in ACTIVE
+# Weekly MGP tracker (launch re-run 2026-10-05 after the gp webhook was replaced), constitution v25 section 5.5: 1,200 man-games played in ACTIVE
 # slots. READ ONLY. Findings go to the TEST channel only.
 #
 # GitHub skips many scheduled runs, so four are scheduled (09, 10, 11, 12 UTC, which
