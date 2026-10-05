@@ -39,6 +39,7 @@ jobs:
         run: |
           today=$(date -u +%F)
           echo "today=$today" >> $GITHUB_OUTPUT
+          echo "weekday=$(date -u +%u)" >> $GITHUB_OUTPUT
           done=$(cat _tools/state/mgp_done 2>/dev/null || true)
           if [ "${{ github.event_name }}" = "schedule" ] && [ "$done" = "$today" ]; then
             echo "skip=true" >> $GITHUB_OUTPUT
@@ -72,6 +73,18 @@ jobs:
           PP_CHANNEL_OVERRIDE: ${{ vars.PP_CHANNEL_OVERRIDE }}
           PP_DISCORD_WEBHOOK_TEST: ${{ secrets.PP_DISCORD_PP_BOT_TEST }}
         run: python _tools/pp_discord_post.py --test --gate mgp --stdin < "$RUNNER_TEMP/post.txt"
+      - name: Weekly post to #26-27-team-gp-tracker (Mondays), falling back to TEST until its webhook exists
+        # EB 2026-10-05: "I'd like to start having that update weekly." Monday covers the week through
+        # Sunday's processing. Until the repo secret PP_DISCORD_26_27_TEAM_GP_TRACKER is added, the weekly
+        # post goes to the test channel, so nothing fails while the channel is being set up.
+        if: steps.guard.outputs.skip != 'true' && (steps.check.outputs.code == '0' || steps.check.outputs.code == '3') && (github.event_name == 'workflow_dispatch' || steps.guard.outputs.weekday == '1')
+        env:
+          PP_CHANNEL_OVERRIDE: ${{ vars.PP_CHANNEL_OVERRIDE }}
+          PP_DISCORD_WEBHOOK_TEST: ${{ secrets.PP_DISCORD_PP_BOT_TEST }}
+          PP_DISCORD_WEBHOOK_GP: ${{ secrets.PP_DISCORD_26_27_TEAM_GP_TRACKER }}
+        run: |
+          if [ -n "$PP_DISCORD_WEBHOOK_GP" ]; then ch=--gp; else ch=--test; echo "no gp webhook yet, posting weekly to test"; fi
+          python _tools/pp_discord_post.py $ch --gate mgp-weekly --stdin < "$RUNNER_TEMP/post.txt"
       - name: Mark today done
         if: steps.guard.outputs.skip != 'true' && (steps.check.outputs.code == '0' || steps.check.outputs.code == '3')
         run: echo "${{ steps.guard.outputs.today }}" > _tools/state/mgp_done

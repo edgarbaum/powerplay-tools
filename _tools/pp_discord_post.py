@@ -44,11 +44,13 @@ HOOK_FILE = {"public": SECRETS / "discord_webhook_public",
              "ops": SECRETS / "discord_webhook_ops",
              "fa": SECRETS / "discord_webhook_fa",
              "waiver": SECRETS / "discord_webhook_waiver",
+             "gp": SECRETS / "discord_webhook_gp",
              "test": SECRETS / "discord_webhook"}
 HOOK_ENV = {"public": "PP_DISCORD_WEBHOOK",
             "ops": "PP_DISCORD_WEBHOOK_OPS",
             "fa": "PP_DISCORD_WEBHOOK_FA",
             "waiver": "PP_DISCORD_WEBHOOK_WAIVER",
+            "gp": "PP_DISCORD_WEBHOOK_GP",           # #26-27-team-gp-tracker (EB 2026-10-05)
             "test": "PP_DISCORD_WEBHOOK_TEST"}
 
 def resolve_channel(channel):
@@ -168,9 +170,9 @@ if __name__ == "__main__":
     args = [a for a in sys.argv[1:]]
     dry = "--dry" in args
     channel = "public"
-    for c in ("ops", "fa", "waiver", "test"):
+    for c in ("ops", "fa", "waiver", "test", "gp"):
         if "--" + c in args: channel = c
-    args = [a for a in args if a not in ("--dry", "--ops", "--fa", "--waiver", "--test")]
+    args = [a for a in args if a not in ("--dry", "--ops", "--fa", "--waiver", "--test", "--gp")]
     gate = None
     if "--gate" in args:
         i = args.index("--gate")
