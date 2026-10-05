@@ -77,11 +77,22 @@ jobs:
           PP_CHANNEL_OVERRIDE: ${{ vars.PP_CHANNEL_OVERRIDE }}
           PP_DISCORD_WEBHOOK_TEST: ${{ secrets.PP_DISCORD_PP_BOT_TEST }}
         run: python _tools/pp_discord_post.py --test --gate mgp --stdin < "$RUNNER_TEMP/post.txt"
+      - name: One-time launch of #26-27-team-gp-tracker, the pin-able intro first (EB 2026-10-05)
+        id: launch
+        if: steps.guard.outputs.skip != 'true' && hashFiles('_tools/state/gp_launched') == ''
+        env:
+          PP_CHANNEL_OVERRIDE: ${{ vars.PP_CHANNEL_OVERRIDE }}
+          PP_DISCORD_WEBHOOK_GP: ${{ secrets.PP_DISCORD_26_27_TEAM_GP_TRACKER }}
+          PP_DISCORD_WEBHOOK_TEST: ${{ secrets.PP_DISCORD_PP_BOT_TEST }}
+        run: |
+          if [ -z "$PP_DISCORD_WEBHOOK_GP" ]; then echo "no gp webhook, launch waits"; exit 0; fi
+          python _tools/pp_discord_post.py --gp "$(cat _tools/gp_tracker_intro.md)"
+          echo "go=true" >> $GITHUB_OUTPUT
       - name: Weekly post to #26-27-team-gp-tracker (Mondays), falling back to TEST until its webhook exists
         # EB 2026-10-05: "I'd like to start having that update weekly." Monday covers the week through
         # Sunday's processing. Until the repo secret PP_DISCORD_26_27_TEAM_GP_TRACKER is added, the weekly
         # post goes to the test channel, so nothing fails while the channel is being set up.
-        if: steps.guard.outputs.skip != 'true' && (steps.check.outputs.code == '0' || steps.check.outputs.code == '3') && (github.event_name == 'workflow_dispatch' || github.event_name == 'schedule')
+        if: steps.guard.outputs.skip != 'true' && (steps.check.outputs.code == '0' || steps.check.outputs.code == '3') && (github.event_name == 'workflow_dispatch' || github.event_name == 'schedule' || steps.launch.outputs.go == 'true')
         env:
           PP_CHANNEL_OVERRIDE: ${{ vars.PP_CHANNEL_OVERRIDE }}
           PP_DISCORD_WEBHOOK_TEST: ${{ secrets.PP_DISCORD_PP_BOT_TEST }}
@@ -89,6 +100,9 @@ jobs:
         run: |
           if [ -n "$PP_DISCORD_WEBHOOK_GP" ]; then ch=--gp; else ch=--test; echo "no gp webhook yet, posting weekly to test"; fi
           python _tools/pp_discord_post.py $ch --gate mgp-weekly --stdin < "$RUNNER_TEMP/post.txt"
+      - name: Record the launch so it never repeats
+        if: steps.launch.outputs.go == 'true'
+        run: date -u +%FT%TZ > _tools/state/gp_launched
       - name: Mark today done
         if: steps.guard.outputs.skip != 'true' && (steps.check.outputs.code == '0' || steps.check.outputs.code == '3')
         run: echo "${{ steps.guard.outputs.today }}" > _tools/state/mgp_done
