@@ -1,6 +1,6 @@
 name: mgp
 
-# Daily MGP tracker, constitution v25 section 5.5: 1,200 man-games played in ACTIVE
+# Weekly MGP tracker, constitution v25 section 5.5: 1,200 man-games played in ACTIVE
 # slots. READ ONLY. Findings go to the TEST channel only.
 #
 # GitHub skips many scheduled runs, so four are scheduled (09, 10, 11, 12 UTC, which
@@ -11,11 +11,15 @@ name: mgp
 # push runs ignore the marker: they are someone asking.
 
 on:
+  # EB 2026-10-05: weekly, Mondays at 3 to 4 a.m. Eastern, once. Cron is UTC and GitHub runs
+  # scheduled jobs late or not at all, so four Monday slots are scheduled (07:00 to 10:00 UTC,
+  # which covers 3 to 4 a.m. Eastern before and after the Nov 1 clock change) and the
+  # once-per-week guard below lets only the first successful one do the work.
   schedule:
-    - cron: "0 9 * * *"
-    - cron: "0 10 * * *"
-    - cron: "0 11 * * *"
-    - cron: "0 12 * * *"
+    - cron: "0 7 * * 1"
+    - cron: "0 8 * * 1"
+    - cron: "0 9 * * 1"
+    - cron: "0 10 * * 1"
   workflow_dispatch:
   push:
     paths:
@@ -37,7 +41,7 @@ jobs:
       - name: Once-per-day guard
         id: guard
         run: |
-          today=$(date -u +%F)
+          today=$(date -u +%G-W%V)          # once per ISO week
           echo "today=$today" >> $GITHUB_OUTPUT
           echo "weekday=$(date -u +%u)" >> $GITHUB_OUTPUT
           done=$(cat _tools/state/mgp_done 2>/dev/null || true)
@@ -67,8 +71,8 @@ jobs:
           name: mgp-report
           path: ${{ runner.temp }}/out.txt
           if-no-files-found: ignore
-      - name: Post to the TEST channel only, and only when a new day was processed
-        if: steps.guard.outputs.skip != 'true' && steps.check.outputs.code == '3'
+      - name: Post to the TEST channel, on code pushes only (the weekly post below is the real one)
+        if: steps.guard.outputs.skip != 'true' && steps.check.outputs.code == '3' && github.event_name == 'push'
         env:
           PP_CHANNEL_OVERRIDE: ${{ vars.PP_CHANNEL_OVERRIDE }}
           PP_DISCORD_WEBHOOK_TEST: ${{ secrets.PP_DISCORD_PP_BOT_TEST }}
@@ -77,7 +81,7 @@ jobs:
         # EB 2026-10-05: "I'd like to start having that update weekly." Monday covers the week through
         # Sunday's processing. Until the repo secret PP_DISCORD_26_27_TEAM_GP_TRACKER is added, the weekly
         # post goes to the test channel, so nothing fails while the channel is being set up.
-        if: steps.guard.outputs.skip != 'true' && (steps.check.outputs.code == '0' || steps.check.outputs.code == '3') && (github.event_name == 'workflow_dispatch' || steps.guard.outputs.weekday == '1')
+        if: steps.guard.outputs.skip != 'true' && (steps.check.outputs.code == '0' || steps.check.outputs.code == '3') && (github.event_name == 'workflow_dispatch' || github.event_name == 'schedule')
         env:
           PP_CHANNEL_OVERRIDE: ${{ vars.PP_CHANNEL_OVERRIDE }}
           PP_DISCORD_WEBHOOK_TEST: ${{ secrets.PP_DISCORD_PP_BOT_TEST }}
