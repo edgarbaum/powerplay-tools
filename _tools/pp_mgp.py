@@ -380,7 +380,8 @@ def main():
     # write the season-to-date report: the weekly channel post needs it even when the daily run
     # already processed today (2026-10-05: the weekly step failed for want of a report).
 
-    names = {t.team_id: t.name for t in teams}
+    # EB 2026-10-04: official 3-letter team codes in every output (Fantrax short = NHL code, verified 32/32)
+    names = {t.team_id: (t.short or t.name) for t in teams}
     cum = {tid: dict({k: 0 for k in KEYS}, **state["teams"].get(tid, {})) for tid in names}
     prev_gp = dict(state["gp"])
     first = state["last_period"] == 0
