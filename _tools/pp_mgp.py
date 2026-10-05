@@ -312,14 +312,28 @@ def render(state, start, witness_line, canary_lines, new_periods):
             r["name"], r["lineup"], r["off"], r["dead"], r["avail"], r["avoid"], r["avoid_major"], r["cap"],
             pct(r["pace"]) if r["pace"] is not None else "n/a", n0(r["proj"]) if r["proj"] is not None else "n/a",
             n0(r["bproj"]) if r["bproj"] is not None else "n/a", r["empty"], r["est"]))
-    short = lambda t: t.replace("Lineup GP: ", "Lineup GP ").replace("Projected season total (pace x 1,680)", "Projected (pace x 1,680)") \
-        .replace("Best-possible projection (best lineup's pace, same denominator)", "Best-possible projection") \
-        .replace("Avoidable loss (best lineup incl. Minors - actual)", "Avoidable loss") \
-        .replace("Capacity loss (played non-IR - best lineup; only 12F/6D/2G can count)", "Capacity loss") \
-        .replace("Pace (lineup GP / active slot-games on offer)", "Pace (lineup GP / active slot-games)")
-    post = [short(head).replace("tracker - ", "").replace("PowerPlay MGP ", "PowerPlay MGP "), short(d1), short(d2), short(d3),
-            short(d4), short(d5), short(d6), "", "Lowest 5 by lineup GP:"] + low + ["", "Largest 5 by avoidable loss:"] + top + \
-           ["", method]
+    # EB 2026-10-05: ALL 32 teams, alphabetical by official 3-letter code, narrow enough not to wrap
+    # in Discord on a phone (about 45 characters a line). The distribution is the table itself.
+    post = ["PowerPlay games played (GP), thru %s" % thru.strftime("%b %d"),
+            "Day %d of %d. Floor: %s GP in active slots." % (last, SEASON_DAYS, "{:,}".format(MIN_MGP)),
+            "",
+            "TEAM  GP  PACE   PROJ  DEAD  AVD",
+            "----  --  ----  -----  ----  ---"]
+    for r in sorted(rows, key=lambda r: r["name"]):
+        flag = " !" if r["proj"] is not None and r["proj"] < MIN_MGP else ""
+        post.append("%-4s %3d  %4s  %5s  %4d  %3d%s" % (
+            r["name"], r["lineup"], ("%.0f%%" % (100 * r["pace"])) if r["pace"] is not None else "n/a",
+            n0(r["proj"]) if r["proj"] is not None else "n/a", r["dead"], r["avoid"], flag))
+    post += ["",
+             "! = projected below %s (%d of %d teams)" % ("{:,}".format(MIN_MGP), len(under), len(paced)),
+             "GP   = games by players in active slots",
+             "PACE = GP / games available to them",
+             "PROJ = PACE x %s, the season projection" % "{:,}".format(CEILING),
+             "DEAD = active player's club played, he",
+             "       did not (scratched, AHL, backup G)",
+             "AVD  = games a better lineup would have",
+             "       counted (bench and minors included)",
+             "Checked against Fantrax standings."]
     return full, post
 
 
