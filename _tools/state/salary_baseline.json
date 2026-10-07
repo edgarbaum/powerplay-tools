@@ -964,6 +964,14 @@
   }
  },
  "open": {
+  "03ecd": {
+   "cls": "NEW SIGNING",
+   "fantrax": "1.00",
+   "name": "Michael Bunting",
+   "nhl": "PHI",
+   "source": "1200000|2026-27",
+   "team": "New York Islanders"
+  },
   "05w9c": {
    "cls": "EXPIRY CHECK",
    "fantrax": "2,237,480.00",
