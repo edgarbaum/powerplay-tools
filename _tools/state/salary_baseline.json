@@ -88,6 +88,17 @@
    "source": "5500000|2027-28",
    "team": "Buffalo Sabres"
   },
+  "03ecd": {
+   "aav": 1200000.0,
+   "cls": "REAL DIFFERS",
+   "exp": 27,
+   "fantrax": "1,215,054.27",
+   "half": 600000,
+   "name": "Michael Bunting",
+   "nhl": "PHI",
+   "source": "1200000|2026-27",
+   "team": "New York Islanders"
+  },
   "03ne3": {
    "aav": 6000000.0,
    "cls": "REAL DIFFERS",
@@ -964,14 +975,6 @@
   }
  },
  "open": {
-  "03ecd": {
-   "cls": "NEW SIGNING",
-   "fantrax": "1.00",
-   "name": "Michael Bunting",
-   "nhl": "PHI",
-   "source": "1200000|2026-27",
-   "team": "New York Islanders"
-  },
   "05w9c": {
    "cls": "EXPIRY CHECK",
    "fantrax": "2,237,480.00",
