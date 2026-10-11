@@ -933,6 +933,16 @@
    "source": "2027-28|925000",
    "unconfirmed": false
   },
+  "062pv": {
+   "aav": 950000.0,
+   "fantrax": "1,000,000.27",
+   "first": "2027-28",
+   "last": "2028-29",
+   "name": "Jared Wright",
+   "nhl": "LAK",
+   "source": "2027-28|950000",
+   "unconfirmed": true
+  },
   "0644f": {
    "aav": 10500000.0,
    "fantrax": "1,104,167.27",
