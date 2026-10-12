@@ -933,16 +933,6 @@
    "source": "2027-28|925000",
    "unconfirmed": false
   },
-  "062pv": {
-   "aav": 950000.0,
-   "fantrax": "1,000,000.27",
-   "first": "2027-28",
-   "last": "2028-29",
-   "name": "Jared Wright",
-   "nhl": "LAK",
-   "source": "2027-28|950000",
-   "unconfirmed": true
-  },
   "0644f": {
    "aav": 10500000.0,
    "fantrax": "1,104,167.27",
@@ -985,6 +975,110 @@
   }
  },
  "open": {
+  "02o7o": {
+   "cls": "NEW SIGNING",
+   "fantrax": "1.00",
+   "name": "Dominic Toninato",
+   "nhl": "CHI",
+   "source": "850000|2026-27",
+   "team": "New York Rangers"
+  },
+  "031ok": {
+   "cls": "NEW SIGNING",
+   "fantrax": "1.00",
+   "name": "Spencer Martin",
+   "nhl": "NYR",
+   "source": "850000|2026-27",
+   "team": "New York Rangers"
+  },
+  "03knn": {
+   "cls": "NEW SIGNING",
+   "fantrax": "1.00",
+   "name": "Hayden Hodgson",
+   "nhl": "OTT",
+   "source": "850000|2026-27",
+   "team": "Washington Capitals"
+  },
+  "03rmu": {
+   "cls": "NEW SIGNING",
+   "fantrax": "1.00",
+   "name": "Joel Hanley",
+   "nhl": "CGY",
+   "source": "1750000|2026-27",
+   "team": "New York Rangers"
+  },
+  "04f1j": {
+   "cls": "NEW SIGNING",
+   "fantrax": "1.00",
+   "name": "Cameron Crotty",
+   "nhl": "OTT",
+   "source": "812500|2026-27",
+   "team": "New York Rangers"
+  },
+  "04juv": {
+   "cls": "NEW SIGNING",
+   "fantrax": "1.00",
+   "name": "Sheldon Dries",
+   "nhl": "DET",
+   "source": "875000|2027-28",
+   "team": "Anaheim Ducks"
+  },
+  "059dy": {
+   "cls": "NEW SIGNING",
+   "fantrax": "1.00",
+   "name": "Theo Rochette",
+   "nhl": "DET",
+   "source": "1025000|2026-27",
+   "team": "Montreal Canadiens"
+  },
+  "05ku6": {
+   "cls": "NEW SIGNING",
+   "fantrax": "1.00",
+   "name": "Theodor Niederbach",
+   "nhl": "WSH",
+   "source": "1025000|2026-27",
+   "team": "Montreal Canadiens"
+  },
+  "05o00": {
+   "cls": "NEW SIGNING",
+   "fantrax": "1.00",
+   "name": "Simon Robertsson",
+   "nhl": "STL",
+   "source": "1000000|2026-27",
+   "team": "Montreal Canadiens"
+  },
+  "05tpt": {
+   "cls": "NEW SIGNING",
+   "fantrax": "1.00",
+   "name": "Brody Lamb",
+   "nhl": "NYR",
+   "source": "980000|2027-28",
+   "team": "Montreal Canadiens"
+  },
+  "05tqv": {
+   "cls": "NEW SIGNING",
+   "fantrax": "1.00",
+   "name": "Chase Stillman",
+   "nhl": "DET",
+   "source": "850000|2026-27",
+   "team": "Montreal Canadiens"
+  },
+  "05u6d": {
+   "cls": "NEW SIGNING",
+   "fantrax": "1.00",
+   "name": "Luke Mittelstadt",
+   "nhl": "MTL",
+   "source": "1013750|2027-28",
+   "team": "Montreal Canadiens"
+  },
+  "05uhf": {
+   "cls": "NEW SIGNING",
+   "fantrax": "1.00",
+   "name": "Ville Ottavainen",
+   "nhl": "SEA",
+   "source": "850000|2026-27",
+   "team": "Tampa Bay Lightning"
+  },
   "05w9c": {
    "cls": "EXPIRY CHECK",
    "fantrax": "2,237,480.00",
@@ -992,6 +1086,70 @@
    "nhl": "SJS",
    "source": "4475000|2026-27",
    "team": "San Jose Sharks"
+  },
+  "060nq": {
+   "cls": "NEW SIGNING",
+   "fantrax": "1.00",
+   "name": "Arseni Koromyslov",
+   "nhl": "STL",
+   "source": "1013750|2027-28",
+   "team": "Tampa Bay Lightning"
+  },
+  "0618h": {
+   "cls": "NEW SIGNING",
+   "fantrax": "1.00",
+   "name": "Ben Hemmerling",
+   "nhl": "VGK",
+   "source": "896111|2026-27",
+   "team": "Montreal Canadiens"
+  },
+  "061js": {
+   "cls": "NEW SIGNING",
+   "fantrax": "1.00",
+   "name": "Ondrej Becher",
+   "nhl": "DET",
+   "source": "975000|2026-27",
+   "team": "Montreal Canadiens"
+  },
+  "062jw": {
+   "cls": "NEW SIGNING",
+   "fantrax": "1.00",
+   "name": "Kenny Connors",
+   "nhl": "LAK",
+   "source": "1000000|2026-27",
+   "team": "Tampa Bay Lightning"
+  },
+  "062lk": {
+   "cls": "NEW SIGNING",
+   "fantrax": "1.00",
+   "name": "Jake Richard",
+   "nhl": "BUF",
+   "source": "1013750|2027-28",
+   "team": "Montreal Canadiens"
+  },
+  "062pv": {
+   "cls": "ROLLOVER",
+   "fantrax": "1,000,000.27",
+   "name": "Jared Wright",
+   "nhl": "LAK",
+   "source": "925000|2027-28",
+   "team": "Boston Bruins"
+  },
+  "064iq": {
+   "cls": "NEW SIGNING",
+   "fantrax": "1.00",
+   "name": "Ty Mueller",
+   "nhl": "VAN",
+   "source": "1025000|2026-27",
+   "team": "Montreal Canadiens"
+  },
+  "06ckv": {
+   "cls": "NEW SIGNING",
+   "fantrax": "1.00",
+   "name": "Oiva Keskinen",
+   "nhl": "CBJ",
+   "source": "960000|2027-28",
+   "team": "Montreal Canadiens"
   }
  },
  "seeded": "2026-10-04"
