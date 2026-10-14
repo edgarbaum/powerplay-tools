@@ -808,6 +808,16 @@
    "source": "2027-28|6750000",
    "unconfirmed": false
   },
+  "03v70": {
+   "aav": 13000000.0,
+   "fantrax": "3,937,500.27",
+   "first": "2027-28",
+   "last": "2033-34",
+   "name": "Alex DeBrincat",
+   "nhl": "DET",
+   "source": "2027-28|13000000",
+   "unconfirmed": true
+  },
   "0457f": {
    "aav": 11700000.0,
    "fantrax": "3,625,000.27",
@@ -988,6 +998,16 @@
    "source": "2027-28|925000",
    "unconfirmed": false
   },
+  "062pv": {
+   "aav": 925000.0,
+   "fantrax": "1,000,000.27",
+   "first": "2027-28",
+   "last": "2028-29",
+   "name": "Jared Wright",
+   "nhl": "LAK",
+   "source": "2027-28|925000",
+   "unconfirmed": false
+  },
   "0644f": {
    "aav": 10500000.0,
    "fantrax": "1,104,167.27",
@@ -1037,14 +1057,6 @@
    "nhl": "SJS",
    "source": "4475000|2026-27",
    "team": "San Jose Sharks"
-  },
-  "062pv": {
-   "cls": "ROLLOVER",
-   "fantrax": "1,000,000.27",
-   "name": "Jared Wright",
-   "nhl": "LAK",
-   "source": "925000|2027-28",
-   "team": "Boston Bruins"
   }
  },
  "seeded": "2026-10-04"
