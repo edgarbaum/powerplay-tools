@@ -286,6 +286,17 @@
    "source": "1013750|2027-28",
    "team": "Tampa Bay Lightning"
   },
+  "060x9": {
+   "aav": 858333.0,
+   "cls": "REAL DIFFERS",
+   "exp": 27,
+   "fantrax": "908,333.27",
+   "half": 429167,
+   "name": "Viliam Kmec",
+   "nhl": "VGK",
+   "source": "858333|2026-27",
+   "team": "Anaheim Ducks"
+  },
   "0618g": {
    "aav": 980000.0,
    "cls": "REAL DIFFERS",
