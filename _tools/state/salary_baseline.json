@@ -949,6 +949,16 @@
    "source": "2027-28|7100000",
    "unconfirmed": false
   },
+  "05kbo": {
+   "aav": 3950000.0,
+   "fantrax": "462,500.27",
+   "first": "2027-28",
+   "last": "2029-30",
+   "name": "Marat Khusnutdinov",
+   "nhl": "BOS",
+   "source": "2027-28|3950000",
+   "unconfirmed": true
+  },
   "05oxs": {
    "aav": 5357575.0,
    "fantrax": "965,000.27",
