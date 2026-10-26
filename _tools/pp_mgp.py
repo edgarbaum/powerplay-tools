@@ -70,9 +70,9 @@ FINDINGS = 3
 HERE = pathlib.Path(__file__).parent
 STATE = HERE / "state" / "mgp.json"
 POST_MAX = 1850
-VERSION = 3                                               # 2 added the lost-games fields, 3 the illegal-roster rule; an older state is rebuilt
+VERSION = 4                                               # 2 added the lost-games fields, 3 the illegal-roster rule; an older state is rebuilt
 CAPS = {"F": 12, "D": 6, "G": 2}
-KEYS = ("lineup", "off", "dead", "avail", "est", "empty", "best_major", "best_all", "played", "illegal_gp")
+KEYS = ("lineup", "off", "dead", "avail", "est", "empty", "best_major", "best_all", "played", "illegal_gp", "illegal_days")
 SEASON_DAYS = 153
 SLOTS = 20
 GAMES = 84
@@ -183,6 +183,8 @@ def day_stats(prev_gp, cur, empty, first_day, illegal=()):
     pools = collections.defaultdict(lambda: {"major": collections.Counter(), "all": collections.Counter()})
     for tid, n in empty.items():
         out[tid]["empty"] += n
+    for tid in illegal:
+        out[tid]["illegal_days"] += 1                        # EB 2026-10-26: show and flag illegal days
     for sid, p in cur.items():
         c = out[p["tid"]]
         if sid in prev_gp:
@@ -352,14 +354,18 @@ def render(state, start, witness_line, canary_lines, new_periods):
     # in Discord on a phone (about 45 characters a line). The distribution is the table itself.
     post = ["PowerPlay games played (GP), thru %s" % thru.strftime("%b %d"),
             "",
-            "TEAM  GP  PACE   PROJ  DEAD  AVD",
-            "----  --  ----  -----  ----  ---"]
+            "TEAM  GP  PACE   PROJ  DEAD  AVD  ILL",
+            "----  --  ----  -----  ----  ---  ---"]
     for r in sorted(rows, key=lambda r: r["name"]):
         flag = " !" if r["proj"] is not None and r["proj"] < MIN_MGP else ""
-        post.append("%-4s %3d  %4s  %5s  %4d  %3d%s" % (
+        ill = r.get("illegal_days", 0)
+        post.append("%-4s %3d  %4s  %5s  %4d  %3d  %3s%s%s" % (
             r["name"], r["lineup"], ("%.0f%%" % (100 * r["pace"])) if r["pace"] is not None else "n/a",
-            n0(r["proj"]) if r["proj"] is not None else "n/a", r["dead"], r["avoid"], flag))
-    post += ["", "! = projected below %s" % "{:,}".format(MIN_MGP)]     # EB 2026-10-05: just the table
+            n0(r["proj"]) if r["proj"] is not None else "n/a", r["dead"], r["avoid"],
+            ill if ill else "", " #" if ill else "", flag))
+    post += ["", "! = projected below %s" % "{:,}".format(MIN_MGP),
+             "# = illegal-roster days (ILL); Fantrax counts",
+             "    0 GP for a team on any day its roster is illegal"]     # EB 2026-10-05: just the table
     return full, post
 
 

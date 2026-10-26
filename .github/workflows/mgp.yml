@@ -92,7 +92,7 @@ jobs:
         # EB 2026-10-05: "I'd like to start having that update weekly." Monday covers the week through
         # Sunday's processing. Until the repo secret PP_DISCORD_26_27_TEAM_GP_TRACKER is added, the weekly
         # post goes to the test channel, so nothing fails while the channel is being set up.
-        if: steps.guard.outputs.skip != 'true' && (steps.check.outputs.code == '0' || steps.check.outputs.code == '3') && (github.event_name == 'workflow_dispatch' || github.event_name == 'schedule' || steps.launch.outputs.go == 'true')
+        if: steps.guard.outputs.skip != 'true' && (steps.check.outputs.code == '0' || steps.check.outputs.code == '3') && (github.event_name == 'workflow_dispatch' || github.event_name == 'schedule' || steps.launch.outputs.go == 'true' || hashFiles('_tools/state/gp_post_now') != '')
         env:
           PP_CHANNEL_OVERRIDE: ${{ vars.PP_CHANNEL_OVERRIDE }}
           PP_DISCORD_WEBHOOK_TEST: ${{ secrets.PP_DISCORD_PP_BOT_TEST }}
@@ -100,6 +100,9 @@ jobs:
         run: |
           if [ -n "$PP_DISCORD_WEBHOOK_GP" ]; then ch=--gp; else ch=--test; echo "no gp webhook yet, posting weekly to test"; fi
           python _tools/pp_discord_post.py $ch --gate mgp-weekly --stdin < "$RUNNER_TEMP/post.txt"
+      - name: Clear the one-time post-now marker (EB 2026-10-26)
+        if: hashFiles('_tools/state/gp_post_now') != ''
+        run: rm -f _tools/state/gp_post_now
       - name: Record the launch so it never repeats
         if: steps.launch.outputs.go == 'true'
         run: date -u +%FT%TZ > _tools/state/gp_launched
