@@ -35,6 +35,10 @@ LOST GAMES: why a team's lineup GP falls short of the games its players played.
                         played: games lost purely because only 12/6/2 can count a day
   A synthetic day (14 forwards played) must give best 12 and capacity_loss 2.
 
+ILLEGAL ROSTER: a team whose roster that day breaks a Fantrax limit (getTeamRosterInfo
+miscData.illegalRosterMsgsText, e.g. fewer than 20 Active, more than 5 Reserve, more than 6 D) is credited
+ZERO GP by the standings for that day. day_stats moves that team-day's Active GP to `off` (and `illegal_gp`).
+
 WITNESS (the run refuses to report without it): for every one of the 32 teams the
 cumulative lineup_gp must equal the GP column of getStandings(view=SEASON_STATS)
 table 0. That table is year-to-date through yesterday, and it states its own end
@@ -66,9 +70,9 @@ FINDINGS = 3
 HERE = pathlib.Path(__file__).parent
 STATE = HERE / "state" / "mgp.json"
 POST_MAX = 1850
-VERSION = 2                                               # 2 added the lost-games fields; an older state is rebuilt
+VERSION = 3                                               # 2 added the lost-games fields, 3 the illegal-roster rule; an older state is rebuilt
 CAPS = {"F": 12, "D": 6, "G": 2}
-KEYS = ("lineup", "off", "dead", "avail", "est", "empty", "best_major", "best_all", "played")
+KEYS = ("lineup", "off", "dead", "avail", "est", "empty", "best_major", "best_all", "played", "illegal_gp")
 SEASON_DAYS = 153
 SLOTS = 20
 GAMES = 84
@@ -101,11 +105,14 @@ def retry(fn, what):
 
 
 def read_period(api, teams, period):
-    """-> ({scorerId: {tid, status, gp, opp, name}}, {tid: empty active slots})"""
-    players, empty = {}, collections.Counter()
+    """-> ({scorerId: {tid, status, gp, opp, name}}, {tid: empty active slots}, {tid: illegal-roster messages})"""
+    players, empty, illegal = {}, collections.Counter(), {}
     for t in teams:
         raw = retry(lambda: api._request("getTeamRosterInfo", teamId=t.team_id, period=str(period)),
                     "roster %s period %d" % (t.name, period))
+        msgs = (raw.get("miscData") or {}).get("illegalRosterMsgsText")
+        if msgs:
+            illegal[t.team_id] = list(msgs)                 # Fantrax scores an illegal roster's day as zero
         for tbl in raw["tables"]:
             hdr = [c.get("shortName") for c in tbl["header"]["cells"]]
             if "GP" not in hdr or "Opp" not in hdr:
@@ -125,7 +132,7 @@ def read_period(api, teams, period):
                                            "opp": str(c[oi].get("content") or "").strip(), "name": sc["name"],
                                            "pos": sc.get("posShortNames") or ""}
         time.sleep(0.12)
-    return players, empty
+    return players, empty, illegal
 
 
 def read_standings(api, teams):
@@ -168,8 +175,10 @@ def best_lineup(pool):
     return fu + du + flex + min(CAPS["G"], g) + min(0, other)
 
 
-def day_stats(prev_gp, cur, empty, first_day):
-    """-> ({tid: counts for the day}, new_gp map). Pure."""
+def day_stats(prev_gp, cur, empty, first_day, illegal=()):
+    """-> ({tid: counts for the day}, new_gp map). Pure. `illegal`: teams whose roster that day broke a
+    Fantrax limit (illegalRosterMsgsText); Fantrax credits such a team 0 GP for the day, so the games
+    its Active players played go to `off`, not `lineup`."""
     out = collections.defaultdict(collections.Counter)
     pools = collections.defaultdict(lambda: {"major": collections.Counter(), "all": collections.Counter()})
     for tid, n in empty.items():
@@ -187,8 +196,13 @@ def day_stats(prev_gp, cur, empty, first_day):
                 c["avail"] += 1
             if not known:
                 d = 1 if p["opp"] else 0
-                c["est"] += 1
-            c["lineup"] += d
+                if p["tid"] not in illegal:
+                    c["est"] += 1
+            if p["tid"] in illegal:
+                c["off"] += d                                # illegal roster: the day scores zero
+                c["illegal_gp"] += d
+            else:
+                c["lineup"] += d
             if p["opp"] and d == 0:
                 c["dead"] += 1
         elif known:
@@ -227,8 +241,30 @@ def lost_canary():
     if got2 != (7, 1, 1, 9):
         sys.exit("LOST-GAMES CANARY FAILED: 8 minors D plus one D/F gave (best_all, best_major, lineup, played) = %s, "
                  "expected (7, 1, 1, 9). Refusing to report." % (got2,))
+    # ILLEGAL-ROSTER DAY (found 2026-10-26: BUF p14, WSH p19, NYI p21, FLA p27): Fantrax credits a team
+    # whose roster breaks a limit (illegalRosterMsgsText) ZERO GP for that day. The same 3 active
+    # players who played must count 3 for a legal team and 0 for an illegal one.
+    cur3 = {"a%d" % i: {"tid": "L", "status": "1", "gp": 1, "opp": "X", "name": "a", "pos": "F"} for i in range(3)}
+    cur3.update({"b%d" % i: {"tid": "I", "status": "1", "gp": 1, "opp": "X", "name": "b", "pos": "F"} for i in range(3)})
+    d3 = day_stats({}, cur3, {}, True, illegal={"I"})[0]
+    got3 = (d3["L"]["lineup"], d3["I"]["lineup"], d3["I"]["off"], d3["I"]["avail"])
+    if got3 != (3, 0, 3, 3):
+        sys.exit("ILLEGAL-ROSTER CANARY FAILED: (legal lineup, illegal lineup, illegal off, illegal avail) = %s, "
+                 "expected (3, 0, 3, 3). Refusing to report." % (got3,))
+    # and the reader must actually extract the flag from a roster response
+    class _Api(object):
+        def _request(self, name, teamId=None, period=None):
+            tbl = {"header": {"cells": [{"shortName": "GP"}, {"shortName": "Opp"}]}, "rows": []}
+            msgs = ["The minimum number of <b>20</b> active player(s) has not been met"] if teamId == "bad" else None
+            return {"tables": [tbl], "miscData": {"illegalRosterMsgsText": msgs} if msgs else {}}
+    teams = [collections.namedtuple("T", "team_id name")(i, i) for i in ("ok", "bad")]
+    got4 = sorted(read_period(_Api(), teams, 1)[2])
+    if got4 != ["bad"]:
+        sys.exit("ILLEGAL-ROSTER CANARY FAILED: read_period flagged %s, expected ['bad']. Refusing to report." % (got4,))
     return ("lost-games canary passed: a synthetic day with 14 forwards played gave best 12 and capacity_loss 2 "
-            "(avoidable 0); 8 minors D plus one D/F gave best_all 7, best_major 1, played 9")
+            "(avoidable 0); 8 minors D plus one D/F gave best_all 7, best_major 1, played 9; "
+            "illegal-roster canary passed: 3 active players who played count 3 for a legal team and 0 for an "
+            "illegal one, and read_period flags only the illegal team")
 
 
 def witness(cum, standings):
@@ -392,10 +428,10 @@ def main():
     new_periods = list(range(state["last_period"] + 1, last_done + 1))
     neg = []
     for n in new_periods:
-        cur, empty = read_period(api, teams, n)
+        cur, empty, illegal = read_period(api, teams, n)
         if len(cur) < 1400:
             sys.exit("period %d carried only %d rostered players, expected 1,400+. Refusing to report." % (n, len(cur)))
-        day, prev_gp = day_stats(prev_gp, cur, empty, first and n == 1)
+        day, prev_gp = day_stats(prev_gp, cur, empty, first and n == 1, illegal)
         for tid in names:
             for k in KEYS:
                 cum[tid][k] = cum[tid].get(k, 0) + day[tid][k]
