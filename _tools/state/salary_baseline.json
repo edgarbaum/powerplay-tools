@@ -999,6 +999,16 @@
    "source": "2027-28|6600000",
    "unconfirmed": false
   },
+  "05w9c": {
+   "aav": 18800000.0,
+   "fantrax": "2,237,500.27",
+   "first": "2027-28",
+   "last": "2031-32",
+   "name": "Macklin Celebrini",
+   "nhl": "SJS",
+   "source": "2027-28|18800000",
+   "unconfirmed": true
+  },
   "05yn2": {
    "aav": 7200000.0,
    "fantrax": "439,583.27",
@@ -1070,23 +1080,6 @@
    "unconfirmed": false
   }
  },
- "open": {
-  "05lu8": {
-   "cls": "NEW SIGNING",
-   "fantrax": "1.00",
-   "name": "Alexander Nikishin",
-   "nhl": "CAR",
-   "source": "3000000|2026-27",
-   "team": "Ottawa Senators"
-  },
-  "05w9c": {
-   "cls": "EXPIRY CHECK",
-   "fantrax": "2,237,480.00",
-   "name": "Macklin Celebrini",
-   "nhl": "SJS",
-   "source": "4475000|2026-27",
-   "team": "San Jose Sharks"
-  }
- },
+ "open": {},
  "seeded": "2026-10-04"
 }
