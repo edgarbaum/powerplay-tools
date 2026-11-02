@@ -561,6 +561,17 @@
    "source": "955556|2028-29",
    "team": "Dallas Stars"
   },
+  "06mda": {
+   "aav": 991250.0,
+   "cls": "REAL DIFFERS",
+   "exp": 28,
+   "fantrax": "500,417.29",
+   "half": 495625,
+   "name": "AJ Spellacy",
+   "nhl": "CHI",
+   "source": "991250|2027-28",
+   "team": "Anaheim Ducks"
+  },
   "06mhf": {
    "aav": 1007500.0,
    "cls": "REAL DIFFERS",
@@ -957,7 +968,7 @@
    "name": "Marat Khusnutdinov",
    "nhl": "BOS",
    "source": "2027-28|3950000",
-   "unconfirmed": true
+   "unconfirmed": false
   },
   "05oxs": {
    "aav": 5357575.0,
@@ -1007,7 +1018,7 @@
    "name": "Macklin Celebrini",
    "nhl": "SJS",
    "source": "2027-28|18800000",
-   "unconfirmed": true
+   "unconfirmed": false
   },
   "05yn2": {
    "aav": 7200000.0,
