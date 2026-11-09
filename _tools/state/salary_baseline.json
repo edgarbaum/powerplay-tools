@@ -561,17 +561,6 @@
    "source": "955556|2028-29",
    "team": "Dallas Stars"
   },
-  "06mda": {
-   "aav": 991250.0,
-   "cls": "REAL DIFFERS",
-   "exp": 28,
-   "fantrax": "500,417.29",
-   "half": 495625,
-   "name": "AJ Spellacy",
-   "nhl": "CHI",
-   "source": "991250|2027-28",
-   "team": "Anaheim Ducks"
-  },
   "06mhf": {
    "aav": 1007500.0,
    "cls": "REAL DIFFERS",
@@ -736,6 +725,17 @@
    "nhl": "COL",
    "source": "979500|2027-28",
    "team": "Montreal Canadiens"
+  },
+  "074uc": {
+   "aav": 980000.0,
+   "cls": "REAL DIFFERS",
+   "exp": 27,
+   "fantrax": "1,025,000.27",
+   "half": 490000,
+   "name": "Ben Dexheimer",
+   "nhl": "MIN",
+   "source": "980000|2026-27",
+   "team": "Minnesota Wild"
   },
   "0760v": {
    "aav": 1075000.0,
@@ -1091,6 +1091,15 @@
    "unconfirmed": false
   }
  },
- "open": {},
+ "open": {
+  "06mda": {
+   "cls": "EXPIRY CHECK",
+   "fantrax": "495,625.29",
+   "name": "AJ Spellacy",
+   "nhl": "CHI",
+   "source": "991250|2027-28",
+   "team": "Anaheim Ducks"
+  }
+ },
  "seeded": "2026-10-04"
 }
