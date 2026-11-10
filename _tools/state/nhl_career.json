@@ -1,0 +1,5595 @@
+{
+ "AJ Spellacy|CHI": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "none",
+  "pid": null,
+  "pos": null
+ },
+ "Aatos Koivu|MTL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484877",
+  "pos": "C"
+ },
+ "Aatu Jamsen|LAK": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482466",
+  "pos": "R"
+ },
+ "Abram Wiebe|CGY": {
+  "asof": "2026-11-10",
+  "gp": 4,
+  "how": "exact",
+  "pid": "8483709",
+  "pos": "D"
+ },
+ "Adam Beckman|COL": {
+  "asof": "2026-11-10",
+  "gp": 23,
+  "how": "exact",
+  "pid": "8481550",
+  "pos": "L"
+ },
+ "Adam Benak|MIN": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485367",
+  "pos": "C"
+ },
+ "Adam Gajan|CHI": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484171",
+  "pos": "G"
+ },
+ "Adam Ginning|VGK": {
+  "asof": "2026-11-10",
+  "gp": 16,
+  "how": "exact",
+  "pid": "8480874",
+  "pos": "D"
+ },
+ "Adam Goljer|LAK": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486039",
+  "pos": "D"
+ },
+ "Adam Ingram|NSH": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483458",
+  "pos": "C"
+ },
+ "Adam Kleber|BUF": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484875",
+  "pos": "D"
+ },
+ "Adam Nemec|OTT": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486071",
+  "pos": "L"
+ },
+ "Adam Novotny|VAN": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486074",
+  "pos": "L"
+ },
+ "Adam Sykora|NYR": {
+  "asof": "2026-11-10",
+  "gp": 11,
+  "how": "exact",
+  "pid": "8483669",
+  "pos": "L"
+ },
+ "Adam Valentini|UTA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486107",
+  "pos": "C"
+ },
+ "Aidan Thompson|NYR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483685",
+  "pos": "C"
+ },
+ "Aiden Fink|NSH": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484494",
+  "pos": "R"
+ },
+ "Aku Raty|EDM": {
+  "asof": "2026-11-10",
+  "gp": 1,
+  "how": "exact",
+  "pid": "8481699",
+  "pos": "R"
+ },
+ "Alan Shaikhlislamov|CGY": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486222",
+  "pos": "R"
+ },
+ "Alec Regula|EDM": {
+  "asof": "2026-11-10",
+  "gp": 51,
+  "how": "exact",
+  "pid": "8480831",
+  "pos": "D"
+ },
+ "Aleksanteri Kaskimaki|STL": {
+  "asof": "2026-11-10",
+  "gp": 13,
+  "how": "exact",
+  "pid": "8483463",
+  "pos": "C"
+ },
+ "Aleksi Heimosalmi|CAR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482860",
+  "pos": "D"
+ },
+ "Alessandro Di Iorio|CBJ": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486034",
+  "pos": "C"
+ },
+ "Alex Barre-Boulet|SJS": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "none",
+  "pid": null,
+  "pos": null
+ },
+ "Alex Beaucage|(N/A)": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8481595",
+  "pos": "R"
+ },
+ "Alex Bump|PHI": {
+  "asof": "2026-11-10",
+  "gp": 25,
+  "how": "exact",
+  "pid": "8483731",
+  "pos": "L"
+ },
+ "Alex Ciernik|PHI": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484156",
+  "pos": "L"
+ },
+ "Alex Huang|NSH": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485586",
+  "pos": "D"
+ },
+ "Alex Jefferies|NYI": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482154",
+  "pos": "L"
+ },
+ "Alex Pharand|CHI": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484212",
+  "pos": "C"
+ },
+ "Alex Steeves|BOS": {
+  "asof": "2026-11-10",
+  "gp": 57,
+  "how": "exact",
+  "pid": "8482634",
+  "pos": "C"
+ },
+ "Alexander Bilecki|TOR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486024",
+  "pos": "D"
+ },
+ "Alexander Command|WPG": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486030",
+  "pos": "C"
+ },
+ "Alexander Perevalov|CAR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483501",
+  "pos": "L"
+ },
+ "Alexander Rykov|CAR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484402",
+  "pos": "R"
+ },
+ "Alexander Smolin|(N/A)": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "none",
+  "pid": null,
+  "pos": null
+ },
+ "Alexander Suzdalev|WSH": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483518",
+  "pos": "L"
+ },
+ "Alexander Zharovsky|MTL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485562",
+  "pos": "R"
+ },
+ "Alexandre Doucet|(N/A)": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484107",
+  "pos": "L"
+ },
+ "Alexei Kolosov|PHI": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "none",
+  "pid": null,
+  "pos": null
+ },
+ "Alexei Medvedev|VAN": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "none",
+  "pid": null,
+  "pos": null
+ },
+ "Alexis Bernier|SEA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484838",
+  "pos": "D"
+ },
+ "Alexis Cournoyer|MTL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485615",
+  "pos": "G"
+ },
+ "Alfons Freij|WPG": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484854",
+  "pos": "D"
+ },
+ "Amadeus Lombardi|NJD": {
+  "asof": "2026-11-10",
+  "gp": 16,
+  "how": "exact",
+  "pid": "8483695",
+  "pos": "C"
+ },
+ "Amir Miftakhov|(N/A)": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482501",
+  "pos": "G"
+ },
+ "Andre Gasseau|SJS": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482776",
+  "pos": "C"
+ },
+ "Andrei Krutov|CAR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "none",
+  "pid": null,
+  "pos": null
+ },
+ "Andrew Basha|CGY": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484782",
+  "pos": "L"
+ },
+ "Andrew Cristall|WSH": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484159",
+  "pos": "L"
+ },
+ "Andrew Gibson|NSH": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484174",
+  "pos": "D"
+ },
+ "Andrew Strathmann|CBJ": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484232",
+  "pos": "D"
+ },
+ "Angus Booth|LAK": {
+  "asof": "2026-11-10",
+  "gp": 1,
+  "how": "exact",
+  "pid": "8483699",
+  "pos": "D"
+ },
+ "Angus Crookshank|FLA": {
+  "asof": "2026-11-10",
+  "gp": 29,
+  "how": "exact",
+  "pid": "8481065",
+  "pos": "C"
+ },
+ "Anthony Richard|PHI": {
+  "asof": "2026-11-10",
+  "gp": 40,
+  "how": "exact",
+  "pid": "8478409",
+  "pos": "C"
+ },
+ "Anthony Romani|VAN": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484565",
+  "pos": "C"
+ },
+ "Anton Olsson|NSH": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482721",
+  "pos": "D"
+ },
+ "Anton Silayev|NJD": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "none",
+  "pid": null,
+  "pos": null
+ },
+ "Anton Wahlberg|ANA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484238",
+  "pos": "C"
+ },
+ "Antti Tuomisto|VGK": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8481587",
+  "pos": "D"
+ },
+ "Aram Minnetian|DAL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484194",
+  "pos": "D"
+ },
+ "Aron Kiviharju|MIN": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484787",
+  "pos": "D"
+ },
+ "Arseni Koromyslov|STL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483705",
+  "pos": "D"
+ },
+ "Arseni Radkov|MTL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485570",
+  "pos": "G"
+ },
+ "Arsenii Sergeev|CGY": {
+  "asof": "2026-11-10",
+  "gp": 2,
+  "how": "exact",
+  "pid": "8482949",
+  "pos": "G"
+ },
+ "Arthur Kaliyev|(N/A)": {
+  "asof": "2026-11-10",
+  "gp": 204,
+  "how": "exact",
+  "pid": "8481560",
+  "pos": "R"
+ },
+ "Arttu Hyry|DAL": {
+  "asof": "2026-11-10",
+  "gp": 42,
+  "how": "exact",
+  "pid": "8484938",
+  "pos": "R"
+ },
+ "Artur Akhtyamov|TOR": {
+  "asof": "2026-11-10",
+  "gp": 3,
+  "how": "exact",
+  "pid": "8482515",
+  "pos": "G"
+ },
+ "Artyom Grushnikov|(N/A)": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "none",
+  "pid": null,
+  "pos": null
+ },
+ "Atlee Calvert|PIT": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "none",
+  "pid": null,
+  "pos": null
+ },
+ "Atro Leppanen|EDM": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485509",
+  "pos": "D"
+ },
+ "Avery Hayes|PIT": {
+  "asof": "2026-11-10",
+  "gp": 17,
+  "how": "exact",
+  "pid": "8482993",
+  "pos": "R"
+ },
+ "Axel Elofsson|COL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486267",
+  "pos": "D"
+ },
+ "Axel Sandin Pellikka|DET": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "none",
+  "pid": null,
+  "pos": null
+ },
+ "Ayrton Martino|DAL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482690",
+  "pos": "L"
+ },
+ "Beau Akey|EDM": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484139",
+  "pos": "D"
+ },
+ "Beckett Hamilton|COL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486044",
+  "pos": "C"
+ },
+ "Beckett Hendrickson|BOS": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484179",
+  "pos": "C"
+ },
+ "Ben Danford|TOR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484805",
+  "pos": "D"
+ },
+ "Ben Dexheimer|MIN": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486182",
+  "pos": "D"
+ },
+ "Ben Hemmerling|VGK": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483748",
+  "pos": "R"
+ },
+ "Ben Jones|CGY": {
+  "asof": "2026-11-10",
+  "gp": 58,
+  "how": "exact",
+  "pid": "8480259",
+  "pos": "C"
+ },
+ "Ben Macbeath|NYR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486064",
+  "pos": "D"
+ },
+ "Ben McCartney|UTA": {
+  "asof": "2026-11-10",
+  "gp": 2,
+  "how": "exact",
+  "pid": "8481827",
+  "pos": "L"
+ },
+ "Benjamin Kevan|NJD": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "prefix",
+  "pid": "8485435",
+  "pos": "R"
+ },
+ "Benjamin Rautiainen|TBL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485587",
+  "pos": "C"
+ },
+ "Bill Zonnon|PIT": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485351",
+  "pos": "R"
+ },
+ "Blake Fiddler|SEA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485389",
+  "pos": "D"
+ },
+ "Blake Montgomery|OTT": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485016",
+  "pos": "L"
+ },
+ "Blake Vanek|OTT": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485579",
+  "pos": "R"
+ },
+ "Bogdan Konyushkov|MTL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484410",
+  "pos": "D"
+ },
+ "Bogdan Trineyev|WSH": {
+  "asof": "2026-11-10",
+  "gp": 2,
+  "how": "exact",
+  "pid": "8482167",
+  "pos": "R"
+ },
+ "Borya Valis|TOR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485115",
+  "pos": "R"
+ },
+ "Boston Buckberger|CBJ": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486177",
+  "pos": "D"
+ },
+ "Brady Knowling|SJS": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486053",
+  "pos": "G"
+ },
+ "Brady Martin|NSH": {
+  "asof": "2026-11-10",
+  "gp": 3,
+  "how": "exact",
+  "pid": "8485405",
+  "pos": "C"
+ },
+ "Brandon Biro|SEA": {
+  "asof": "2026-11-10",
+  "gp": 6,
+  "how": "exact",
+  "pid": "8482061",
+  "pos": "L"
+ },
+ "Brandon Svoboda|OTT": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484235",
+  "pos": "C"
+ },
+ "Brek Liske|PHI": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486063",
+  "pos": "D"
+ },
+ "Brendan Brisson|TOR": {
+  "asof": "2026-11-10",
+  "gp": 27,
+  "how": "exact",
+  "pid": "8482153",
+  "pos": "C"
+ },
+ "Brett Berard|MTL": {
+  "asof": "2026-11-10",
+  "gp": 48,
+  "how": "exact",
+  "pid": "8482132",
+  "pos": "L"
+ },
+ "Brian Halonen|BOS": {
+  "asof": "2026-11-10",
+  "gp": 19,
+  "how": "exact",
+  "pid": "8483531",
+  "pos": "L"
+ },
+ "Brodie Ziemer|BUF": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484758",
+  "pos": "R"
+ },
+ "Brody Lamb|NYR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482928",
+  "pos": "R"
+ },
+ "Brooks Rogowski|VAN": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486088",
+  "pos": "C"
+ },
+ "Bruno Idzan|OTT": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485647",
+  "pos": "L"
+ },
+ "Bryce Pickford|MTL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485218",
+  "pos": "D"
+ },
+ "Cade Webber|TOR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8481570",
+  "pos": "D"
+ },
+ "Caden Price|SEA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484217",
+  "pos": "D"
+ },
+ "Caleb Desnoyers|UTA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485387",
+  "pos": "C"
+ },
+ "Caleb Jones|BUF": {
+  "asof": "2026-11-10",
+  "gp": 255,
+  "how": "exact",
+  "pid": "8478452",
+  "pos": "D"
+ },
+ "Caleb Malhotra|VAN": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486065",
+  "pos": "C"
+ },
+ "Calle Clang|ANA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482477",
+  "pos": "G"
+ },
+ "Calle Odelius|NYI": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483498",
+  "pos": "D"
+ },
+ "Callum Tung|NYR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485489",
+  "pos": "G"
+ },
+ "Calum Ritchie|NYI": {
+  "asof": "2026-11-10",
+  "gp": 80,
+  "how": "exact",
+  "pid": "8484221",
+  "pos": "C"
+ },
+ "Cam Lund|SJS": {
+  "asof": "2026-11-10",
+  "gp": 11,
+  "how": "exact",
+  "pid": "8483481",
+  "pos": "C"
+ },
+ "Cam Squires|NJD": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484405",
+  "pos": "R"
+ },
+ "Cameron Allen|WSH": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "none",
+  "pid": null,
+  "pos": null
+ },
+ "Cameron Butler|DET": {
+  "asof": "2026-11-10",
+  "gp": 1,
+  "how": "exact",
+  "pid": "8483045",
+  "pos": "R"
+ },
+ "Cameron Crotty|MIN": {
+  "asof": "2026-11-10",
+  "gp": 11,
+  "how": "exact",
+  "pid": "8480075",
+  "pos": "D"
+ },
+ "Cameron Hillis|(N/A)": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "none",
+  "pid": null,
+  "pos": null
+ },
+ "Cameron Reid|NSH": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "AMBIGUOUS",
+  "pid": null,
+  "pos": null
+ },
+ "Cameron Schmidt|DAL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485363",
+  "pos": "R"
+ },
+ "Cameron Whitehead|VGK": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483523",
+  "pos": "G"
+ },
+ "Carey Terrance|NYR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484236",
+  "pos": "C"
+ },
+ "Carl Lindbom|VGK": {
+  "asof": "2026-11-10",
+  "gp": 8,
+  "how": "exact",
+  "pid": "8482761",
+  "pos": "G"
+ },
+ "Carson Bjarnason|PHI": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484147",
+  "pos": "G"
+ },
+ "Carson Carels|CGY": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486029",
+  "pos": "D"
+ },
+ "Carson Lambos|MIN": {
+  "asof": "2026-11-10",
+  "gp": 1,
+  "how": "exact",
+  "pid": "8482781",
+  "pos": "D"
+ },
+ "Carson Rehkopf|SEA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484219",
+  "pos": "L"
+ },
+ "Carson Wetsch|SJS": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484845",
+  "pos": "R"
+ },
+ "Carter Amico|PHI": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485360",
+  "pos": "D"
+ },
+ "Carter Bear|DET": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485362",
+  "pos": "L"
+ },
+ "Carter George|LAK": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484857",
+  "pos": "G"
+ },
+ "Carter Yakemchuk|OTT": {
+  "asof": "2026-11-10",
+  "gp": 18,
+  "how": "exact",
+  "pid": "8484759",
+  "pos": "D"
+ },
+ "Casey Mutryn|SEA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486070",
+  "pos": "R"
+ },
+ "Cayden Lindstrom|CBJ": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484780",
+  "pos": "C"
+ },
+ "Cayden Primeau|CAR": {
+  "asof": "2026-11-10",
+  "gp": 58,
+  "how": "exact",
+  "pid": "8480051",
+  "pos": "G"
+ },
+ "Charles-Alexis Legault|CAR": {
+  "asof": "2026-11-10",
+  "gp": 14,
+  "how": "prefix",
+  "pid": "8484428",
+  "pos": "D"
+ },
+ "Charlie Cerrato|CAR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485563",
+  "pos": "C"
+ },
+ "Charlie Elick|CBJ": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484808",
+  "pos": "D"
+ },
+ "Charlie Morrison|NYR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486069",
+  "pos": "D"
+ },
+ "Charlie Stramel|MIN": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484231",
+  "pos": "C"
+ },
+ "Charlie Trethewey|PIT": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "none",
+  "pid": null,
+  "pos": null
+ },
+ "Chase Clark|WSH": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482939",
+  "pos": "G"
+ },
+ "Chase Harrington|CGY": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486045",
+  "pos": "L"
+ },
+ "Chase Pietila|PIT": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485019",
+  "pos": "D"
+ },
+ "Chase Reid|SEA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486087",
+  "pos": "D"
+ },
+ "Chase Stillman|DET": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482714",
+  "pos": "R"
+ },
+ "Chase Wutzke|MIN": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485037",
+  "pos": "G"
+ },
+ "Christian Humphreys|COL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484871",
+  "pos": "C"
+ },
+ "Christian Kyrou|OTT": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483470",
+  "pos": "D"
+ },
+ "Christoffer Sedoff|(N/A)": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482138",
+  "pos": "D"
+ },
+ "Christopher Pelosi|BOS": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484401",
+  "pos": "C"
+ },
+ "Clarke Caswell|SEA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485036",
+  "pos": "L"
+ },
+ "Colby Barlow|WPG": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484143",
+  "pos": "L"
+ },
+ "Cole Eiserman|NYI": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484807",
+  "pos": "L"
+ },
+ "Cole McKinney|SJS": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485407",
+  "pos": "C"
+ },
+ "Cole O'Hara|NSH": {
+  "asof": "2026-11-10",
+  "gp": 1,
+  "how": "exact",
+  "pid": "8483696",
+  "pos": "R"
+ },
+ "Cole Reinhardt|FLA": {
+  "asof": "2026-11-10",
+  "gp": 80,
+  "how": "exact",
+  "pid": "8481133",
+  "pos": "L"
+ },
+ "Cole Reschny|CGY": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485371",
+  "pos": "C"
+ },
+ "Colin Ralph|STL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484865",
+  "pos": "D"
+ },
+ "Colten Ellis|BUF": {
+  "asof": "2026-11-10",
+  "gp": 23,
+  "how": "exact",
+  "pid": "8481551",
+  "pos": "G"
+ },
+ "Conner Roulette|(N/A)": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482709",
+  "pos": "L"
+ },
+ "Connor Clattenburg|EDM": {
+  "asof": "2026-11-10",
+  "gp": 5,
+  "how": "exact",
+  "pid": "8484529",
+  "pos": "C"
+ },
+ "Connor Mackey|CHI": {
+  "asof": "2026-11-10",
+  "gp": 45,
+  "how": "exact",
+  "pid": "8482067",
+  "pos": "D"
+ },
+ "Connor McClennon|PHI": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482220",
+  "pos": "R"
+ },
+ "Connor Ungar|EDM": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483083",
+  "pos": "G"
+ },
+ "Conor Sheary|BUF": {
+  "asof": "2026-11-10",
+  "gp": 655,
+  "how": "exact",
+  "pid": "8477839",
+  "pos": "L"
+ },
+ "Conrad Fondrk|NJD": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485390",
+  "pos": "C"
+ },
+ "Cooper Black|FLA": {
+  "asof": "2026-11-10",
+  "gp": 1,
+  "how": "exact",
+  "pid": "8484900",
+  "pos": "G"
+ },
+ "Cooper Simpson|BOS": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485574",
+  "pos": "L"
+ },
+ "Corson Ceulemans|CBJ": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482678",
+  "pos": "D"
+ },
+ "Coulson Pitre|ANA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484216",
+  "pos": "R"
+ },
+ "Cruz Lucius|ANA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483479",
+  "pos": "R"
+ },
+ "Cullen Potter|CGY": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485376",
+  "pos": "C"
+ },
+ "Daimon Gardner|VAN": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483694",
+  "pos": "C"
+ },
+ "Dalyn Wakely|EDM": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483924",
+  "pos": "C"
+ },
+ "Damian Clara|ANA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484391",
+  "pos": "G"
+ },
+ "Damien Giroux|BUF": {
+  "asof": "2026-11-10",
+  "gp": 1,
+  "how": "exact",
+  "pid": "8480994",
+  "pos": "C"
+ },
+ "Danai Shaiikov|NYR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486226",
+  "pos": "G"
+ },
+ "Daniil But|UTA": {
+  "asof": "2026-11-10",
+  "gp": 42,
+  "how": "exact",
+  "pid": "8484388",
+  "pos": "L"
+ },
+ "Daniil Isayev|(N/A)": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "none",
+  "pid": null,
+  "pos": null
+ },
+ "Daniil Karpovich|NJD": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484465",
+  "pos": "D"
+ },
+ "Daniil Prokhorov|NYI": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485448",
+  "pos": "R"
+ },
+ "Daniil Pylenkov|TBL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482944",
+  "pos": "D"
+ },
+ "Daniil Rusakovich|NJD": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486285",
+  "pos": "G"
+ },
+ "Danil Aimurzin|(N/A)": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "none",
+  "pid": null,
+  "pos": null
+ },
+ "Danila Klimovich|PHI": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482918",
+  "pos": "R"
+ },
+ "Danny Nelson|NYI": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484205",
+  "pos": "C"
+ },
+ "Danny Zhilkin|WPG": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "none",
+  "pid": null,
+  "pos": null
+ },
+ "Dans Locmelis|BOS": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483704",
+  "pos": "C"
+ },
+ "David Bedkowski|BUF": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485364",
+  "pos": "D"
+ },
+ "David Edstrom|NSH": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484165",
+  "pos": "C"
+ },
+ "David Goyette|PHI": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483449",
+  "pos": "C"
+ },
+ "David Reinbacher|MTL": {
+  "asof": "2026-11-10",
+  "gp": 3,
+  "how": "exact",
+  "pid": "8484220",
+  "pos": "D"
+ },
+ "Dean Letourneau|BOS": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484879",
+  "pos": "C"
+ },
+ "Declan Carlile|PIT": {
+  "asof": "2026-11-10",
+  "gp": 64,
+  "how": "exact",
+  "pid": "8483398",
+  "pos": "D"
+ },
+ "Denis Gabdrakhmanov|FLA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485094",
+  "pos": "G"
+ },
+ "Devin Kaplan|SEA": {
+  "asof": "2026-11-10",
+  "gp": 1,
+  "how": "exact",
+  "pid": "8483461",
+  "pos": "R"
+ },
+ "Dillon Boucher|CHI": {
+  "asof": "2026-11-10",
+  "gp": 3,
+  "how": "exact",
+  "pid": "8485554",
+  "pos": "L"
+ },
+ "Dmitri Borichev|NSH": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486077",
+  "pos": "G"
+ },
+ "Dmitri Buchelnikov|STL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483667",
+  "pos": "L"
+ },
+ "Dmitri Gamzin|NYI": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "none",
+  "pid": null,
+  "pos": null
+ },
+ "Dmitri Isayev|OTT": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485621",
+  "pos": "L"
+ },
+ "Dmitri Kuzmin|(N/A)": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "none",
+  "pid": null,
+  "pos": null
+ },
+ "Dmitri Ovchinnikov|(N/A)": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "none",
+  "pid": null,
+  "pos": null
+ },
+ "Dmitri Rashevsky|WPG": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482935",
+  "pos": "R"
+ },
+ "Domenic DiVincentiis|WPG": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483711",
+  "pos": "G"
+ },
+ "Domenick Fensore|COL": {
+  "asof": "2026-11-10",
+  "gp": 3,
+  "how": "exact",
+  "pid": "8481562",
+  "pos": "D"
+ },
+ "Dominik Badinka|CAR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484781",
+  "pos": "D"
+ },
+ "Donovan Sebrango|FLA": {
+  "asof": "2026-11-10",
+  "gp": 44,
+  "how": "exact",
+  "pid": "8482131",
+  "pos": "D"
+ },
+ "Drew Fortescue|NYR": {
+  "asof": "2026-11-10",
+  "gp": 9,
+  "how": "exact",
+  "pid": "8484169",
+  "pos": "D"
+ },
+ "Dylan Duke|TBL": {
+  "asof": "2026-11-10",
+  "gp": 3,
+  "how": "exact",
+  "pid": "8482663",
+  "pos": "L"
+ },
+ "Dylan James|DET": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483459",
+  "pos": "L"
+ },
+ "Dylan McIlrath|WSH": {
+  "asof": "2026-11-10",
+  "gp": 109,
+  "how": "exact",
+  "pid": "8475795",
+  "pos": "D"
+ },
+ "EJ Emery|NYR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484848",
+  "pos": "D"
+ },
+ "Eddie Genborg|DET": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485394",
+  "pos": "R"
+ },
+ "Eduard Sale|SEA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484222",
+  "pos": "L"
+ },
+ "Eemil Vinni|EDM": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484881",
+  "pos": "G"
+ },
+ "Egor Afanasyev|SJS": {
+  "asof": "2026-11-10",
+  "gp": 19,
+  "how": "exact",
+  "pid": "8481585",
+  "pos": "L"
+ },
+ "Egor Barabanov|CGY": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486020",
+  "pos": "C"
+ },
+ "Elias Salomonsson|WPG": {
+  "asof": "2026-11-10",
+  "gp": 38,
+  "how": "exact",
+  "pid": "8483510",
+  "pos": "D"
+ },
+ "Elijah Neuenschwander|ANA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485446",
+  "pos": "G"
+ },
+ "Elton Hermansson|LAK": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486047",
+  "pos": "R"
+ },
+ "Emil Hemming|DAL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484796",
+  "pos": "R"
+ },
+ "Emil Pieniniemi|FLA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484213",
+  "pos": "D"
+ },
+ "Emmett Croteau|MTL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483765",
+  "pos": "G"
+ },
+ "Eric Comrie|SJS": {
+  "asof": "2026-11-10",
+  "gp": 102,
+  "how": "exact",
+  "pid": "8477480",
+  "pos": "G"
+ },
+ "Eric Nilson|ANA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485417",
+  "pos": "C"
+ },
+ "Erik Portillo|LAK": {
+  "asof": "2026-11-10",
+  "gp": 1,
+  "how": "exact",
+  "pid": "8481707",
+  "pos": "G"
+ },
+ "Eriks Mateiko|WSH": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484775",
+  "pos": "L"
+ },
+ "Ethan Belchetz|UTA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486022",
+  "pos": "L"
+ },
+ "Ethan Cardwell|SJS": {
+  "asof": "2026-11-10",
+  "gp": 13,
+  "how": "exact",
+  "pid": "8482206",
+  "pos": "R"
+ },
+ "Ethan Czata|TBL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485386",
+  "pos": "C"
+ },
+ "Ethan Gauthier|TBL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484173",
+  "pos": "R"
+ },
+ "Ethan MacKenzie|TOR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485789",
+  "pos": "D"
+ },
+ "Ethan Miedema|BUF": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484193",
+  "pos": "L"
+ },
+ "Ethan Procyszyn|ANA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484867",
+  "pos": "C"
+ },
+ "Ethan Samson|MTL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482890",
+  "pos": "D"
+ },
+ "Ethan Wyttenbach|CGY": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485614",
+  "pos": "L"
+ },
+ "Etienne Morin|NJD": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484198",
+  "pos": "D"
+ },
+ "Evan Gardner|CBJ": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484997",
+  "pos": "G"
+ },
+ "Fabian Lysell|COL": {
+  "asof": "2026-11-10",
+  "gp": 12,
+  "how": "exact",
+  "pid": "8482763",
+  "pos": "R"
+ },
+ "Felix Nilsson|NSH": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484206",
+  "pos": "C"
+ },
+ "Felix Sandstrom|BUF": {
+  "asof": "2026-11-10",
+  "gp": 30,
+  "how": "exact",
+  "pid": "8478433",
+  "pos": "G"
+ },
+ "Filip Bystedt|SJS": {
+  "asof": "2026-11-10",
+  "gp": 5,
+  "how": "exact",
+  "pid": "8483428",
+  "pos": "C"
+ },
+ "Filip Ekberg|CAR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485688",
+  "pos": "R"
+ },
+ "Filip Eriksson|MTL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484448",
+  "pos": "C"
+ },
+ "Filip Mesar|MTL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483488",
+  "pos": "R"
+ },
+ "Filip Nordberg|OTT": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483670",
+  "pos": "D"
+ },
+ "Filip Ruzicka|MIN": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486275",
+  "pos": "G"
+ },
+ "Francesco Pinelli|LAK": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482748",
+  "pos": "C"
+ },
+ "Frederic Brunet|BOS": {
+  "asof": "2026-11-10",
+  "gp": 13,
+  "how": "exact",
+  "pid": "8483017",
+  "pos": "D"
+ },
+ "Fyodor Avramov|CAR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485069",
+  "pos": "L"
+ },
+ "Gabe Smith|UTA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485007",
+  "pos": "C"
+ },
+ "Gabriel D'Aigle|PIT": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485569",
+  "pos": "G"
+ },
+ "Gabriel Eliasson|OTT": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484847",
+  "pos": "D"
+ },
+ "Gabriel Szturc|TBL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484507",
+  "pos": "C"
+ },
+ "Gage Alexander|DET": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482936",
+  "pos": "G"
+ },
+ "Garin Bjorklund|(N/A)": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482188",
+  "pos": "G"
+ },
+ "Garrett Brown|WPG": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483672",
+  "pos": "D"
+ },
+ "Garrett Pilon|OTT": {
+  "asof": "2026-11-10",
+  "gp": 3,
+  "how": "exact",
+  "pid": "8479516",
+  "pos": "C"
+ },
+ "Gavin Brindley|COL": {
+  "asof": "2026-11-10",
+  "gp": 62,
+  "how": "exact",
+  "pid": "8484149",
+  "pos": "C"
+ },
+ "Gavin Hayes|CHI": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483453",
+  "pos": "L"
+ },
+ "Gavin White|(N/A)": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483059",
+  "pos": "D"
+ },
+ "Georgi Merkulov|COL": {
+  "asof": "2026-11-10",
+  "gp": 11,
+  "how": "prefix",
+  "pid": "8483567",
+  "pos": "C"
+ },
+ "Georgi Romanov|STL": {
+  "asof": "2026-11-10",
+  "gp": 10,
+  "how": "prefix",
+  "pid": "8484312",
+  "pos": "G"
+ },
+ "Giorgos Pantelas|LAK": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486081",
+  "pos": "D"
+ },
+ "Gleb Pugachyov|MTL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486086",
+  "pos": "R"
+ },
+ "Gleb Trikozov|CAR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483519",
+  "pos": "L"
+ },
+ "Gracyn Sawchyn|FLA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484224",
+  "pos": "C"
+ },
+ "Graeme Clarke|OTT": {
+  "asof": "2026-11-10",
+  "gp": 3,
+  "how": "exact",
+  "pid": "8481578",
+  "pos": "R"
+ },
+ "Grigori Denisenko|(N/A)": {
+  "asof": "2026-11-10",
+  "gp": 33,
+  "how": "exact",
+  "pid": "8480844",
+  "pos": "L"
+ },
+ "Hampton Slukynsky|LAK": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484417",
+  "pos": "G"
+ },
+ "Hank Kempf|COL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482950",
+  "pos": "D"
+ },
+ "Haoxi Wang|SJS": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "prefix",
+  "pid": "8485354",
+  "pos": "D"
+ },
+ "Harrison Boettiger|WSH": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486454",
+  "pos": "G"
+ },
+ "Harrison Brunicke|PIT": {
+  "asof": "2026-11-10",
+  "gp": 9,
+  "how": "exact",
+  "pid": "8484839",
+  "pos": "D"
+ },
+ "Harrison Meneghin|TBL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484636",
+  "pos": "G"
+ },
+ "Hayden Paupanekis|MTL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485380",
+  "pos": "C"
+ },
+ "Hayden Stavroff|(N/A)": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "none",
+  "pid": null,
+  "pos": null
+ },
+ "Heikki Ruohonen|PHI": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485014",
+  "pos": "C"
+ },
+ "Helge Grans|PHI": {
+  "asof": "2026-11-10",
+  "gp": 7,
+  "how": "exact",
+  "pid": "8482169",
+  "pos": "D"
+ },
+ "Henrik Tikkanen|NYI": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482472",
+  "pos": "G"
+ },
+ "Henry Brzustewicz|LAK": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485381",
+  "pos": "D"
+ },
+ "Henry Mews|CGY": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484774",
+  "pos": "D"
+ },
+ "Herman Traff|ANA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484853",
+  "pos": "R"
+ },
+ "Hiroki Gojsic|NSH": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485005",
+  "pos": "R"
+ },
+ "Hoyt Stanley|OTT": {
+  "asof": "2026-11-10",
+  "gp": 4,
+  "how": "exact",
+  "pid": "8484409",
+  "pos": "D"
+ },
+ "Hudson Malinoski|TOR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484438",
+  "pos": "C"
+ },
+ "Hugo Alnefelt|TBL": {
+  "asof": "2026-11-10",
+  "gp": 1,
+  "how": "exact",
+  "pid": "8481597",
+  "pos": "G"
+ },
+ "Hunter Brzustewicz|CGY": {
+  "asof": "2026-11-10",
+  "gp": 35,
+  "how": "exact",
+  "pid": "8484150",
+  "pos": "D"
+ },
+ "Hunter Haight|MIN": {
+  "asof": "2026-11-10",
+  "gp": 9,
+  "how": "exact",
+  "pid": "8483452",
+  "pos": "C"
+ },
+ "Hunter McDonald|PHI": {
+  "asof": "2026-11-10",
+  "gp": 6,
+  "how": "exact",
+  "pid": "8483760",
+  "pos": "D"
+ },
+ "Hunter McKown|MTL": {
+  "asof": "2026-11-10",
+  "gp": 12,
+  "how": "exact",
+  "pid": "8484125",
+  "pos": "C"
+ },
+ "Hunter Shepard|(N/A)": {
+  "asof": "2026-11-10",
+  "gp": 6,
+  "how": "exact",
+  "pid": "8482411",
+  "pos": "G"
+ },
+ "Hunter St. Martin|FLA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485071",
+  "pos": "L"
+ },
+ "Ilia Morozov|BUF": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486068",
+  "pos": "C"
+ },
+ "Ilya Fedotov|UTA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482792",
+  "pos": "L"
+ },
+ "Ilya Kanarsky|CHI": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485656",
+  "pos": "G"
+ },
+ "Ilya Nabokov|COL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484996",
+  "pos": "G"
+ },
+ "Ilya Pautov|PHI": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485073",
+  "pos": "R"
+ },
+ "Ilya Protas|WSH": {
+  "asof": "2026-11-10",
+  "gp": 19,
+  "how": "exact",
+  "pid": "8484999",
+  "pos": "L"
+ },
+ "Ilya Safonov|VAN": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482915",
+  "pos": "C"
+ },
+ "Isaac Belliveau|(N/A)": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482801",
+  "pos": "D"
+ },
+ "Isaak Phillips|WPG": {
+  "asof": "2026-11-10",
+  "gp": 59,
+  "how": "exact",
+  "pid": "8482192",
+  "pos": "D"
+ },
+ "Isaiah Saville|LAK": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8481520",
+  "pos": "G"
+ },
+ "Ivan Fedotov|CBJ": {
+  "asof": "2026-11-10",
+  "gp": 29,
+  "how": "exact",
+  "pid": "8478905",
+  "pos": "G"
+ },
+ "Ivan Ivan|BOS": {
+  "asof": "2026-11-10",
+  "gp": 49,
+  "how": "exact",
+  "pid": "8483930",
+  "pos": "C"
+ },
+ "Ivan Miroshnichenko|WSH": {
+  "asof": "2026-11-10",
+  "gp": 55,
+  "how": "exact",
+  "pid": "8483491",
+  "pos": "L"
+ },
+ "Ivan Morozov|VGK": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8480894",
+  "pos": "C"
+ },
+ "Ivan Ryabkin|CAR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485368",
+  "pos": "C"
+ },
+ "Ivan Zhigalov|COL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482990",
+  "pos": "G"
+ },
+ "J.P. Hurlbert|DET": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "prefix",
+  "pid": "8486049",
+  "pos": "L"
+ },
+ "Jack Ahcan|NSH": {
+  "asof": "2026-11-10",
+  "gp": 25,
+  "how": "exact",
+  "pid": "8482072",
+  "pos": "D"
+ },
+ "Jack Berglund|PHI": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484837",
+  "pos": "C"
+ },
+ "Jack Hextall|CGY": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486048",
+  "pos": "C"
+ },
+ "Jack Hughes|LAK": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483456",
+  "pos": "C"
+ },
+ "Jack Ivankovic|NSH": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485399",
+  "pos": "G"
+ },
+ "Jack Matier|(N/A)": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482808",
+  "pos": "D"
+ },
+ "Jack Murtagh|PHI": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485408",
+  "pos": "L"
+ },
+ "Jack Nesbitt|PHI": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485409",
+  "pos": "C"
+ },
+ "Jack Peart|MIN": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482686",
+  "pos": "D"
+ },
+ "Jack Pridham|TBL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484868",
+  "pos": "R"
+ },
+ "Jack Thompson|VAN": {
+  "asof": "2026-11-10",
+  "gp": 34,
+  "how": "exact",
+  "pid": "8482144",
+  "pos": "D"
+ },
+ "Jack Williams|CBJ": {
+  "asof": "2026-11-10",
+  "gp": 2,
+  "how": "exact",
+  "pid": "8485469",
+  "pos": "C"
+ },
+ "Jackson Hallum|VGK": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482512",
+  "pos": "L"
+ },
+ "Jackson Parsons|OTT": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485142",
+  "pos": "G"
+ },
+ "Jackson Smith|CBJ": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485361",
+  "pos": "D"
+ },
+ "Jacob Battaglia|NYR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484785",
+  "pos": "R"
+ },
+ "Jacob Gaucher|PHI": {
+  "asof": "2026-11-10",
+  "gp": 12,
+  "how": "exact",
+  "pid": "8481848",
+  "pos": "C"
+ },
+ "Jacob Melanson|SEA": {
+  "asof": "2026-11-10",
+  "gp": 38,
+  "how": "exact",
+  "pid": "8482874",
+  "pos": "R"
+ },
+ "Jacob Rombach|NSH": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485369",
+  "pos": "D"
+ },
+ "Jake Fisher|COL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485028",
+  "pos": "C"
+ },
+ "Jake Livanavage|PIT": {
+  "asof": "2026-11-10",
+  "gp": 1,
+  "how": "exact",
+  "pid": "8486169",
+  "pos": "D"
+ },
+ "Jake Richard|BUF": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483755",
+  "pos": "R"
+ },
+ "Jakob Ihs Wozniak|VGK": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485416",
+  "pos": "C"
+ },
+ "Jakub Demek|VGK": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482933",
+  "pos": "C"
+ },
+ "Jakub Dvorak|LAK": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484163",
+  "pos": "D"
+ },
+ "Jakub Fibigr|SEA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485096",
+  "pos": "D"
+ },
+ "Jakub Malek|NJD": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482867",
+  "pos": "G"
+ },
+ "Jakub Milota|NSH": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485011",
+  "pos": "G"
+ },
+ "Jakub Skarek|SJS": {
+  "asof": "2026-11-10",
+  "gp": 2,
+  "how": "exact",
+  "pid": "8480819",
+  "pos": "G"
+ },
+ "Jakub Stancl|STL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484229",
+  "pos": "C"
+ },
+ "Jakub Vanecek|DAL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486109",
+  "pos": "D"
+ },
+ "James Malatesta|CBJ": {
+  "asof": "2026-11-10",
+  "gp": 13,
+  "how": "exact",
+  "pid": "8482744",
+  "pos": "L"
+ },
+ "Jansen Harkins|TBL": {
+  "asof": "2026-11-10",
+  "gp": 306,
+  "how": "exact",
+  "pid": "8478424",
+  "pos": "C"
+ },
+ "Jared Davidson|MTL": {
+  "asof": "2026-11-10",
+  "gp": 10,
+  "how": "exact",
+  "pid": "8483728",
+  "pos": "C"
+ },
+ "Jared Woolley|LAK": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484844",
+  "pos": "D"
+ },
+ "Jared Wright|LAK": {
+  "asof": "2026-11-10",
+  "gp": 27,
+  "how": "exact",
+  "pid": "8483756",
+  "pos": "R"
+ },
+ "Javon Moore|OTT": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484876",
+  "pos": "L"
+ },
+ "Jaxon Cover|OTT": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486031",
+  "pos": "R"
+ },
+ "Jaxson Stauber|UTA": {
+  "asof": "2026-11-10",
+  "gp": 12,
+  "how": "exact",
+  "pid": "8483530",
+  "pos": "G"
+ },
+ "Jayden Grubbe|(N/A)": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482704",
+  "pos": "C"
+ },
+ "Jayden Kurtz|ANA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486082",
+  "pos": "D"
+ },
+ "Jayden Perron|CAR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484211",
+  "pos": "R"
+ },
+ "Jayson Shaugabay|TBL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484226",
+  "pos": "R"
+ },
+ "Jeremie Poirier|(N/A)": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482173",
+  "pos": "D"
+ },
+ "Jeremy Loranger|CBJ": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485667",
+  "pos": "C"
+ },
+ "Jesse Kiiskinen|DET": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484183",
+  "pos": "R"
+ },
+ "Jesse Pulkkinen|NYI": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484766",
+  "pos": "D"
+ },
+ "Jett Luchanko|PHI": {
+  "asof": "2026-11-10",
+  "gp": 8,
+  "how": "exact",
+  "pid": "8484779",
+  "pos": "C"
+ },
+ "Jett Woo|ANA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8480808",
+  "pos": "D"
+ },
+ "Jimmy Lombardi|LAK": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485602",
+  "pos": "C"
+ },
+ "Jiri Patera|BOS": {
+  "asof": "2026-11-10",
+  "gp": 9,
+  "how": "exact",
+  "pid": "8480238",
+  "pos": "G"
+ },
+ "Joakim Kemell|NSH": {
+  "asof": "2026-11-10",
+  "gp": 18,
+  "how": "exact",
+  "pid": "8483465",
+  "pos": "R"
+ },
+ "Joe Iginla|CGY": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486224",
+  "pos": "R"
+ },
+ "Joel Blomqvist|PIT": {
+  "asof": "2026-11-10",
+  "gp": 15,
+  "how": "exact",
+  "pid": "8482446",
+  "pos": "G"
+ },
+ "Joel Nystrom|CAR": {
+  "asof": "2026-11-10",
+  "gp": 38,
+  "how": "exact",
+  "pid": "8482911",
+  "pos": "D"
+ },
+ "Joel Teasdale|(N/A)": {
+  "asof": "2026-11-10",
+  "gp": 2,
+  "how": "exact",
+  "pid": "8480034",
+  "pos": "L"
+ },
+ "Joey Muldowney|SJS": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483753",
+  "pos": "R"
+ },
+ "John Ludvig|(N/A)": {
+  "asof": "2026-11-10",
+  "gp": 41,
+  "how": "exact",
+  "pid": "8481206",
+  "pos": "D"
+ },
+ "John Mustard|CHI": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484771",
+  "pos": "C"
+ },
+ "John St. Ivany|WSH": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "none",
+  "pid": null,
+  "pos": null
+ },
+ "Jonah Sivertson|VGK": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486100",
+  "pos": "R"
+ },
+ "Jonas Lagerberg Hoen|OTT": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486057",
+  "pos": "R"
+ },
+ "Jonas Woo|CBJ": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485746",
+  "pos": "D"
+ },
+ "Jonathan Gruden|NJD": {
+  "asof": "2026-11-10",
+  "gp": 16,
+  "how": "exact",
+  "pid": "8480836",
+  "pos": "L"
+ },
+ "Jonathan Myrenberg|BOS": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482906",
+  "pos": "D"
+ },
+ "Joona Vaisanen|PIT": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485076",
+  "pos": "D"
+ },
+ "Jordan Dumais|CBJ": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483688",
+  "pos": "R"
+ },
+ "Jordan Gustafson|VGK": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483451",
+  "pos": "C"
+ },
+ "Jorian Donovan|OTT": {
+  "asof": "2026-11-10",
+  "gp": 3,
+  "how": "exact",
+  "pid": "8483435",
+  "pos": "D"
+ },
+ "Joseph Willis|NSH": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "none",
+  "pid": null,
+  "pos": null
+ },
+ "Josh Lopina|FLA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482925",
+  "pos": "C"
+ },
+ "Joshua Kotai|NYI": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486136",
+  "pos": "G"
+ },
+ "Joshua Ravensbergen|SJS": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485373",
+  "pos": "G"
+ },
+ "Joshua Roy|UTA": {
+  "asof": "2026-11-10",
+  "gp": 38,
+  "how": "exact",
+  "pid": "8482749",
+  "pos": "R"
+ },
+ "Juho Piiparinen|VGK": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486083",
+  "pos": "D"
+ },
+ "Julian Lutz|UTA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483483",
+  "pos": "L"
+ },
+ "Julius Miettinen|SEA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484773",
+  "pos": "C"
+ },
+ "Juraj Pekarcik|STL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484393",
+  "pos": "L"
+ },
+ "Justin Carbonneau|STL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485382",
+  "pos": "R"
+ },
+ "Justin Kirkland|MIN": {
+  "asof": "2026-11-10",
+  "gp": 50,
+  "how": "exact",
+  "pid": "8477993",
+  "pos": "C"
+ },
+ "Justin Poirier|CAR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485048",
+  "pos": "R"
+ },
+ "Justin Robidas|CAR": {
+  "asof": "2026-11-10",
+  "gp": 4,
+  "how": "exact",
+  "pid": "8482785",
+  "pos": "C"
+ },
+ "Juuso Parssinen|NYR": {
+  "asof": "2026-11-10",
+  "gp": 157,
+  "how": "exact",
+  "pid": "8481704",
+  "pos": "C"
+ },
+ "Kai Schwindt|FLA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483878",
+  "pos": "L"
+ },
+ "Kai Uchacz|VGK": {
+  "asof": "2026-11-10",
+  "gp": 3,
+  "how": "exact",
+  "pid": "8485251",
+  "pos": "C"
+ },
+ "Kamil Bednarik|NYI": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484788",
+  "pos": "C"
+ },
+ "Karsen Dorwart|(N/A)": {
+  "asof": "2026-11-10",
+  "gp": 5,
+  "how": "exact",
+  "pid": "8485483",
+  "pos": "L"
+ },
+ "Kashawn Aitcheson|NYI": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485352",
+  "pos": "D"
+ },
+ "Kasper Halttunen|OTT": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484176",
+  "pos": "R"
+ },
+ "Kasper Kulonummi|NSH": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483469",
+  "pos": "D"
+ },
+ "Keaton Middleton|COL": {
+  "asof": "2026-11-10",
+  "gp": 47,
+  "how": "exact",
+  "pid": "8479387",
+  "pos": "D"
+ },
+ "Keaton Verhoeff|SJS": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486112",
+  "pos": "D"
+ },
+ "Kevin He|WPG": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484864",
+  "pos": "L"
+ },
+ "Kevin Reidler|OTT": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483762",
+  "pos": "G"
+ },
+ "Kieren Dervin|VAN": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485430",
+  "pos": "C"
+ },
+ "Kieron Walton|WPG": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485070",
+  "pos": "C"
+ },
+ "Kim Saarinen|SEA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485003",
+  "pos": "G"
+ },
+ "Kirill Dolzhenkov|CBJ": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483434",
+  "pos": "R"
+ },
+ "Kirill Gerasimyuk|FLA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482914",
+  "pos": "G"
+ },
+ "Kirill Kirsanov|LAK": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482922",
+  "pos": "D"
+ },
+ "Kirill Kudryavtsev|VAN": {
+  "asof": "2026-11-10",
+  "gp": 5,
+  "how": "exact",
+  "pid": "8483467",
+  "pos": "D"
+ },
+ "Kirill Tyutyayev|DET": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8481680",
+  "pos": "L"
+ },
+ "Kirill Zarubin|CGY": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485012",
+  "pos": "G"
+ },
+ "Koehn Ziemmer|LAK": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484243",
+  "pos": "R"
+ },
+ "Kristian Epperson|LAK": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485432",
+  "pos": "L"
+ },
+ "Kurban Limatov|CAR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485442",
+  "pos": "D"
+ },
+ "Kurtis MacDermid|OTT": {
+  "asof": "2026-11-10",
+  "gp": 307,
+  "how": "exact",
+  "pid": "8477073",
+  "pos": "L"
+ },
+ "Kyle Jackson|NYR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483013",
+  "pos": "L"
+ },
+ "Kyle Masters|ANA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482707",
+  "pos": "D"
+ },
+ "L.J. Mooney|MTL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "none",
+  "pid": null,
+  "pos": null
+ },
+ "Lane Pederson|LAK": {
+  "asof": "2026-11-10",
+  "gp": 76,
+  "how": "exact",
+  "pid": "8478967",
+  "pos": "C"
+ },
+ "Lars Steiner|STL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486302",
+  "pos": "R"
+ },
+ "Lasse Boelius|ANA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485374",
+  "pos": "D"
+ },
+ "Lavr Gashilov|NJD": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486256",
+  "pos": "C"
+ },
+ "Lenni Hameenaho|NJD": {
+  "asof": "2026-11-10",
+  "gp": 33,
+  "how": "exact",
+  "pid": "8484177",
+  "pos": "R"
+ },
+ "Leo Sahlin Wallenius|SJS": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "none",
+  "pid": null,
+  "pos": null
+ },
+ "Leon Muggli|WSH": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484772",
+  "pos": "D"
+ },
+ "Liam Greentree|NYR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484802",
+  "pos": "R"
+ },
+ "Liam Lefebvre|LAK": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486060",
+  "pos": "C"
+ },
+ "Liam Pettersson|BOS": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485565",
+  "pos": "D"
+ },
+ "Liam Ruck|PIT": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486091",
+  "pos": "R"
+ },
+ "Linus Eriksson|FLA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484850",
+  "pos": "C"
+ },
+ "Linus Funck|COL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485593",
+  "pos": "D"
+ },
+ "Logan Hensler|OTT": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485397",
+  "pos": "D"
+ },
+ "Logan Morrison|SEA": {
+  "asof": "2026-11-10",
+  "gp": 4,
+  "how": "exact",
+  "pid": "8483012",
+  "pos": "C"
+ },
+ "Logan Sawyer|MTL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485001",
+  "pos": "C"
+ },
+ "Love Harenstam|STL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485649",
+  "pos": "G"
+ },
+ "Luca Del Bel Belluz|CBJ": {
+  "asof": "2026-11-10",
+  "gp": 38,
+  "how": "exact",
+  "pid": "8483432",
+  "pos": "C"
+ },
+ "Luca Marrelli|CBJ": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484777",
+  "pos": "D"
+ },
+ "Luca Pinelli|CBJ": {
+  "asof": "2026-11-10",
+  "gp": 3,
+  "how": "exact",
+  "pid": "8484214",
+  "pos": "C"
+ },
+ "Luca Romano|NYI": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485370",
+  "pos": "C"
+ },
+ "Lucas Beckman|OTT": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485580",
+  "pos": "G"
+ },
+ "Lucas Carlsson|SJS": {
+  "asof": "2026-11-10",
+  "gp": 73,
+  "how": "exact",
+  "pid": "8479523",
+  "pos": "D"
+ },
+ "Lucas Ellinas|OTT": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485006",
+  "pos": "L"
+ },
+ "Lucas Pettersson|ANA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484767",
+  "pos": "C"
+ },
+ "Ludvig Jansson|FLA": {
+  "asof": "2026-11-10",
+  "gp": 4,
+  "how": "exact",
+  "pid": "8483712",
+  "pos": "D"
+ },
+ "Lukas Cormier|VGK": {
+  "asof": "2026-11-10",
+  "gp": 2,
+  "how": "exact",
+  "pid": "8482141",
+  "pos": "D"
+ },
+ "Lukas Dragicevic|SEA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484162",
+  "pos": "D"
+ },
+ "Lukas Fischer|STL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484810",
+  "pos": "D"
+ },
+ "Lukas Parik|LAK": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8481710",
+  "pos": "G"
+ },
+ "Luke Haymes|TOR": {
+  "asof": "2026-11-10",
+  "gp": 4,
+  "how": "exact",
+  "pid": "8485467",
+  "pos": "C"
+ },
+ "Luke Misa|CGY": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484878",
+  "pos": "C"
+ },
+ "Luke Mittelstadt|MTL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482687",
+  "pos": "D"
+ },
+ "Luke Osburn|BUF": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485015",
+  "pos": "D"
+ },
+ "Luke Prokop|EDM": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482091",
+  "pos": "D"
+ },
+ "Luke Schairer|STL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486097",
+  "pos": "D"
+ },
+ "Luke Tuch|CBJ": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482134",
+  "pos": "L"
+ },
+ "Lynden Lakovic|WSH": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485412",
+  "pos": "L"
+ },
+ "Mac Swanson|PIT": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485102",
+  "pos": "C"
+ },
+ "Maddox Dagenais|STL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486033",
+  "pos": "C"
+ },
+ "Mads Sogaard|TBL": {
+  "asof": "2026-11-10",
+  "gp": 31,
+  "how": "exact",
+  "pid": "8481544",
+  "pos": "G"
+ },
+ "Magnus Chrona|(N/A)": {
+  "asof": "2026-11-10",
+  "gp": 9,
+  "how": "exact",
+  "pid": "8480992",
+  "pos": "G"
+ },
+ "Maksim Berezkin|EDM": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482202",
+  "pos": "L"
+ },
+ "Maksim Sokolovskii|PHI": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486101",
+  "pos": "D"
+ },
+ "Maksymilian Szuber|MTL": {
+  "asof": "2026-11-10",
+  "gp": 1,
+  "how": "exact",
+  "pid": "8483763",
+  "pos": "D"
+ },
+ "Malcolm Spence|NYR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485359",
+  "pos": "L"
+ },
+ "Malte Gustafsson|NYI": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486042",
+  "pos": "D"
+ },
+ "Mans Goos|DAL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485433",
+  "pos": "G"
+ },
+ "Mans Gudmundsson|TOR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486040",
+  "pos": "D"
+ },
+ "Marc Del Gaizo|NYR": {
+  "asof": "2026-11-10",
+  "gp": 55,
+  "how": "exact",
+  "pid": "8481743",
+  "pos": "D"
+ },
+ "Marc McLaughlin|NJD": {
+  "asof": "2026-11-10",
+  "gp": 35,
+  "how": "exact",
+  "pid": "8483397",
+  "pos": "C"
+ },
+ "Marcus Gidlof|STL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485044",
+  "pos": "G"
+ },
+ "Marcus Nordmark|ANA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486072",
+  "pos": "L"
+ },
+ "Marek Alscher|FLA": {
+  "asof": "2026-11-10",
+  "gp": 4,
+  "how": "exact",
+  "pid": "8483687",
+  "pos": "D"
+ },
+ "Marek Vanacker|CHI": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484761",
+  "pos": "L"
+ },
+ "Markus Ruck|PIT": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486092",
+  "pos": "C"
+ },
+ "Marshall Rifai|TOR": {
+  "asof": "2026-11-10",
+  "gp": 5,
+  "how": "exact",
+  "pid": "8483546",
+  "pos": "D"
+ },
+ "Marshall Warren|NYI": {
+  "asof": "2026-11-10",
+  "gp": 8,
+  "how": "exact",
+  "pid": "8481569",
+  "pos": "D"
+ },
+ "Martin Chromiak|LAK": {
+  "asof": "2026-11-10",
+  "gp": 2,
+  "how": "exact",
+  "pid": "8482160",
+  "pos": "R"
+ },
+ "Martin Misiak|CHI": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484195",
+  "pos": "R"
+ },
+ "Martin Psohlavec|PHI": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486227",
+  "pos": "G"
+ },
+ "Mason Moe|NJD": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485445",
+  "pos": "C"
+ },
+ "Mason West|CHI": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485353",
+  "pos": "C"
+ },
+ "Massimo Rizzo|(N/A)": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8481760",
+  "pos": "C"
+ },
+ "Matej Blumel|(N/A)": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "none",
+  "pid": null,
+  "pos": null
+ },
+ "Mateo Nobert|VGK": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485575",
+  "pos": "C"
+ },
+ "Mathieu Cataford|VGK": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484155",
+  "pos": "C"
+ },
+ "Mathis Preston|ANA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486085",
+  "pos": "R"
+ },
+ "Matias Vanhanen|NJD": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486110",
+  "pos": "L"
+ },
+ "Matt Maggio|(N/A)": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "none",
+  "pid": null,
+  "pos": null
+ },
+ "Matt Tomkins|EDM": {
+  "asof": "2026-11-10",
+  "gp": 8,
+  "how": "exact",
+  "pid": "8477035",
+  "pos": "G"
+ },
+ "Matthew Gard|PHI": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485392",
+  "pos": "C"
+ },
+ "Matthew Mania|LAK": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484435",
+  "pos": "D"
+ },
+ "Matthew Murray|NSH": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "none",
+  "pid": null,
+  "pos": null
+ },
+ "Matthew Poitras|BOS": {
+  "asof": "2026-11-10",
+  "gp": 82,
+  "how": "exact",
+  "pid": "8483505",
+  "pos": "C"
+ },
+ "Matthew Seminoff|DAL": {
+  "asof": "2026-11-10",
+  "gp": 3,
+  "how": "exact",
+  "pid": "8483514",
+  "pos": "R"
+ },
+ "Matthew Villalta|BUF": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "none",
+  "pid": null,
+  "pos": null
+ },
+ "Mattias Havelid|SJS": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483666",
+  "pos": "D"
+ },
+ "Matvei Korotky|STL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485104",
+  "pos": "C"
+ },
+ "Matvei Kotkov|BOS": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486248",
+  "pos": "R"
+ },
+ "Matvei Petrov|(N/A)": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "none",
+  "pid": null,
+  "pos": null
+ },
+ "Matvei Shuravin|FLA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485004",
+  "pos": "D"
+ },
+ "Matyas Melovsky|NJD": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484616",
+  "pos": "C"
+ },
+ "Matyas Sapovaliv|VGK": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483511",
+  "pos": "C"
+ },
+ "Maveric Lamoureux|UTA": {
+  "asof": "2026-11-10",
+  "gp": 20,
+  "how": "exact",
+  "pid": "8483472",
+  "pos": "D"
+ },
+ "Max Plante|DET": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484870",
+  "pos": "L"
+ },
+ "Max Psenicka|UTA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485375",
+  "pos": "D"
+ },
+ "Maxence Guenette|BOS": {
+  "asof": "2026-11-10",
+  "gp": 8,
+  "how": "exact",
+  "pid": "8481679",
+  "pos": "D"
+ },
+ "Maxim Groshev|TBL": {
+  "asof": "2026-11-10",
+  "gp": 2,
+  "how": "exact",
+  "pid": "8482168",
+  "pos": "D"
+ },
+ "Maxim Masse|ANA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484776",
+  "pos": "R"
+ },
+ "Maxim Mayorov|DAL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483758",
+  "pos": "G"
+ },
+ "Maxim Motorygin|(N/A)": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "none",
+  "pid": null,
+  "pos": null
+ },
+ "Maxim Schafer|WSH": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485577",
+  "pos": "L"
+ },
+ "Maxim Strbak|BUF": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484233",
+  "pos": "D"
+ },
+ "Maxime Comtois|(N/A)": {
+  "asof": "2026-11-10",
+  "gp": 211,
+  "how": "exact",
+  "pid": "8480031",
+  "pos": "L"
+ },
+ "Maxmilian Curran|CGY": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484846",
+  "pos": "C"
+ },
+ "Melvin Fernstrom|PIT": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484852",
+  "pos": "R"
+ },
+ "Michael Buchinger|STL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483427",
+  "pos": "D"
+ },
+ "Michael Fisher|SJS": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483443",
+  "pos": "D"
+ },
+ "Michael Hage|MTL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484799",
+  "pos": "C"
+ },
+ "Michael Hrabal|UTA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484181",
+  "pos": "G"
+ },
+ "Michal Orsulak|DET": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486080",
+  "pos": "G"
+ },
+ "Michal Postava|DET": {
+  "asof": "2026-11-10",
+  "gp": 2,
+  "how": "exact",
+  "pid": "8485545",
+  "pos": "G"
+ },
+ "Michal Pradel|DET": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485568",
+  "pos": "G"
+ },
+ "Michal Svrcek|DET": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485592",
+  "pos": "L"
+ },
+ "Miguel Marques|NSH": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484778",
+  "pos": "R"
+ },
+ "Mikael Pyyhtia|CBJ": {
+  "asof": "2026-11-10",
+  "gp": 71,
+  "how": "exact",
+  "pid": "8482451",
+  "pos": "L"
+ },
+ "Mike Benning|CGY": {
+  "asof": "2026-11-10",
+  "gp": 18,
+  "how": "exact",
+  "pid": "8482107",
+  "pos": "D"
+ },
+ "Mike Hardman|NJD": {
+  "asof": "2026-11-10",
+  "gp": 39,
+  "how": "exact",
+  "pid": "8482635",
+  "pos": "L"
+ },
+ "Mike Reilly|CAR": {
+  "asof": "2026-11-10",
+  "gp": 468,
+  "how": "exact",
+  "pid": "8476422",
+  "pos": "D"
+ },
+ "Mikey Berchild|CAR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "none",
+  "pid": null,
+  "pos": null
+ },
+ "Mikey Eyssimont|BOS": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "none",
+  "pid": null,
+  "pos": null
+ },
+ "Mikhail Abramov|STL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8481589",
+  "pos": "C"
+ },
+ "Mikhail Gulyayev|COL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484389",
+  "pos": "D"
+ },
+ "Mikhail Ilyin|PIT": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484427",
+  "pos": "R"
+ },
+ "Mikhail Yegorov|NJD": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484843",
+  "pos": "G"
+ },
+ "Mikkel Eriksen|NYR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485596",
+  "pos": "C"
+ },
+ "Miko Matikka|UTA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483671",
+  "pos": "R"
+ },
+ "Milton Gastrin|STL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485393",
+  "pos": "C"
+ },
+ "Miroslav Holinka|TOR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485049",
+  "pos": "C"
+ },
+ "Mitchell Gibson|WSH": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8481064",
+  "pos": "G"
+ },
+ "Nate Danielson|DET": {
+  "asof": "2026-11-10",
+  "gp": 41,
+  "how": "exact",
+  "pid": "8484160",
+  "pos": "C"
+ },
+ "Nathan Aspinall|NYR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485039",
+  "pos": "L"
+ },
+ "Nathan Behm|CHI": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485365",
+  "pos": "R"
+ },
+ "Nathan Gaucher|ANA": {
+  "asof": "2026-11-10",
+  "gp": 3,
+  "how": "exact",
+  "pid": "8483444",
+  "pos": "C"
+ },
+ "Nathan Villeneuve|SEA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484760",
+  "pos": "C"
+ },
+ "Nicholas Moldenhauer|TOR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483492",
+  "pos": "R"
+ },
+ "Nick Lardis|CHI": {
+  "asof": "2026-11-10",
+  "gp": 47,
+  "how": "exact",
+  "pid": "8484185",
+  "pos": "L"
+ },
+ "Nick Malik|TBL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483767",
+  "pos": "G"
+ },
+ "Nikita Alexandrov|LAK": {
+  "asof": "2026-11-10",
+  "gp": 51,
+  "how": "exact",
+  "pid": "8481543",
+  "pos": "C"
+ },
+ "Nikita Artamonov|CAR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484995",
+  "pos": "L"
+ },
+ "Nikita Chibrikov|WPG": {
+  "asof": "2026-11-10",
+  "gp": 16,
+  "how": "exact",
+  "pid": "8482787",
+  "pos": "R"
+ },
+ "Nikita Nesterenko|ANA": {
+  "asof": "2026-11-10",
+  "gp": 77,
+  "how": "exact",
+  "pid": "8481754",
+  "pos": "C"
+ },
+ "Nikita Novikov|(N/A)": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482916",
+  "pos": "D"
+ },
+ "Nikita Novosyolov|COL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486206",
+  "pos": "G"
+ },
+ "Nikita Prishchepov|COL": {
+  "asof": "2026-11-10",
+  "gp": 10,
+  "how": "exact",
+  "pid": "8485105",
+  "pos": "C"
+ },
+ "Nikita Scherbakov|NJD": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "none",
+  "pid": null,
+  "pos": null
+ },
+ "Nikita Tolopilo|VAN": {
+  "asof": "2026-11-10",
+  "gp": 23,
+  "how": "exact",
+  "pid": "8484268",
+  "pos": "G"
+ },
+ "Niklas Aaram-Olsen|VAN": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486016",
+  "pos": "L"
+ },
+ "Niklas Kokko|SEA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "none",
+  "pid": null,
+  "pos": null
+ },
+ "Niko Huuhtanen|(N/A)": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482757",
+  "pos": "R"
+ },
+ "Noah Chadwick|TOR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484464",
+  "pos": "D"
+ },
+ "Noah Dower Nilsson|DET": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484161",
+  "pos": "L"
+ },
+ "Noah Powell|PHI": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485045",
+  "pos": "R"
+ },
+ "Noah Steen|TBL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485091",
+  "pos": "L"
+ },
+ "Noel Fransen|CAR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484998",
+  "pos": "D"
+ },
+ "Noel Nordh|UTA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484207",
+  "pos": "L"
+ },
+ "Nolan Foote|PHI": {
+  "asof": "2026-11-10",
+  "gp": 42,
+  "how": "exact",
+  "pid": "8481518",
+  "pos": "L"
+ },
+ "Oiva Keskinen|CBJ": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484472",
+  "pos": "C"
+ },
+ "Oleg Kulebyakin|TBL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "none",
+  "pid": null,
+  "pos": null
+ },
+ "Oliver Suvanto|WSH": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486104",
+  "pos": "C"
+ },
+ "Ondrej Becher|DET": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484836",
+  "pos": "C"
+ },
+ "Oscar Fisker Molgaard|SEA": {
+  "asof": "2026-11-10",
+  "gp": 13,
+  "how": "exact",
+  "pid": "8484168",
+  "pos": "C"
+ },
+ "Oscar Hemming|CBJ": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486046",
+  "pos": "L"
+ },
+ "Oscar Holmertz|OTT": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486236",
+  "pos": "C"
+ },
+ "Otto Salin|LAK": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483509",
+  "pos": "D"
+ },
+ "Otto Stenberg|STL": {
+  "asof": "2026-11-10",
+  "gp": 35,
+  "how": "exact",
+  "pid": "8484230",
+  "pos": "C"
+ },
+ "Owen Pickering|PIT": {
+  "asof": "2026-11-10",
+  "gp": 29,
+  "how": "exact",
+  "pid": "8483503",
+  "pos": "D"
+ },
+ "Ozzy Wiesblatt|NSH": {
+  "asof": "2026-11-10",
+  "gp": 45,
+  "how": "exact",
+  "pid": "8482103",
+  "pos": "C"
+ },
+ "Parker Bell|(N/A)": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483772",
+  "pos": "L"
+ },
+ "Parker Ford|WPG": {
+  "asof": "2026-11-10",
+  "gp": 18,
+  "how": "exact",
+  "pid": "8484135",
+  "pos": "C"
+ },
+ "Patrik Laine|(N/A)": {
+  "asof": "2026-11-10",
+  "gp": 537,
+  "how": "exact",
+  "pid": "8479339",
+  "pos": "L"
+ },
+ "Patrik Puistola|(N/A)": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8481574",
+  "pos": "R"
+ },
+ "Patriks Plumins|TOR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486253",
+  "pos": "G"
+ },
+ "Paul Ludwinski|CHI": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483480",
+  "pos": "C"
+ },
+ "Pavel Moysevich|VGK": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485002",
+  "pos": "G"
+ },
+ "Pavol Regenda|(N/A)": {
+  "asof": "2026-11-10",
+  "gp": 43,
+  "how": "exact",
+  "pid": "8483630",
+  "pos": "L"
+ },
+ "Petr Kvaca|(N/A)": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8480282",
+  "pos": "G"
+ },
+ "Petteri Rimpinen|LAK": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485627",
+  "pos": "G"
+ },
+ "Peyton Kettles|PIT": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485413",
+  "pos": "D"
+ },
+ "Phillip Tomasino|OTT": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "none",
+  "pid": null,
+  "pos": null
+ },
+ "Pierce Mbuyi|PIT": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486066",
+  "pos": "L"
+ },
+ "Prokhor Poltapov|BUF": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482769",
+  "pos": "L"
+ },
+ "Pyotr Andreyanov|CBJ": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485560",
+  "pos": "G"
+ },
+ "Quentin Musty|SJS": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484200",
+  "pos": "L"
+ },
+ "Quinn Beauchesne|PIT": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485619",
+  "pos": "D"
+ },
+ "Quinn Finley|NYI": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483441",
+  "pos": "L"
+ },
+ "Quinn Hutson|EDM": {
+  "asof": "2026-11-10",
+  "gp": 6,
+  "how": "exact",
+  "pid": "8485511",
+  "pos": "R"
+ },
+ "Quinton Burns|STL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484151",
+  "pos": "D"
+ },
+ "Radim Mrtka|BUF": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485404",
+  "pos": "D"
+ },
+ "Radim Zohorna|(N/A)": {
+  "asof": "2026-11-10",
+  "gp": 68,
+  "how": "exact",
+  "pid": "8482241",
+  "pos": "L"
+ },
+ "Raoul Boilard|NYR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484791",
+  "pos": "C"
+ },
+ "Rasmus Kumpulainen|MIN": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484184",
+  "pos": "C"
+ },
+ "Remi Poirier|DAL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482465",
+  "pos": "G"
+ },
+ "Rian Chudzinski|ANA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486231",
+  "pos": "R"
+ },
+ "Riley Duran|BOS": {
+  "asof": "2026-11-10",
+  "gp": 2,
+  "how": "exact",
+  "pid": "8482213",
+  "pos": "C"
+ },
+ "Riley Heidt|MIN": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484178",
+  "pos": "C"
+ },
+ "Riley Mercer|MIN": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483918",
+  "pos": "G"
+ },
+ "Riley Patterson|VAN": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484874",
+  "pos": "C"
+ },
+ "Roby Jarventie|EDM": {
+  "asof": "2026-11-10",
+  "gp": 10,
+  "how": "exact",
+  "pid": "8482162",
+  "pos": "L"
+ },
+ "Ronnie Attard|DET": {
+  "asof": "2026-11-10",
+  "gp": 29,
+  "how": "exact",
+  "pid": "8481521",
+  "pos": "D"
+ },
+ "Rudolfs Berzkalns|EDM": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486023",
+  "pos": "C"
+ },
+ "Rudy Guimond|DET": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484453",
+  "pos": "G"
+ },
+ "Ruslan Iskhakov|NYI": {
+  "asof": "2026-11-10",
+  "gp": 1,
+  "how": "exact",
+  "pid": "8481016",
+  "pos": "C"
+ },
+ "Ryan Chesley|WSH": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483430",
+  "pos": "D"
+ },
+ "Ryan Graves|PIT": {
+  "asof": "2026-11-10",
+  "gp": 455,
+  "how": "exact",
+  "pid": "8477435",
+  "pos": "D"
+ },
+ "Ryan Johnson|PIT": {
+  "asof": "2026-11-10",
+  "gp": 47,
+  "how": "exact",
+  "pid": "8481564",
+  "pos": "D"
+ },
+ "Ryan Lin|SJS": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486062",
+  "pos": "D"
+ },
+ "Ryan Roobroeck|CHI": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486089",
+  "pos": "L"
+ },
+ "Ryan Suzuki|OTT": {
+  "asof": "2026-11-10",
+  "gp": 2,
+  "how": "exact",
+  "pid": "8481576",
+  "pos": "C"
+ },
+ "Ryan Tverberg|TOR": {
+  "asof": "2026-11-10",
+  "gp": 2,
+  "how": "exact",
+  "pid": "8482525",
+  "pos": "C"
+ },
+ "Ryan Ufko|NSH": {
+  "asof": "2026-11-10",
+  "gp": 20,
+  "how": "exact",
+  "pid": "8482715",
+  "pos": "D"
+ },
+ "Ryder Cali|FLA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486028",
+  "pos": "C"
+ },
+ "Ryder Fetterolf|CAR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486266",
+  "pos": "G"
+ },
+ "Ryder Ritchie|MIN": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484765",
+  "pos": "R"
+ },
+ "Ryerson Leenders|BUF": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485101",
+  "pos": "G"
+ },
+ "Ryker Lee|NSH": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485411",
+  "pos": "R"
+ },
+ "Sacha Boisvert|CHI": {
+  "asof": "2026-11-10",
+  "gp": 7,
+  "how": "exact",
+  "pid": "8484793",
+  "pos": "C"
+ },
+ "Sam Lafferty|FLA": {
+  "asof": "2026-11-10",
+  "gp": 383,
+  "how": "exact",
+  "pid": "8478043",
+  "pos": "C"
+ },
+ "Sam Lipkin|UTA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482924",
+  "pos": "L"
+ },
+ "Sam O'Reilly|TBL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484770",
+  "pos": "R"
+ },
+ "Samu Alalauri|CHI": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486017",
+  "pos": "D"
+ },
+ "Samu Salminen|FLA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482760",
+  "pos": "C"
+ },
+ "Samuel Bolduc|OTT": {
+  "asof": "2026-11-10",
+  "gp": 52,
+  "how": "exact",
+  "pid": "8481541",
+  "pos": "D"
+ },
+ "Samuel Hlavaj|TOR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482085",
+  "pos": "G"
+ },
+ "Samuel Hrenak|WPG": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486228",
+  "pos": "G"
+ },
+ "Samuel Jonsson|EDM": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483769",
+  "pos": "G"
+ },
+ "Samuel Poulin|MTL": {
+  "asof": "2026-11-10",
+  "gp": 15,
+  "how": "exact",
+  "pid": "8481591",
+  "pos": "R"
+ },
+ "Samuel Savoie|CHI": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483677",
+  "pos": "L"
+ },
+ "Sascha Boumedienne|WPG": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485377",
+  "pos": "D"
+ },
+ "Sasha Pastujov|MTL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482682",
+  "pos": "R"
+ },
+ "Sawyer Mynio|VAN": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484202",
+  "pos": "D"
+ },
+ "Scott Ratzlaff|BUF": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484218",
+  "pos": "G"
+ },
+ "Seamus Casey|NJD": {
+  "asof": "2026-11-10",
+  "gp": 16,
+  "how": "exact",
+  "pid": "8483429",
+  "pos": "D"
+ },
+ "Sean Barnhill|NYR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485427",
+  "pos": "D"
+ },
+ "Sean Farrell|ANA": {
+  "asof": "2026-11-10",
+  "gp": 6,
+  "how": "exact",
+  "pid": "8482081",
+  "pos": "C"
+ },
+ "Semyon Chistyakov|NSH": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "none",
+  "pid": null,
+  "pos": null
+ },
+ "Semyon Frolov|CAR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485561",
+  "pos": "G"
+ },
+ "Semyon Vyazovoy|SEA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "none",
+  "pid": null,
+  "pos": null
+ },
+ "Sergei Ivanov|CBJ": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483738",
+  "pos": "G"
+ },
+ "Shai Buium|DET": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482777",
+  "pos": "D"
+ },
+ "Shane Lachance|NJD": {
+  "asof": "2026-11-10",
+  "gp": 1,
+  "how": "exact",
+  "pid": "8482941",
+  "pos": "L"
+ },
+ "Shane Vansaghi|PHI": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485356",
+  "pos": "R"
+ },
+ "Simas Ignatavicius|FLA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486050",
+  "pos": "R"
+ },
+ "Simon Forsmark|CAR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483674",
+  "pos": "D"
+ },
+ "Simon Robertsson|STL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482716",
+  "pos": "R"
+ },
+ "Simon Zajicek|BOS": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485538",
+  "pos": "G"
+ },
+ "Simon Zether|FLA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484841",
+  "pos": "C"
+ },
+ "Spencer Gill|PHI": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484804",
+  "pos": "D"
+ },
+ "Stanislav Berezhnoy|CHI": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485729",
+  "pos": "G"
+ },
+ "Stanislav Svozil|CBJ": {
+  "asof": "2026-11-10",
+  "gp": 2,
+  "how": "exact",
+  "pid": "8482711",
+  "pos": "D"
+ },
+ "Stepan Gorbunov|FLA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485063",
+  "pos": "C"
+ },
+ "Steven Lorentz|CBJ": {
+  "asof": "2026-11-10",
+  "gp": 382,
+  "how": "exact",
+  "pid": "8478904",
+  "pos": "C"
+ },
+ "Stian Solberg|ANA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484859",
+  "pos": "D"
+ },
+ "Stiven Sardarian|CAR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482912",
+  "pos": "R"
+ },
+ "Sutter Muzzatti|DET": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484425",
+  "pos": "C"
+ },
+ "Talyn Boyko|(N/A)": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482869",
+  "pos": "G"
+ },
+ "Tanner Dickinson|STL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482156",
+  "pos": "C"
+ },
+ "Tanner Howe|PIT": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484869",
+  "pos": "L"
+ },
+ "Tanner Laczynski|VGK": {
+  "asof": "2026-11-10",
+  "gp": 56,
+  "how": "exact",
+  "pid": "8479550",
+  "pos": "C"
+ },
+ "Tanner Molendyk|NSH": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484196",
+  "pos": "D"
+ },
+ "Tanner Pearson|(N/A)": {
+  "asof": "2026-11-10",
+  "gp": 778,
+  "how": "exact",
+  "pid": "8476871",
+  "pos": "L"
+ },
+ "Tarin Smith|ANA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484862",
+  "pos": "D"
+ },
+ "Taylor Makar|COL": {
+  "asof": "2026-11-10",
+  "gp": 14,
+  "how": "exact",
+  "pid": "8482953",
+  "pos": "L"
+ },
+ "Taylor Ward|LAK": {
+  "asof": "2026-11-10",
+  "gp": 41,
+  "how": "exact",
+  "pid": "8483406",
+  "pos": "R"
+ },
+ "Teddy Mutryn|SJS": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485578",
+  "pos": "C"
+ },
+ "Teddy Stiga|NSH": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484856",
+  "pos": "C"
+ },
+ "Terik Parascak|WSH": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484769",
+  "pos": "R"
+ },
+ "Theo Lindstein|STL": {
+  "asof": "2026-11-10",
+  "gp": 23,
+  "how": "exact",
+  "pid": "8484188",
+  "pos": "D"
+ },
+ "Theo Rochette|DET": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482184",
+  "pos": "C"
+ },
+ "Theo Stockselius|CGY": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485358",
+  "pos": "C"
+ },
+ "Theodor Hallquisth|MIN": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485396",
+  "pos": "D"
+ },
+ "Theodor Niederbach|WSH": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482140",
+  "pos": "C"
+ },
+ "Thomas Bordeleau|(N/A)": {
+  "asof": "2026-11-10",
+  "gp": 44,
+  "how": "exact",
+  "pid": "8482133",
+  "pos": "C"
+ },
+ "Thomas Milic|WPG": {
+  "asof": "2026-11-10",
+  "gp": 3,
+  "how": "exact",
+  "pid": "8483114",
+  "pos": "G"
+ },
+ "Thomas Vandenberg|LAK": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486108",
+  "pos": "C"
+ },
+ "Tij Iginla|UTA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484795",
+  "pos": "C"
+ },
+ "Tim Washe|ANA": {
+  "asof": "2026-11-10",
+  "gp": 59,
+  "how": "exact",
+  "pid": "8485512",
+  "pos": "C"
+ },
+ "Timofei Obvintsev|TOR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485046",
+  "pos": "G"
+ },
+ "Timofei Runtso|MTL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486096",
+  "pos": "D"
+ },
+ "Timur Mukhanov|CAR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484445",
+  "pos": "L"
+ },
+ "Tinus Luc Koblar|TOR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485564",
+  "pos": "C"
+ },
+ "Tobias Trejbal|CGY": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486105",
+  "pos": "G"
+ },
+ "Tomas Chrenko|NYR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486232",
+  "pos": "C"
+ },
+ "Tomas Galvas|PIT": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484855",
+  "pos": "D"
+ },
+ "Tomas Hamara|OTT": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483683",
+  "pos": "D"
+ },
+ "Tomas Lavoie|UTA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484880",
+  "pos": "D"
+ },
+ "Tomas Mrsic|STL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485021",
+  "pos": "C"
+ },
+ "Tomas Poletin|NYI": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485378",
+  "pos": "L"
+ },
+ "Tomas Suchanek|ANA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483898",
+  "pos": "G"
+ },
+ "Tommy Bleyl|NSH": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486026",
+  "pos": "D"
+ },
+ "Tommy Lafreniere|EDM": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485439",
+  "pos": "R"
+ },
+ "Topi Niemela|TOR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482158",
+  "pos": "D"
+ },
+ "Topias Leinonen|BUF": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483475",
+  "pos": "G"
+ },
+ "Topias Vilen|NJD": {
+  "asof": "2026-11-10",
+  "gp": 2,
+  "how": "exact",
+  "pid": "8482873",
+  "pos": "D"
+ },
+ "Tory Pitner|COL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485064",
+  "pos": "D"
+ },
+ "Trent Swick|VGK": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485057",
+  "pos": "L"
+ },
+ "Trenten Bennett|NJD": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485582",
+  "pos": "G"
+ },
+ "Trevor Hoskin|CGY": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485013",
+  "pos": "R"
+ },
+ "Trevor Kuntar|BUF": {
+  "asof": "2026-11-10",
+  "gp": 1,
+  "how": "exact",
+  "pid": "8482479",
+  "pos": "C"
+ },
+ "Trey Augustine|DET": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484141",
+  "pos": "G"
+ },
+ "Trey Fix-Wolansky|VAN": {
+  "asof": "2026-11-10",
+  "gp": 26,
+  "how": "exact",
+  "pid": "8480441",
+  "pos": "R"
+ },
+ "Trey Taylor|DAL": {
+  "asof": "2026-11-10",
+  "gp": 3,
+  "how": "exact",
+  "pid": "8485468",
+  "pos": "D"
+ },
+ "Tristan Bertucci|DAL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484146",
+  "pos": "D"
+ },
+ "Tristan Broz|PIT": {
+  "asof": "2026-11-10",
+  "gp": 1,
+  "how": "exact",
+  "pid": "8482698",
+  "pos": "C"
+ },
+ "Tristan Lennox|(N/A)": {
+  "asof": "2026-11-10",
+  "gp": 1,
+  "how": "exact",
+  "pid": "8482668",
+  "pos": "G"
+ },
+ "Tuomas Uronen|VGK": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484466",
+  "pos": "R"
+ },
+ "Ty Gallagher|BOS": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482719",
+  "pos": "D"
+ },
+ "Ty Mueller|VAN": {
+  "asof": "2026-11-10",
+  "gp": 8,
+  "how": "exact",
+  "pid": "8484406",
+  "pos": "C"
+ },
+ "Ty Nelson|SEA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483494",
+  "pos": "D"
+ },
+ "Ty Smith|(N/A)": {
+  "asof": "2026-11-10",
+  "gp": 131,
+  "how": "exact",
+  "pid": "8480883",
+  "pos": "D"
+ },
+ "Ty Young|VAN": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483751",
+  "pos": "G"
+ },
+ "Tyce Thompson|NYI": {
+  "asof": "2026-11-10",
+  "gp": 11,
+  "how": "exact",
+  "pid": "8481740",
+  "pos": "R"
+ },
+ "Tyler Boucher|OTT": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482674",
+  "pos": "R"
+ },
+ "Tyler Brennan|(N/A)": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483426",
+  "pos": "G"
+ },
+ "Tyler Hopkins|TOR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485398",
+  "pos": "C"
+ },
+ "Tyler Muszelik|FLA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483736",
+  "pos": "G"
+ },
+ "Tyler Tullio|UTA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482151",
+  "pos": "R"
+ },
+ "Tynan Lawrence|STL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486059",
+  "pos": "C"
+ },
+ "Tyson Gross|CGY": {
+  "asof": "2026-11-10",
+  "gp": 6,
+  "how": "exact",
+  "pid": "8486056",
+  "pos": "C"
+ },
+ "Tyson Hinds|ANA": {
+  "asof": "2026-11-10",
+  "gp": 19,
+  "how": "exact",
+  "pid": "8482731",
+  "pos": "D"
+ },
+ "Tyson Jugnauth|SEA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483684",
+  "pos": "D"
+ },
+ "Tyus Sparks|WSH": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486102",
+  "pos": "C"
+ },
+ "Urho Vaakanainen|NYR": {
+  "asof": "2026-11-10",
+  "gp": 221,
+  "how": "exact",
+  "pid": "8480001",
+  "pos": "D"
+ },
+ "Vaclav Nestrasil|CHI": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485410",
+  "pos": "R"
+ },
+ "Vadim Moroz|UTA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484399",
+  "pos": "R"
+ },
+ "Vashek Blanar|BOS": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485583",
+  "pos": "D"
+ },
+ "Victor Johansson|TOR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485029",
+  "pos": "D"
+ },
+ "Victor Mancini|VAN": {
+  "asof": "2026-11-10",
+  "gp": 63,
+  "how": "exact",
+  "pid": "8483768",
+  "pos": "D"
+ },
+ "Victor Ostman|SEA": {
+  "asof": "2026-11-10",
+  "gp": 2,
+  "how": "exact",
+  "pid": "8484910",
+  "pos": "G"
+ },
+ "Victor Plante|DET": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486084",
+  "pos": "L"
+ },
+ "Victor Soderstrom|BOS": {
+  "asof": "2026-11-10",
+  "gp": 61,
+  "how": "exact",
+  "pid": "8481599",
+  "pos": "D"
+ },
+ "Victor Stjernborg|CHI": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482905",
+  "pos": "C"
+ },
+ "Viggo Nordlund|CAR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485658",
+  "pos": "L"
+ },
+ "Viking Gustafsson Nyberg|MIN": {
+  "asof": "2026-11-10",
+  "gp": 2,
+  "how": "exact",
+  "pid": "8486166",
+  "pos": "D"
+ },
+ "Viktor Fedorov|SEA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486078",
+  "pos": "C"
+ },
+ "Viktor Klingsell|WPG": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485436",
+  "pos": "R"
+ },
+ "Viktor Neuchev|CAR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483496",
+  "pos": "L"
+ },
+ "Viliam Kmec|VGK": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485138",
+  "pos": "D"
+ },
+ "Viljami Marjala|EDM": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482759",
+  "pos": "L"
+ },
+ "Vincent Iorio|NYR": {
+  "asof": "2026-11-10",
+  "gp": 36,
+  "how": "exact",
+  "pid": "8482861",
+  "pos": "D"
+ },
+ "Vinny Borgesi|TOR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486125",
+  "pos": "D"
+ },
+ "Vinzenz Rohrer|MTL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483507",
+  "pos": "C"
+ },
+ "Vitek Vanecek|NYI": {
+  "asof": "2026-11-10",
+  "gp": 210,
+  "how": "exact",
+  "pid": "8477970",
+  "pos": "G"
+ },
+ "Vladimir Galkin|(N/A)": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "none",
+  "pid": null,
+  "pos": null
+ },
+ "Vladimir Grudinin|CAR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483773",
+  "pos": "D"
+ },
+ "Vladimir Proskurin|STL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486263",
+  "pos": "G"
+ },
+ "Vojtech Cihar|LAK": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485384",
+  "pos": "L"
+ },
+ "Vsevolod Komarov|BUF": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483732",
+  "pos": "D"
+ },
+ "Vyacheslav Buteyets|ANA": {
+  "asof": "2026-11-10",
+  "gp": 1,
+  "how": "exact",
+  "pid": "8483746",
+  "pos": "G"
+ },
+ "Vyacheslav Peksa|TOR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482940",
+  "pos": "G"
+ },
+ "Wiggo Sorensson|CAR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486225",
+  "pos": "C"
+ },
+ "Will Cranley|STL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482205",
+  "pos": "G"
+ },
+ "Will Skahan|UTA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484863",
+  "pos": "D"
+ },
+ "William Hakansson|CAR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486043",
+  "pos": "D"
+ },
+ "William Horcoff|PIT": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485415",
+  "pos": "C"
+ },
+ "William Moore|BOS": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8485403",
+  "pos": "C"
+ },
+ "William Rousseau|MIN": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482752",
+  "pos": "G"
+ },
+ "William Stromgren|CGY": {
+  "asof": "2026-11-10",
+  "gp": 7,
+  "how": "exact",
+  "pid": "8482766",
+  "pos": "L"
+ },
+ "William Trudeau|NSH": {
+  "asof": "2026-11-10",
+  "gp": 3,
+  "how": "exact",
+  "pid": "8482806",
+  "pos": "D"
+ },
+ "William Villeneuve|TOR": {
+  "asof": "2026-11-10",
+  "gp": 3,
+  "how": "exact",
+  "pid": "8482174",
+  "pos": "D"
+ },
+ "William Whitelaw|CBJ": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484239",
+  "pos": "R"
+ },
+ "William Zellers|BOS": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "none",
+  "pid": null,
+  "pos": null
+ },
+ "Wyatt Cullen|NSH": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486032",
+  "pos": "L"
+ },
+ "Xavier Bourgault|OTT": {
+  "asof": "2026-11-10",
+  "gp": 4,
+  "how": "exact",
+  "pid": "8482673",
+  "pos": "R"
+ },
+ "Xavier Parent|NJD": {
+  "asof": "2026-11-10",
+  "gp": 5,
+  "how": "exact",
+  "pid": "8483841",
+  "pos": "C"
+ },
+ "Xavier Simoneau|MTL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8481794",
+  "pos": "C"
+ },
+ "Xavier Villeneuve|CHI": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486113",
+  "pos": "D"
+ },
+ "Yegor Naumov|CAR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482899",
+  "pos": "G"
+ },
+ "Yegor Shilov|COL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "none",
+  "pid": null,
+  "pos": null
+ },
+ "Yegor Sidorov|ANA": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484396",
+  "pos": "R"
+ },
+ "Yegor Surin|NSH": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "none",
+  "pid": null,
+  "pos": null
+ },
+ "Yegor Zavragin|PHI": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "none",
+  "pid": null,
+  "pos": null
+ },
+ "Yelisei Ryabkin|(N/A)": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "none",
+  "pid": null,
+  "pos": null
+ },
+ "Yevgeni Volokhin|MTL": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484424",
+  "pos": "G"
+ },
+ "Yuri Ivanov|BOS": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486223",
+  "pos": "G"
+ },
+ "Zac Funk|BUF": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484757",
+  "pos": "R"
+ },
+ "Zach Dean|STL": {
+  "asof": "2026-11-10",
+  "gp": 12,
+  "how": "exact",
+  "pid": "8482784",
+  "pos": "C"
+ },
+ "Zach Lansard|CAR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "prefix",
+  "pid": "8486229",
+  "pos": "R"
+ },
+ "Zach Olsen|TOR": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486076",
+  "pos": "R"
+ },
+ "Zakhar Bardakov|COL": {
+  "asof": "2026-11-10",
+  "gp": 60,
+  "how": "exact",
+  "pid": "8482947",
+  "pos": "C"
+ },
+ "Zam Plante|PIT": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8483504",
+  "pos": "C"
+ },
+ "Zayde Wisdom|(N/A)": {
+  "asof": "2026-11-10",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482161",
+  "pos": "R"
+ }
+}
