@@ -3,6 +3,12 @@ name: eligibility
 on:
   schedule:
     - cron: "15 13 * * *"
+    # Same-hour age check after Sunday processing (Fantrax processes at noon Eastern, which is
+    # 16:00 or 17:00 UTC across the clock change). Three slots because GitHub skips scheduled
+    # runs; the guard below lets only the first SUCCESSFUL one do the extra pass.
+    - cron: "30 16 * * 0"
+    - cron: "0 17 * * 0"
+    - cron: "30 17 * * 0"
   workflow_dispatch:
 
 concurrency:
@@ -17,12 +23,32 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Sunday extra-pass guard (only the three Sunday post-processing slots are guarded)
+        id: guard
+        run: |
+          week=$(date -u +%G-W%V)
+          echo "week=$week" >> $GITHUB_OUTPUT
+          done=$(cat _tools/state/eligibility_sunday_done 2>/dev/null || true)
+          case "${{ github.event.schedule }}" in
+            "30 16 * * 0"|"0 17 * * 0"|"30 17 * * 0")
+              if [ "$done" = "$week" ]; then
+                echo "skip=true" >> $GITHUB_OUTPUT
+                echo "Sunday extra pass already done for $week, nothing to do"
+              else
+                echo "skip=false" >> $GITHUB_OUTPUT
+                echo "sunday=true" >> $GITHUB_OUTPUT
+              fi ;;
+            *) echo "skip=false" >> $GITHUB_OUTPUT ;;
+          esac
       - uses: actions/setup-python@v5
+        if: steps.guard.outputs.skip != 'true'
         with:
           python-version: "3.12"
-      - run: pip install -r requirements.txt
+      - if: steps.guard.outputs.skip != 'true'
+        run: pip install -r requirements.txt
       - name: Draft-protection sweep, rule 5.2
         id: check
+        if: steps.guard.outputs.skip != 'true'
         run: |
           set +e
           python _tools/pp_eligibility_check.py | tee out.txt
@@ -35,7 +61,11 @@ jobs:
           PP_DISCORD_WEBHOOK_OPS: ${{ secrets.PP_DISCORD_COMMISH_OPS }}
           PP_DISCORD_WEBHOOK: ${{ secrets.PP_DISCORD_26_27_TRANSACTIONS }}
         run: python _tools/pp_discord_post.py --ops --gate eligibility --stdin < out.txt
+      - name: Mark the Sunday extra pass done
+        if: steps.guard.outputs.sunday == 'true' && (steps.check.outputs.code == '0' || steps.check.outputs.code == '3')
+        run: echo "${{ steps.guard.outputs.week }}" > _tools/state/eligibility_sunday_done
       - name: Persist the birthdate cache
+        if: steps.guard.outputs.skip != 'true'
         run: |
           git config user.name  "powerplay-bot"
           git config user.email "powerplay-bot@users.noreply.github.com"
@@ -54,7 +84,7 @@ jobs:
           echo "could not push state after 5 attempts"
           exit 1
       - name: Fail loudly if the check itself crashed
-        if: steps.check.outputs.code != '0' && steps.check.outputs.code != '3'
+        if: steps.guard.outputs.skip != 'true' && steps.check.outputs.code != '0' && steps.check.outputs.code != '3'
         run: |
           echo "check exited ${{ steps.check.outputs.code }}: a crash or a refused canary, NOT a finding"
           exit 1

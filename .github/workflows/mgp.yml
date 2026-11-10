@@ -20,6 +20,14 @@ on:
     - cron: "0 8 * * 1"
     - cron: "0 9 * * 1"
     - cron: "0 10 * * 1"
+    # More Monday slots (hourly 11:00 to 16:00 UTC) in case GitHub skips the early ones; the
+    # once-per-ISO-week guard stops a second post.
+    - cron: "0 11 * * 1"
+    - cron: "0 12 * * 1"
+    - cron: "0 13 * * 1"
+    - cron: "0 14 * * 1"
+    - cron: "0 15 * * 1"
+    - cron: "0 16 * * 1"
   workflow_dispatch:
   push:
     paths:

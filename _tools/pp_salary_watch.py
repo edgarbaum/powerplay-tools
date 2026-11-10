@@ -61,7 +61,13 @@ EXIT CODES: #DIGEST is the first line of stdout. 3 = findings (post), 0 = none,
 anything else non-zero = a crash or a refused canary, which the workflow turns into
 a red run and never into a post.
 
-  usage: pp_salary_watch.py [--post-out FILE] [--baseline FILE] [--csv-out FILE] [--no-record] [--coverage-audit N]
+MASTER (local only): --master <xlsx-with-values> reads the private master sheet (A Fantrax id
+"*xxxxx*", F final charge with the expiry decimal, H the 50% flag Y/N, M retention). With it, an
+upload line for an open item takes master column F VERBATIM; no row, or F below 2, prints
+"master missing" and gives NO line. The master is private: it is never committed (*.xlsx and
+*.ods are in .gitignore) and the workflow never passes --master. Use --no-record with it.
+
+  usage: pp_salary_watch.py [--post-out FILE] [--baseline FILE] [--csv-out FILE] [--no-record] [--coverage-audit N] [--master XLSX]
 """
 import warnings, json, sys, time, re, hashlib, datetime, pathlib, random, collections
 import urllib.request
@@ -185,6 +191,7 @@ def read_capwages():
             e = {"slug": o["slug"], "names": name_forms(o["name"]), "raw_name": o["name"],
                  "tri": o.get("currentTeamTricode") or tri, "page": tri, "section": section,
                  "has_contracts": has_contracts,
+                 "status": o.get("status"), "drafted_by": o.get("draftedBy"), "nhl_rights": o.get("nhlRights"),
                  "contracts": parse_contracts(o.get("contracts")) if has_contracts else []}
             old = players.get(o["slug"])
             # keep the entry that lives on the player's own team page, and prefer
@@ -392,12 +399,52 @@ def attach_basis(res, acq, holds):
     return out
 
 
+MASTER = None            # {fantrax id: {"f": float, "h": str, "m": str}} when --master is given; else None
+
+
+def load_master(path):
+    """Read the private master export (xlsx with VALUES). Local use only. -> {id: row}"""
+    try:
+        import openpyxl
+    except ImportError:
+        sys.exit("--master needs openpyxl (local only): pip install openpyxl")
+    wb = openpyxl.load_workbook(path, data_only=True, read_only=True)
+    out = {}
+    for r in wb.worksheets[0].iter_rows(min_row=2, values_only=True):
+        if not r or not isinstance(r[0], str) or not r[0].startswith("*"):
+            continue
+        f = r[5] if len(r) > 5 else None
+        try:
+            f = float(f)
+        except (TypeError, ValueError):
+            f = None
+        out[r[0].strip()] = {"f": f, "h": str(r[7] or "").strip() if len(r) > 7 else "",
+                             "m": r[12] if len(r) > 12 and r[12] not in (None, "") else None}
+    if len(out) < 1000:
+        sys.exit("master has only %d rows with a *id*, expected 1000+. Refusing." % len(out))
+    return out
+
+
+def master_of(r):
+    """-> (line value as text, row) or (None, row|None) when the master has no usable F."""
+    m = MASTER.get("*%s*" % r["sid"])
+    if m is None or m["f"] is None or m["f"] < 2:
+        return None, m
+    return "%.2f" % m["f"], m
+
+
 def open_lines(x, idx):
     """Upload lines for one open item. NONE for HOLD (rule 5.2) and for a check item."""
     r = x["row"]
     b = x["basis"]
     if x["cls"] not in UPLOAD or x.get("hold"):
         return []
+    if MASTER is not None:
+        v, m = master_of(r)
+        if v is None:
+            return []
+        tag = "master F" + (", 50%% flag %s" % m["h"] if m["h"] else "") + (", retention %s" % m["m"] if m["m"] is not None else "")
+        return [(tag, "*%s*,%d,%s,%s,%s,%s" % (r["sid"], idx, r["name"], r["nhl"] or "FA", r["pos"], v))]
 
     def line(c):
         return "*%s*,%d,%s,%s,%s,%d.%02d" % (r["sid"], idx, r["name"], r["nhl"] or "FA", r["pos"], c, x["exp"])
@@ -428,7 +475,7 @@ def csv_text(opens):
     out = []
     for i, x in enumerate(opens, 1):
         ls = open_lines(x, i)
-        if ls and x["basis"]["state"] != "unknown":
+        if ls and (MASTER is not None or x["basis"]["state"] != "unknown"):
             out.append(ls[0][1])
     return "\n".join(out) + ("\n" if out else "")
 
@@ -918,6 +965,9 @@ def open_short(x, prev_open):
     tag = "ROLLOVER " if x["cls"] == "ROLLOVER" else ""
     if x.get("hold"):
         return "%sHOLD: rule 5.2 %s%s: age %d, %s, no upload line" % (mark, tag, who, x["hold"]["age"], b["short"])
+    if MASTER is not None:
+        v, _ = master_of(r)
+        return "%s%s%s: %s" % (mark, tag, who, ("master " + v) if v else "master missing, no line")
     if b["state"] == "unknown":
         return "%s%s%s: %s / %s .%02d UNKNOWN full/half" % (mark, tag, who, money_s(x["full"]), money_s(x["half"]), x["exp"])
     c = x["full"] if b["state"] == "full" else x["half"]
@@ -990,6 +1040,8 @@ def render_delta(items, seeded, res, tally, n, opens, prev_open):
             out.append("      " + x["basis"]["label"])
         for lab, ln in open_lines(x, i):
             out.append("      %s: %s" % (lab, ln))
+        if MASTER is not None and x["cls"] in UPLOAD and not x.get("hold") and not open_lines(x, i):
+            out.append("      master missing: no row, or F below 2. No line.")
     out.append("")
     if not seeded:
         out.append(">>> SINCE THE LAST REPORT: %d  (%s)" % (
@@ -1043,6 +1095,10 @@ def main():
     baseline_path = args[args.index("--baseline") + 1] if "--baseline" in args else str(BASELINE)
     csv_out = args[args.index("--csv-out") + 1] if "--csv-out" in args else None
     record = "--no-record" not in args          # --no-record: do not write the baseline (local trials)
+    if "--master" in args:
+        global MASTER
+        MASTER = load_master(args[args.index("--master") + 1])
+        record = False                          # a local master run must never touch committed state
 
     players, tricodes = read_capwages()
     if len(tricodes) != 32:
