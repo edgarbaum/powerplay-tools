@@ -39,6 +39,9 @@ ILLEGAL ROSTER: a team whose roster that day breaks a Fantrax limit (getTeamRost
 miscData.illegalRosterMsgsText, e.g. fewer than 20 Active, more than 5 Reserve, more than 6 D) is credited
 ZERO GP by the standings for that day. day_stats moves that team-day's Active GP to `off` (and `illegal_gp`).
 
+STANDINGS WINDOW: the SEASON_STATS table includes the in-progress day (its displayedEndDate is the start
+of today), so the witness GP is read with an explicit BY_DATE query over the completed days only.
+
 WITNESS (the run refuses to report without it): for every one of the 32 teams the
 cumulative lineup_gp must equal the GP column of getStandings(view=SEASON_STATS)
 table 0. That table is year-to-date through yesterday, and it states its own end
@@ -135,10 +138,33 @@ def read_period(api, teams, period):
     return players, empty, illegal
 
 
-def read_standings(api, teams):
-    """-> ({tid: GP}, last completed period, start date). The table states its own
-    coverage: displayedEndDate - displayedStartDate = the number of completed days."""
-    s = retry(lambda: api._request("getStandings", view="SEASON_STATS"), "standings")
+def completed_window(sel):
+    """-> (start date, last completed period, last completed date) from a SEASON_STATS selection.
+    displayedEndDate is the START of the day the table was read on, and the table INCLUDES that
+    day's games so far (BY_DATE 09-29..10-25 states a 26-day span yet carries 27 days of GP). So
+    the completed days are span, not span + 1: found 2026-11-10, a run after that evening's games
+    began read period 42's 114 GP into the 'through period 41' totals and all 32 teams missed."""
+    s_ms, e_ms = sel["displayedStartDate"], sel["displayedEndDate"]
+    last = min(int(round((e_ms - s_ms) / 86400000.0)), SEASON_DAYS)     # the extra DST hour rounds away
+    start = datetime.datetime.utcfromtimestamp(s_ms / 1000.0).date()
+    return start, last, start + datetime.timedelta(days=last - 1)
+
+
+def window_canary():
+    """Pure. The 2026-11-10 DST case (span 41 days + 1 hour) and a pre-DST span must both exclude the
+    in-progress day: last completed 41 / 27 and the BY_DATE end 11-08 / 10-25, never the displayed end day."""
+    got = completed_window({"displayedStartDate": 1790654400000, "displayedEndDate": 1794200400000})
+    got2 = completed_window({"displayedStartDate": 1790654400000, "displayedEndDate": 1790654400000 + 27 * 86400000})
+    want = (datetime.date(2026, 9, 29), 41, datetime.date(2026, 11, 8))
+    want2 = (datetime.date(2026, 9, 29), 27, datetime.date(2026, 10, 25))
+    if got != want or got2 != want2:
+        sys.exit("WINDOW CANARY FAILED: DST span gave %s (want %s), 27-day span gave %s (want %s). "
+                 "Refusing to report." % (got, want, got2, want2))
+    return ("window canary passed: a span of 41 days + 1 DST hour reads as period 41 ending Nov 08, a 27-day span as "
+            "period 27 ending Oct 25 (the in-progress day is never in the witness)")
+
+
+def gp_table(s, teams):
     t0 = s["tableList"][0]
     hdr = [c.get("shortName") for c in t0["header"]["cells"]]
     if "GP" not in hdr:
@@ -151,11 +177,24 @@ def read_standings(api, teams):
         if nm not in byname:
             raise RuntimeError("standings team %r is not a league team" % nm)
         gp[byname[nm]] = int(float(r["cells"][gi]["content"] or 0))
-    sel = s["displayedSelections"]
-    s_ms, e_ms = sel["displayedStartDate"], sel["displayedEndDate"]
-    last = int(round((e_ms - s_ms) / 86400000.0))
-    start = datetime.datetime.utcfromtimestamp(s_ms / 1000.0).date()
-    return gp, min(last, SEASON_DAYS), start
+    return gp
+
+
+def read_standings(api, teams):
+    """-> ({tid: GP}, last completed period, start date). SEASON_STATS only says how many days are
+    complete; its GP column also carries the in-progress day, so the GP comes from an explicit
+    BY_DATE query over the completed days only (start .. last completed date)."""
+    s = retry(lambda: api._request("getStandings", view="SEASON_STATS"), "standings")
+    start, last, end = completed_window(s["displayedSelections"])
+    iso = lambda d: d.isoformat()
+    s2 = retry(lambda: api._request("getStandings", view="SEASON_STATS", timeframeType="BY_DATE",
+                                    startDate=iso(start), endDate=iso(end)), "standings by date")
+    sel = s2["displayedSelections"]
+    span = int(round((sel["displayedEndDate"] - sel["displayedStartDate"]) / 86400000.0))
+    if sel.get("timeframeType") != "BY_DATE" or span != last - 1:
+        raise RuntimeError("BY_DATE standings answered timeframe %s span %d, expected BY_DATE span %d"
+                           % (sel.get("timeframeType"), span, last - 1))
+    return gp_table(s2, teams), last, start
 
 
 # ---------------------------------------------------------------- one day
@@ -401,6 +440,7 @@ def main():
     record = "--no-record" not in args
     through = int(args[args.index("--through") + 1]) if "--through" in args else None   # testing: cap the period
 
+    wcan = window_canary()
     lost = lost_canary()                                      # pure: fails fast, before any request
     from fantraxapi import FantraxAPI
     api = FantraxAPI(LEAGUE_ID)
@@ -464,7 +504,7 @@ def main():
                     for tid in sorted(names)]
     ).encode()).hexdigest()[:16]
     print("#DIGEST " + digest)
-    full, post = render(new_state, start, witness_line, [canary, lost], new_periods)
+    full, post = render(new_state, start, witness_line, [canary, lost, wcan], new_periods)
     print("\n".join(full))
     if post_out:
         txt = "\n".join(post)
