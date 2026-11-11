@@ -328,6 +328,13 @@
   "pid": "8482776",
   "pos": "C"
  },
+ "Andre Lee|LAK": {
+  "asof": "2026-11-11",
+  "gp": 40,
+  "how": "exact",
+  "pid": "8481732",
+  "pos": "L"
+ },
  "Andrei Krutov|CAR": {
   "asof": "2026-11-10",
   "gp": null,
@@ -474,6 +481,13 @@
   "how": "exact",
   "pid": "8482515",
   "pos": "G"
+ },
+ "Artyom Duda|UTA": {
+  "asof": "2026-11-11",
+  "gp": null,
+  "how": "none",
+  "pid": null,
+  "pos": null
  },
  "Artyom Grushnikov|(N/A)": {
   "asof": "2026-11-10",
@@ -657,6 +671,13 @@
   "pid": "8486177",
   "pos": "D"
  },
+ "Bradly Nadeau|CAR": {
+  "asof": "2026-11-11",
+  "gp": 18,
+  "how": "exact",
+  "pid": "8484203",
+  "pos": "L"
+ },
  "Brady Knowling|SJS": {
   "asof": "2026-11-10",
   "gp": null,
@@ -683,6 +704,13 @@
   "gp": null,
   "how": "exact",
   "pid": "8484235",
+  "pos": "C"
+ },
+ "Brayden Yager|WPG": {
+  "asof": "2026-11-11",
+  "gp": 7,
+  "how": "exact",
+  "pid": "8484242",
   "pos": "C"
  },
  "Brek Liske|PHI": {
@@ -841,6 +869,13 @@
  },
  "Cameron Crotty|MIN": {
   "asof": "2026-11-10",
+  "gp": 11,
+  "how": "exact",
+  "pid": "8480075",
+  "pos": "D"
+ },
+ "Cameron Crotty|VAN": {
+  "asof": "2026-11-11",
   "gp": 11,
   "how": "exact",
   "pid": "8480075",
@@ -1405,6 +1440,13 @@
   "how": "exact",
   "pid": "8483461",
   "pos": "R"
+ },
+ "Devon Levi|EDM": {
+  "asof": "2026-11-11",
+  "gp": 48,
+  "how": "exact",
+  "pid": "8482221",
+  "pos": "G"
  },
  "Dillon Boucher|CHI": {
   "asof": "2026-11-10",
@@ -3688,6 +3730,13 @@
   "pid": "8484181",
   "pos": "G"
  },
+ "Michael Misa|SJS": {
+  "asof": "2026-11-11",
+  "gp": 65,
+  "how": "exact",
+  "pid": "8485402",
+  "pos": "C"
+ },
  "Michal Orsulak|DET": {
   "asof": "2026-11-10",
   "gp": null,
@@ -5143,6 +5192,13 @@
   "how": "exact",
   "pid": "8486059",
   "pos": "C"
+ },
+ "Tyrel Bauer|WPG": {
+  "asof": "2026-11-11",
+  "gp": 13,
+  "how": "exact",
+  "pid": "8482459",
+  "pos": "D"
  },
  "Tyson Gross|CGY": {
   "asof": "2026-11-10",
