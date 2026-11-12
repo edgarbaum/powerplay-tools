@@ -699,6 +699,13 @@
   "pid": "8482061",
   "pos": "L"
  },
+ "Brandon Bussi|CAR": {
+  "asof": "2026-11-12",
+  "gp": 46,
+  "how": "exact",
+  "pid": "8483548",
+  "pos": "G"
+ },
  "Brandon Svoboda|OTT": {
   "asof": "2026-11-10",
   "gp": null,
@@ -726,6 +733,13 @@
   "how": "exact",
   "pid": "8482153",
   "pos": "C"
+ },
+ "Brennan Othmann|CGY": {
+  "asof": "2026-11-12",
+  "gp": 51,
+  "how": "exact",
+  "pid": "8482747",
+  "pos": "L"
  },
  "Brett Berard|MTL": {
   "asof": "2026-11-10",
@@ -1518,6 +1532,13 @@
   "pid": "8481562",
   "pos": "D"
  },
+ "Dominic James|TBL": {
+  "asof": "2026-11-12",
+  "gp": 49,
+  "how": "exact",
+  "pid": "8483752",
+  "pos": "C"
+ },
  "Dominik Badinka|CAR": {
   "asof": "2026-11-10",
   "gp": null,
@@ -2176,6 +2197,13 @@
   "pid": "8484999",
   "pos": "L"
  },
+ "Ilya Safonov|(N/A)": {
+  "asof": "2026-11-12",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482915",
+  "pos": "C"
+ },
  "Ilya Safonov|VAN": {
   "asof": "2026-11-10",
   "gp": null,
@@ -2505,6 +2533,13 @@
   "pid": "8483756",
   "pos": "R"
  },
+ "Jaroslav Chmelar|NYR": {
+  "asof": "2026-11-12",
+  "gp": 40,
+  "how": "exact",
+  "pid": "8482877",
+  "pos": "R"
+ },
  "Javon Moore|OTT": {
   "asof": "2026-11-10",
   "gp": null,
@@ -2692,6 +2727,13 @@
   "gp": null,
   "how": "exact",
   "pid": "8485746",
+  "pos": "D"
+ },
+ "Jonathan Aspirot|BOS": {
+  "asof": "2026-11-12",
+  "gp": 67,
+  "how": "exact",
+  "pid": "8481219",
   "pos": "D"
  },
  "Jonathan Gruden|NJD": {
@@ -2896,6 +2938,13 @@
   "how": "exact",
   "pid": "8486112",
   "pos": "D"
+ },
+ "Kenny Connors|LAK": {
+  "asof": "2026-11-12",
+  "gp": 5,
+  "how": "exact",
+  "pid": "8483675",
+  "pos": "C"
  },
  "Kevin He|WPG": {
   "asof": "2026-11-10",
@@ -3569,6 +3618,13 @@
   "pid": "8483666",
   "pos": "D"
  },
+ "Matvei Gridin|CGY": {
+  "asof": "2026-11-12",
+  "gp": 56,
+  "how": "exact",
+  "pid": "8484860",
+  "pos": "R"
+ },
  "Matvei Korotky|STL": {
   "asof": "2026-11-10",
   "gp": null,
@@ -3694,6 +3750,13 @@
   "how": "exact",
   "pid": "8484846",
   "pos": "C"
+ },
+ "Maxwell Crozier|TBL": {
+  "asof": "2026-11-12",
+  "gp": 63,
+  "how": "prefix",
+  "pid": "8481719",
+  "pos": "D"
  },
  "Melvin Fernstrom|PIT": {
   "asof": "2026-11-10",
@@ -3933,6 +3996,13 @@
   "pid": "8483767",
   "pos": "G"
  },
+ "Nico Myatovic|ANA": {
+  "asof": "2026-11-12",
+  "gp": 4,
+  "how": "exact",
+  "pid": "8484201",
+  "pos": "L"
+ },
  "Nikita Alexandrov|LAK": {
   "asof": "2026-11-10",
   "gp": 51,
@@ -4058,6 +4128,13 @@
   "how": "exact",
   "pid": "8484207",
   "pos": "L"
+ },
+ "Nolan Allan|SJS": {
+  "asof": "2026-11-12",
+  "gp": 53,
+  "how": "exact",
+  "pid": "8482700",
+  "pos": "D"
  },
  "Nolan Foote|PHI": {
   "asof": "2026-11-10",
@@ -4534,6 +4611,13 @@
   "how": "exact",
   "pid": "8482085",
   "pos": "G"
+ },
+ "Samuel Honzek|CGY": {
+  "asof": "2026-11-12",
+  "gp": 27,
+  "how": "exact",
+  "pid": "8484180",
+  "pos": "L"
  },
  "Samuel Hrenak|WPG": {
   "asof": "2026-11-10",
