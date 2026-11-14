@@ -1427,6 +1427,13 @@
   "pid": "8484220",
   "pos": "D"
  },
+ "David Spacek|MIN": {
+  "asof": "2026-11-14",
+  "gp": 13,
+  "how": "exact",
+  "pid": "8483766",
+  "pos": "D"
+ },
  "Dean Letourneau|BOS": {
   "asof": "2026-11-10",
   "gp": null,
@@ -2294,6 +2301,13 @@
   "how": "exact",
   "pid": "8484837",
   "pos": "C"
+ },
+ "Jack Devine|FLA": {
+  "asof": "2026-11-14",
+  "gp": 7,
+  "how": "exact",
+  "pid": "8483433",
+  "pos": "R"
  },
  "Jack Hextall|CGY": {
   "asof": "2026-11-10",
@@ -4024,6 +4038,13 @@
   "pid": "8482787",
   "pos": "R"
  },
+ "Nikita Klepov|ANA": {
+  "asof": "2026-11-14",
+  "gp": 4,
+  "how": "exact",
+  "pid": "8486052",
+  "pos": "R"
+ },
  "Nikita Nesterenko|ANA": {
   "asof": "2026-11-10",
   "gp": 77,
@@ -4703,6 +4724,13 @@
   "pid": "8482081",
   "pos": "C"
  },
+ "Sebastian Cossa|UTA": {
+  "asof": "2026-11-14",
+  "gp": 9,
+  "how": "exact",
+  "pid": "8482657",
+  "pos": "G"
+ },
  "Semyon Chistyakov|NSH": {
   "asof": "2026-11-10",
   "gp": null,
@@ -5136,6 +5164,13 @@
   "how": "exact",
   "pid": "8485582",
   "pos": "G"
+ },
+ "Trevor Connelly|VGK": {
+  "asof": "2026-11-14",
+  "gp": 21,
+  "how": "exact",
+  "pid": "8484803",
+  "pos": "L"
  },
  "Trevor Hoskin|CGY": {
   "asof": "2026-11-10",
