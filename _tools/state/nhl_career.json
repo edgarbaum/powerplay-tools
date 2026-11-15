@@ -461,6 +461,13 @@
   "pid": "8482949",
   "pos": "G"
  },
+ "Arshdeep Bains|VAN": {
+  "asof": "2026-11-15",
+  "gp": 64,
+  "how": "exact",
+  "pid": "8483395",
+  "pos": "L"
+ },
  "Arthur Kaliyev|(N/A)": {
   "asof": "2026-11-10",
   "gp": 204,
@@ -4694,6 +4701,13 @@
   "gp": null,
   "how": "exact",
   "pid": "8484202",
+  "pos": "D"
+ },
+ "Scott Morrow|NYR": {
+  "asof": "2026-11-15",
+  "gp": 52,
+  "how": "exact",
+  "pid": "8482666",
   "pos": "D"
  },
  "Scott Ratzlaff|BUF": {
