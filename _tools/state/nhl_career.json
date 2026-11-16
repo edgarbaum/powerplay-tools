@@ -2302,6 +2302,13 @@
   "pid": "8482072",
   "pos": "D"
  },
+ "Jack Anderson|DAL": {
+  "asof": "2026-11-16",
+  "gp": null,
+  "how": "exact",
+  "pid": "8486126",
+  "pos": "D"
+ },
  "Jack Berglund|PHI": {
   "asof": "2026-11-10",
   "gp": null,
@@ -2736,6 +2743,13 @@
   "pid": "8486100",
   "pos": "R"
  },
+ "Jonas Johansson|OTT": {
+  "asof": "2026-11-16",
+  "gp": 109,
+  "how": "exact",
+  "pid": "8477992",
+  "pos": "G"
+ },
  "Jonas Lagerberg Hoen|OTT": {
   "asof": "2026-11-10",
   "gp": null,
@@ -3120,6 +3134,13 @@
   "how": "exact",
   "pid": "8486256",
   "pos": "C"
+ },
+ "Leevi Merilainen|VAN": {
+  "asof": "2026-11-16",
+  "gp": 50,
+  "how": "exact",
+  "pid": "8482447",
+  "pos": "G"
  },
  "Lenni Hameenaho|NJD": {
   "asof": "2026-11-10",
@@ -3884,6 +3905,13 @@
   "pid": "8476422",
   "pos": "D"
  },
+ "Mike Reilly|COL": {
+  "asof": "2026-11-16",
+  "gp": 468,
+  "how": "exact",
+  "pid": "8476422",
+  "pos": "D"
+ },
  "Mikey Berchild|CAR": {
   "asof": "2026-11-10",
   "gp": null,
@@ -4142,6 +4170,13 @@
   "how": "exact",
   "pid": "8485091",
   "pos": "L"
+ },
+ "Noah Warren|ANA": {
+  "asof": "2026-11-16",
+  "gp": 21,
+  "how": "exact",
+  "pid": "8483521",
+  "pos": "D"
  },
  "Noel Fransen|CAR": {
   "asof": "2026-11-10",
@@ -4429,6 +4464,13 @@
   "how": "exact",
   "pid": "8486231",
   "pos": "R"
+ },
+ "Rieger Lorenz|MIN": {
+  "asof": "2026-11-16",
+  "gp": 6,
+  "how": "exact",
+  "pid": "8483478",
+  "pos": "L"
  },
  "Riley Duran|BOS": {
   "asof": "2026-11-10",
@@ -5486,6 +5528,13 @@
   "how": "exact",
   "pid": "8482759",
   "pos": "L"
+ },
+ "Ville Heinola|VGK": {
+  "asof": "2026-11-16",
+  "gp": 60,
+  "how": "exact",
+  "pid": "8481572",
+  "pos": "D"
  },
  "Vincent Iorio|NYR": {
   "asof": "2026-11-10",
