@@ -1091,15 +1091,6 @@
    "unconfirmed": false
   }
  },
- "open": {
-  "06mda": {
-   "cls": "EXPIRY CHECK",
-   "fantrax": "495,625.29",
-   "name": "AJ Spellacy",
-   "nhl": "CHI",
-   "source": "991250|2027-28",
-   "team": "Anaheim Ducks"
-  }
- },
+ "open": {},
  "seeded": "2026-10-04"
 }
