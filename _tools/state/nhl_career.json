@@ -329,8 +329,8 @@
   "pos": "C"
  },
  "Andre Lee|LAK": {
-  "asof": "2026-11-11",
-  "gp": 40,
+  "asof": "2026-11-18",
+  "gp": 43,
   "how": "exact",
   "pid": "8481732",
   "pos": "L"
@@ -679,7 +679,7 @@
   "pos": "D"
  },
  "Bradly Nadeau|CAR": {
-  "asof": "2026-11-11",
+  "asof": "2026-11-18",
   "gp": 18,
   "how": "exact",
   "pid": "8484203",
@@ -896,8 +896,8 @@
   "pos": "D"
  },
  "Cameron Crotty|VAN": {
-  "asof": "2026-11-11",
-  "gp": 11,
+  "asof": "2026-11-18",
+  "gp": 14,
   "how": "exact",
   "pid": "8480075",
   "pos": "D"
@@ -4116,8 +4116,8 @@
   "pos": "R"
  },
  "Nikita Nesterenko|ANA": {
-  "asof": "2026-11-10",
-  "gp": 77,
+  "asof": "2026-11-18",
+  "gp": 81,
   "how": "exact",
   "pid": "8481754",
   "pos": "C"
@@ -5292,8 +5292,8 @@
   "pos": "R"
  },
  "Trey Taylor|DAL": {
-  "asof": "2026-11-10",
-  "gp": 3,
+  "asof": "2026-11-18",
+  "gp": 7,
   "how": "exact",
   "pid": "8485468",
   "pos": "D"
@@ -5411,8 +5411,8 @@
   "pos": "C"
  },
  "Tyrel Bauer|WPG": {
-  "asof": "2026-11-11",
-  "gp": 13,
+  "asof": "2026-11-18",
+  "gp": 16,
   "how": "exact",
   "pid": "8482459",
   "pos": "D"
