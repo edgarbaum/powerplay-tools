@@ -188,6 +188,13 @@
   "pid": "8484156",
   "pos": "L"
  },
+ "Alex Gagne|COL": {
+  "asof": "2026-11-19",
+  "gp": 2,
+  "how": "exact",
+  "pid": "8482942",
+  "pos": "D"
+ },
  "Alex Huang|NSH": {
   "asof": "2026-11-17",
   "gp": null,
@@ -602,8 +609,8 @@
   "pos": "D"
  },
  "Ben McCartney|UTA": {
-  "asof": "2026-11-10",
-  "gp": 2,
+  "asof": "2026-11-19",
+  "gp": 4,
   "how": "exact",
   "pid": "8481827",
   "pos": "L"
@@ -742,7 +749,7 @@
   "pos": "C"
  },
  "Brennan Othmann|CGY": {
-  "asof": "2026-11-12",
+  "asof": "2026-11-19",
   "gp": 51,
   "how": "exact",
   "pid": "8482747",
@@ -1547,7 +1554,7 @@
   "pos": "D"
  },
  "Dominic James|TBL": {
-  "asof": "2026-11-12",
+  "asof": "2026-11-19",
   "gp": 49,
   "how": "exact",
   "pid": "8483752",
@@ -2226,7 +2233,7 @@
   "pos": "L"
  },
  "Ilya Safonov|(N/A)": {
-  "asof": "2026-11-12",
+  "asof": "2026-11-19",
   "gp": null,
   "how": "exact",
   "pid": "8482915",
@@ -2429,7 +2436,7 @@
   "pos": "L"
  },
  "Jackson Parsons|OTT": {
-  "asof": "2026-11-10",
+  "asof": "2026-11-19",
   "gp": null,
   "how": "exact",
   "pid": "8485142",
@@ -2462,6 +2469,13 @@
   "how": "exact",
   "pid": "8482874",
   "pos": "R"
+ },
+ "Jacob Quillan|VAN": {
+  "asof": "2026-11-19",
+  "gp": 27,
+  "how": "exact",
+  "pid": "8484901",
+  "pos": "C"
  },
  "Jacob Rombach|NSH": {
   "asof": "2026-11-17",
@@ -2590,8 +2604,8 @@
   "pos": "R"
  },
  "Jaroslav Chmelar|NYR": {
-  "asof": "2026-11-12",
-  "gp": 40,
+  "asof": "2026-11-19",
+  "gp": 42,
   "how": "exact",
   "pid": "8482877",
   "pos": "R"
@@ -2793,7 +2807,7 @@
   "pos": "D"
  },
  "Jonathan Aspirot|BOS": {
-  "asof": "2026-11-12",
+  "asof": "2026-11-19",
   "gp": 67,
   "how": "exact",
   "pid": "8481219",
@@ -3003,7 +3017,7 @@
   "pos": "D"
  },
  "Kenny Connors|LAK": {
-  "asof": "2026-11-12",
+  "asof": "2026-11-19",
   "gp": 5,
   "how": "exact",
   "pid": "8483675",
@@ -4081,7 +4095,7 @@
   "pos": "G"
  },
  "Nico Myatovic|ANA": {
-  "asof": "2026-11-12",
+  "asof": "2026-11-19",
   "gp": 4,
   "how": "exact",
   "pid": "8484201",
@@ -4228,7 +4242,7 @@
   "pos": "L"
  },
  "Nolan Allan|SJS": {
-  "asof": "2026-11-12",
+  "asof": "2026-11-19",
   "gp": 53,
   "how": "exact",
   "pid": "8482700",
@@ -4725,7 +4739,7 @@
   "pos": "G"
  },
  "Samuel Honzek|CGY": {
-  "asof": "2026-11-12",
+  "asof": "2026-11-19",
   "gp": 27,
   "how": "exact",
   "pid": "8484180",
@@ -5425,8 +5439,8 @@
   "pos": "C"
  },
  "Tyson Hinds|ANA": {
-  "asof": "2026-11-10",
-  "gp": 19,
+  "asof": "2026-11-19",
+  "gp": 22,
   "how": "exact",
   "pid": "8482731",
   "pos": "D"
