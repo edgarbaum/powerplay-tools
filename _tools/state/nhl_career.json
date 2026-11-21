@@ -1154,6 +1154,13 @@
   "pid": "8485036",
   "pos": "L"
  },
+ "Clay Stevenson|WPG": {
+  "asof": "2026-11-21",
+  "gp": 10,
+  "how": "exact",
+  "pid": "8483532",
+  "pos": "G"
+ },
  "Colby Barlow|WPG": {
   "asof": "2026-11-17",
   "gp": null,
@@ -1442,7 +1449,7 @@
   "pos": "D"
  },
  "David Spacek|MIN": {
-  "asof": "2026-11-14",
+  "asof": "2026-11-21",
   "gp": 13,
   "how": "exact",
   "pid": "8483766",
@@ -2359,7 +2366,7 @@
   "pos": "C"
  },
  "Jack Devine|FLA": {
-  "asof": "2026-11-14",
+  "asof": "2026-11-21",
   "gp": 7,
   "how": "exact",
   "pid": "8483433",
@@ -2581,6 +2588,13 @@
   "how": "exact",
   "pid": "8482744",
   "pos": "L"
+ },
+ "Jani Nyman|SEA": {
+  "asof": "2026-11-21",
+  "gp": 44,
+  "how": "exact",
+  "pid": "8483497",
+  "pos": "R"
  },
  "Jansen Harkins|TBL": {
   "asof": "2026-11-10",
@@ -4130,7 +4144,7 @@
   "pos": "R"
  },
  "Nikita Klepov|ANA": {
-  "asof": "2026-11-14",
+  "asof": "2026-11-21",
   "gp": 4,
   "how": "exact",
   "pid": "8486052",
