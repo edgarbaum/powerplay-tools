@@ -1161,6 +1161,13 @@
   "pid": "8483532",
   "pos": "G"
  },
+ "Clay Stevenson|WSH": {
+  "asof": "2026-11-22",
+  "gp": 10,
+  "how": "exact",
+  "pid": "8483532",
+  "pos": "G"
+ },
  "Colby Barlow|WPG": {
   "asof": "2026-11-17",
   "gp": null,
@@ -1652,8 +1659,8 @@
   "pos": "C"
  },
  "Elias Salomonsson|WPG": {
-  "asof": "2026-11-10",
-  "gp": 38,
+  "asof": "2026-11-22",
+  "gp": 39,
   "how": "exact",
   "pid": "8483510",
   "pos": "D"
@@ -2497,6 +2504,13 @@
   "how": "exact",
   "pid": "8485369",
   "pos": "D"
+ },
+ "Jagger Firkus|SEA": {
+  "asof": "2026-11-22",
+  "gp": 1,
+  "how": "exact",
+  "pid": "8483442",
+  "pos": "R"
  },
  "Jake Fisher|COL": {
   "asof": "2026-11-17",
@@ -4816,8 +4830,8 @@
   "pos": "D"
  },
  "Scott Morrow|NYR": {
-  "asof": "2026-11-15",
-  "gp": 52,
+  "asof": "2026-11-22",
+  "gp": 53,
   "how": "exact",
   "pid": "8482666",
   "pos": "D"
@@ -4851,8 +4865,8 @@
   "pos": "C"
  },
  "Sebastian Cossa|UTA": {
-  "asof": "2026-11-14",
-  "gp": 9,
+  "asof": "2026-11-22",
+  "gp": 11,
   "how": "exact",
   "pid": "8482657",
   "pos": "G"
@@ -5275,6 +5289,13 @@
   "gp": null,
   "how": "exact",
   "pid": "8485064",
+  "pos": "D"
+ },
+ "Travis Mitchell|ANA": {
+  "asof": "2026-11-22",
+  "gp": 23,
+  "how": "exact",
+  "pid": "8484262",
   "pos": "D"
  },
  "Trent Swick|VGK": {
