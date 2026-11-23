@@ -469,8 +469,8 @@
   "pos": "G"
  },
  "Arshdeep Bains|VAN": {
-  "asof": "2026-11-15",
-  "gp": 64,
+  "asof": "2026-11-23",
+  "gp": 66,
   "how": "exact",
   "pid": "8483395",
   "pos": "L"
@@ -544,6 +544,13 @@
   "how": "none",
   "pid": null,
   "pos": null
+ },
+ "Aydar Suniev|CGY": {
+  "asof": "2026-11-23",
+  "gp": 28,
+  "how": "exact",
+  "pid": "8484234",
+  "pos": "L"
  },
  "Ayrton Martino|DAL": {
   "asof": "2026-11-17",
@@ -1175,6 +1182,13 @@
   "pid": "8484143",
   "pos": "L"
  },
+ "Cole Beaudoin|NYR": {
+  "asof": "2026-11-23",
+  "gp": 4,
+  "how": "exact",
+  "pid": "8484786",
+  "pos": "C"
+ },
  "Cole Eiserman|NYI": {
   "asof": "2026-11-17",
   "gp": null,
@@ -1198,6 +1212,13 @@
  },
  "Cole Reinhardt|FLA": {
   "asof": "2026-11-17",
+  "gp": 80,
+  "how": "exact",
+  "pid": "8481133",
+  "pos": "L"
+ },
+ "Cole Reinhardt|VAN": {
+  "asof": "2026-11-23",
   "gp": 80,
   "how": "exact",
   "pid": "8481133",
@@ -1446,6 +1467,13 @@
   "gp": null,
   "how": "exact",
   "pid": "8483449",
+  "pos": "C"
+ },
+ "David Gustafsson|PIT": {
+  "asof": "2026-11-23",
+  "gp": 149,
+  "how": "exact",
+  "pid": "8481019",
   "pos": "C"
  },
  "David Reinbacher|MTL": {
@@ -2359,7 +2387,7 @@
   "pos": "D"
  },
  "Jack Anderson|DAL": {
-  "asof": "2026-11-16",
+  "asof": "2026-11-23",
   "gp": null,
   "how": "exact",
   "pid": "8486126",
@@ -3184,6 +3212,13 @@
   "pid": null,
   "pos": null
  },
+ "Landon Slaggert|CHI": {
+  "asof": "2026-11-23",
+  "gp": 102,
+  "how": "exact",
+  "pid": "8482172",
+  "pos": "L"
+ },
  "Lane Pederson|LAK": {
   "asof": "2026-11-17",
   "gp": 76,
@@ -3905,6 +3940,13 @@
   "pid": "8483443",
   "pos": "D"
  },
+ "Michael Hage|DET": {
+  "asof": "2026-11-23",
+  "gp": null,
+  "how": "exact",
+  "pid": "8484799",
+  "pos": "C"
+ },
  "Michael Hage|MTL": {
   "asof": "2026-11-17",
   "gp": null,
@@ -4256,8 +4298,8 @@
   "pos": "L"
  },
  "Noah Warren|ANA": {
-  "asof": "2026-11-16",
-  "gp": 21,
+  "asof": "2026-11-23",
+  "gp": 23,
   "how": "exact",
   "pid": "8483521",
   "pos": "D"
@@ -4550,7 +4592,7 @@
   "pos": "R"
  },
  "Rieger Lorenz|MIN": {
-  "asof": "2026-11-16",
+  "asof": "2026-11-23",
   "gp": 6,
   "how": "exact",
   "pid": "8483478",
@@ -5193,6 +5235,13 @@
   "pid": "8485564",
   "pos": "C"
  },
+ "Tobias Bjornfot|FLA": {
+  "asof": "2026-11-23",
+  "gp": 153,
+  "how": "exact",
+  "pid": "8481600",
+  "pos": "D"
+ },
  "Tobias Trejbal|CGY": {
   "asof": "2026-11-17",
   "gp": null,
@@ -5621,7 +5670,7 @@
   "pos": "L"
  },
  "Ville Heinola|VGK": {
-  "asof": "2026-11-16",
+  "asof": "2026-11-23",
   "gp": 60,
   "how": "exact",
   "pid": "8481572",
