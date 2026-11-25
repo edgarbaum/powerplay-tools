@@ -336,8 +336,8 @@
   "pos": "C"
  },
  "Andre Lee|LAK": {
-  "asof": "2026-11-18",
-  "gp": 43,
+  "asof": "2026-11-25",
+  "gp": 46,
   "how": "exact",
   "pid": "8481732",
   "pos": "L"
@@ -693,7 +693,7 @@
   "pos": "D"
  },
  "Bradly Nadeau|CAR": {
-  "asof": "2026-11-18",
+  "asof": "2026-11-25",
   "gp": 18,
   "how": "exact",
   "pid": "8484203",
@@ -910,8 +910,8 @@
   "pos": "D"
  },
  "Cameron Crotty|VAN": {
-  "asof": "2026-11-18",
-  "gp": 14,
+  "asof": "2026-11-25",
+  "gp": 15,
   "how": "exact",
   "pid": "8480075",
   "pos": "D"
@@ -1015,8 +1015,8 @@
   "pos": "G"
  },
  "Carter Yakemchuk|OTT": {
-  "asof": "2026-11-10",
-  "gp": 18,
+  "asof": "2026-11-25",
+  "gp": 19,
   "how": "exact",
   "pid": "8484759",
   "pos": "D"
@@ -1629,6 +1629,13 @@
   "how": "exact",
   "pid": "8482663",
   "pos": "L"
+ },
+ "Dylan Hryckowian|DAL": {
+  "asof": "2026-11-25",
+  "gp": 2,
+  "how": "exact",
+  "pid": "8486130",
+  "pos": "R"
  },
  "Dylan James|DET": {
   "asof": "2026-11-24",
@@ -4584,6 +4591,13 @@
   "pid": "8482465",
   "pos": "G"
  },
+ "Remi Poirier|WSH": {
+  "asof": "2026-11-25",
+  "gp": null,
+  "how": "exact",
+  "pid": "8482465",
+  "pos": "G"
+ },
  "Rian Chudzinski|ANA": {
   "asof": "2026-11-24",
   "gp": null,
@@ -4711,8 +4725,8 @@
   "pos": "C"
  },
  "Ryan Tverberg|TOR": {
-  "asof": "2026-11-17",
-  "gp": 5,
+  "asof": "2026-11-25",
+  "gp": 9,
   "how": "exact",
   "pid": "8482525",
   "pos": "C"
