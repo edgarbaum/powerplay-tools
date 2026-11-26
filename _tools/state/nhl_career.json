@@ -189,7 +189,7 @@
   "pos": "L"
  },
  "Alex Gagne|COL": {
-  "asof": "2026-11-19",
+  "asof": "2026-11-26",
   "gp": 2,
   "how": "exact",
   "pid": "8482942",
@@ -1596,7 +1596,7 @@
   "pos": "D"
  },
  "Dominic James|TBL": {
-  "asof": "2026-11-19",
+  "asof": "2026-11-26",
   "gp": 49,
   "how": "exact",
   "pid": "8483752",
@@ -2289,7 +2289,7 @@
   "pos": "L"
  },
  "Ilya Safonov|(N/A)": {
-  "asof": "2026-11-19",
+  "asof": "2026-11-26",
   "gp": null,
   "how": "exact",
   "pid": "8482915",
@@ -2492,7 +2492,7 @@
   "pos": "L"
  },
  "Jackson Parsons|OTT": {
-  "asof": "2026-11-19",
+  "asof": "2026-11-26",
   "gp": null,
   "how": "exact",
   "pid": "8485142",
@@ -2674,8 +2674,8 @@
   "pos": "R"
  },
  "Jaroslav Chmelar|NYR": {
-  "asof": "2026-11-19",
-  "gp": 42,
+  "asof": "2026-11-26",
+  "gp": 44,
   "how": "exact",
   "pid": "8482877",
   "pos": "R"
@@ -2877,7 +2877,7 @@
   "pos": "D"
  },
  "Jonathan Aspirot|BOS": {
-  "asof": "2026-11-19",
+  "asof": "2026-11-26",
   "gp": 67,
   "how": "exact",
   "pid": "8481219",
@@ -3087,7 +3087,7 @@
   "pos": "D"
  },
  "Kenny Connors|LAK": {
-  "asof": "2026-11-19",
+  "asof": "2026-11-26",
   "gp": 5,
   "how": "exact",
   "pid": "8483675",
@@ -4179,8 +4179,8 @@
   "pos": "G"
  },
  "Nico Myatovic|ANA": {
-  "asof": "2026-11-19",
-  "gp": 4,
+  "asof": "2026-11-26",
+  "gp": 7,
   "how": "exact",
   "pid": "8484201",
   "pos": "L"
@@ -4326,8 +4326,8 @@
   "pos": "L"
  },
  "Nolan Allan|SJS": {
-  "asof": "2026-11-19",
-  "gp": 53,
+  "asof": "2026-11-26",
+  "gp": 56,
   "how": "exact",
   "pid": "8482700",
   "pos": "D"
@@ -4830,7 +4830,7 @@
   "pos": "G"
  },
  "Samuel Honzek|CGY": {
-  "asof": "2026-11-19",
+  "asof": "2026-11-26",
   "gp": 27,
   "how": "exact",
   "pid": "8484180",
@@ -5530,8 +5530,8 @@
   "pos": "C"
  },
  "Tyrel Bauer|WPG": {
-  "asof": "2026-11-18",
-  "gp": 16,
+  "asof": "2026-11-26",
+  "gp": 20,
   "how": "exact",
   "pid": "8482459",
   "pos": "D"
@@ -5544,7 +5544,7 @@
   "pos": "C"
  },
  "Tyson Hinds|ANA": {
-  "asof": "2026-11-19",
+  "asof": "2026-11-26",
   "gp": 22,
   "how": "exact",
   "pid": "8482731",
