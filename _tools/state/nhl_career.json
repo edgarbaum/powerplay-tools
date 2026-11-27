@@ -616,8 +616,8 @@
   "pos": "D"
  },
  "Ben McCartney|UTA": {
-  "asof": "2026-11-19",
-  "gp": 4,
+  "asof": "2026-11-27",
+  "gp": 5,
   "how": "exact",
   "pid": "8481827",
   "pos": "L"
@@ -1909,6 +1909,13 @@
   "how": "exact",
   "pid": "8486275",
   "pos": "G"
+ },
+ "Florian Xhekaj|MTL": {
+  "asof": "2026-11-27",
+  "gp": 17,
+  "how": "exact",
+  "pid": "8484403",
+  "pos": "L"
  },
  "Francesco Pinelli|LAK": {
   "asof": "2026-11-24",
@@ -4402,6 +4409,13 @@
   "pid": "8484230",
   "pos": "C"
  },
+ "Owen Beck|MTL": {
+  "asof": "2026-11-27",
+  "gp": 40,
+  "how": "exact",
+  "pid": "8483424",
+  "pos": "C"
+ },
  "Owen Pickering|PIT": {
   "asof": "2026-11-24",
   "gp": 29,
@@ -5962,6 +5976,13 @@
   "how": "prefix",
   "pid": "8486229",
   "pos": "R"
+ },
+ "Zach Metsa|BUF": {
+  "asof": "2026-11-27",
+  "gp": 62,
+  "how": "exact",
+  "pid": "8484305",
+  "pos": "D"
  },
  "Zach Olsen|TOR": {
   "asof": "2026-11-24",
