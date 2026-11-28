@@ -1091,6 +1091,15 @@
    "unconfirmed": false
   }
  },
- "open": {},
+ "open": {
+  "0769h": {
+   "cls": "NEW SIGNING",
+   "fantrax": "1.00",
+   "name": "Alexander Bilecki",
+   "nhl": "TOR",
+   "source": "1007500|2028-29",
+   "team": "Boston Bruins"
+  }
+ },
  "seeded": "2026-10-04"
 }
